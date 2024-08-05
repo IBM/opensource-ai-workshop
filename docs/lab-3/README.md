@@ -193,3 +193,5 @@ Ask it some questions, things like:
 - What is the capital of Sweden?
 
 Now that you have a working `instructlab` setup, lets get to actually tuning the model. Lets move over to Lab 4!
+
+<img src="https://count.asgharlabs.io/count?p=/lab3_opensource_ai_page>

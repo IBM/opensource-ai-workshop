@@ -86,3 +86,6 @@ It should give you a pretty generic answer, but as you can see, it works, and ho
 or two, now lets continue on to Lab 2, where we are going to actually this process in-depth!
 
 [paper]: https://arxiv.org/pdf/2405.04324?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-local-ai-copilot-ibm-granite-code-ollama-continue
+
+<img src="https://count.asgharlabs.io/count?p=/lab1_opensource_ai_page">
+

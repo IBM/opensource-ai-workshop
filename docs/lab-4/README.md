@@ -37,3 +37,5 @@ Knowledge in the taxonomy tree consists of a few more elements than skills:
     - Do not use tables in your markdown freeform contribution
 
 TODO: https://github.com/instructlab/taxonomy/pull/1260
+
+<img src="https://count.asgharlabs.io/count?p=/lab4_opensource_ai_page>

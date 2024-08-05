@@ -57,3 +57,5 @@ Python 3.12.4
 Please confirm that your `python --version` is at least `3.11+` for the best experiance.
 
 With this you should have the applications you need, let's start the workshop!
+
+<img src="https://count.asgharlabs.io/count?p=/prework_opensource_ai_page>
