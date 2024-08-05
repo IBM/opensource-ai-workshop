@@ -1,6 +1,6 @@
 ---
-title: Introduction
-description: The description for the social card
+title: Open Source AI Workshop
+description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
