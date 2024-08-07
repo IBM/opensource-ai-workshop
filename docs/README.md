@@ -8,11 +8,11 @@ logo: images/ibm-blue-background.png
 
 ## Open Source AI Workshop
 
-Welcome to our workshop! In this workshop we'll be using a local AI Model for code completion, and training a model
+Welcome to our workshop! In this workshop we'll be using a local AI Model for code completion, as well as training a model
 locally to help it gain some knowledge.
 
-* Understand what Open Source AI is, and it's general use cases
-* How to use a AI model that is built in a verifiable legal way
+* Understand what Open Source AI is, and its general use cases
+* How to use an AI model that is built in a verifiable and legal way
 * Learn a suggested workflow on how to fine tune a model with new knowledge and skills!
 
 ### About this workshop
