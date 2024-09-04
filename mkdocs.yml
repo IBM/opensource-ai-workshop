@@ -16,8 +16,8 @@ nav:
     - Lab 0. Pre-work: pre-work/README.md
     - Lab 1. Building a local AI co-pilot: lab-1/README.md
     - Lab 2. Using the local AI co-pilot: lab-2/README.md
-    - Lab 3. Installing InstructLab for local AI Tuning: lab-3/mac_metal.md
-    - Lab 4. Tuning the Granite Model: lab-4/creating_new_knowledge_or_skills
+    - Lab 3. Installing InstructLab for local AI Tuning: lab-3/getting-started-ilab.md
+    - Lab 4. Tuning the Granite Model: lab-4/creating_new_knowledge_or_skills.md
   - References:
     - Additional Resources: resources/RESOURCES.md
     - MkDocs Cheatsheet: resources/MKDOCS.md
