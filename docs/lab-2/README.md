@@ -2,13 +2,13 @@
 
 Lets play with our new found local AI Open Source AI!
 
-## Sanity check≤
+## Sanity checks
 
 When you open up `continue` inside of VSCode it should look something like:
 ![](https://docs.continue.dev/assets/images/understand-ca0edc3d06922dd4a95e31fa06f999ec.gif)
 
 Before we go any farther, write in "Who is batman?" to verify that `ollama`,
-VSCode, and `continue` are all working correctly. 
+VSCode, and `continue` are all working correctly.
 
 !!! troubleshooting
     If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.

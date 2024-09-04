@@ -3,9 +3,12 @@
 These are the required applications and general installation notes for this workshop.
 
 You'll need:
+
 * [Ollama](#ollama) - This application allows you to locally host an LLM model on your computer.
+
 * [Visual Studio Code](#visual-studio-code) - We'll be walking through an extension to VSCode in this workshop.
-* [Python](#python) - Python is required because...?? ## TODO
+
+* [Python](#python) - Python is required because of InstructLab, and the demo code will be run on it.
 
 ## Ollama
 
@@ -17,7 +20,7 @@ You'll need:
 
 Unzip the folder, and move the Ollama app to your applications folder.
 
-##### -OR- Terminal Installation
+##### Terminal Installation
 
 Open up a terminal, and install [homebrew](https://brew.sh/).
 
@@ -57,17 +60,17 @@ Install Code via the website [here](https://code.visualstudio.com/Download).
 
 ## Python
 
-Python is a whole programming language. There are multpile ways to install it, and
-[here is the offical website](https://www.python.org). Please take a moment and if you can't run
-the following command, reach out to a teaching assissant or instructor to help you
+Python is a whole programming language. There are multiple ways to install it, and
+[here is the official website](https://www.python.org). Please take a moment and if you can't run
+the following command, reach out to a teaching assistant or instructor to help you
 get resolved.
 
 ```bash
 python --version
-Python 3.12.4
+Python 3.11.4
 ```
 
-Please confirm that your `python --version` is at least `3.11+` for the best experiance.
+Please confirm that your `python --version` is at least `3.11+` for the best experience.
 
 With this you should have the applications you need, let's start the workshop!
 
