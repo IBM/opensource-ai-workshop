@@ -1,10 +1,18 @@
 ---
-title: Getting Started with Mac Metal
-description: Steps to get ilab working on a Mac M Machine
+title: Getting Started with InstructLab
+description: Steps to get ilab working on a Mac
 logo: images/ilab_dog.png
 ---
 
-# Getting Started Mac Metal
+# Getting Started with InstructLab
+
+Now that we have a working VSCode instance working with the granite model, lets talk about more
+things you can do with an Open Source AI system. This is where the [InstructLab](https://instructlab.ai/)
+project comes into play.
+
+Now that we've used the foundation model from upstream, lets add some knowledge to our model that we want
+it to have.
+
 
 !!! warning
     If you are running on Windows, you should use WSL2 for this, but it _is unsupported_ but we will do our best to get you success if you run into any problems.
