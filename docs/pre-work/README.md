@@ -1,10 +1,23 @@
 # Pre-work
 
-These are the suggested applications and general installation notes for this workshop.
+These are the required applications and general installation notes for this workshop.
+
+You'll need:
+* [Ollama](#ollama) - This application allows you to locally host an LLM model on your computer.
+* [Visual Studio Code](#visual-studio-code) - We'll be walking through an extension to VSCode in this workshop.
+* [Python](#python) - Python is required because...?? ## TODO
 
 ## Ollama
 
 #### Mac installation steps
+
+##### Download via the Ollama website
+
+[Download Ollama](https://ollama.com/download/Ollama-darwin.zip) via the website.
+
+Unzip the folder, and move the Ollama app to your applications folder.
+
+##### -OR- Terminal Installation
 
 Open up a terminal, and install [homebrew](https://brew.sh/).
 
@@ -26,7 +39,7 @@ Install ollama via the website [here](https://ollama.com/download/windows).
 
 #### Mac installation steps
 
-Open up a terminal, and install [homebrew](https://brew.sh/), if you haven't already.
+Open up a terminal, and install [homebrew](https://brew.sh/), if you didn't install this during the Ollama step.
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

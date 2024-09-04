@@ -2,18 +2,20 @@
 
 Lets play with our new found local AI Open Source AI!
 
-## Sanity check
+## Sanity check≤
 
 When you open up `continue` inside of VSCode it should look something like:
 ![](https://docs.continue.dev/assets/images/understand-ca0edc3d06922dd4a95e31fa06f999ec.gif)
 
 Before we go any farther, write in "Who is batman?" to verify that `ollama`,
-VSCcode, and `continue` are all working correctly.
+VSCode, and `continue` are all working correctly. 
 
-If you would like to go deeper with continue, take a look [here]( https://docs.continue.dev/how-to-use-continue) for
-a more in-depth getting started guide.
+!!! troubleshooting
+    If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.
 
-Now that we have our local AI co-pilot with us, lets start using it. Now these
+If you would like to go deeper with continue, take a look at the [official Continue.dev how-to guide]( https://docs.continue.dev/how-to-use-continue).
+
+Now that we have our local AI co-pilot with us, let's start using it. Now these
 next examples are going to be focused on `python` but there is nothing stopping
 you from doing this exact same process with `go`, `javascript`, `rust`, or the
 like. Part of learning about leveraging this technology is finding the boarders
@@ -46,10 +48,10 @@ Now granite-code should start giving you a good suggestion here, it should look 
 
 ## Reading AI generated code
 
-Now what have you noticed here? Try to run it...does it work? Wait why are there errors in this code?
+Now what have you noticed here? Try to run it...does it work? Wait, why are there errors in this code?
 
 This is an important lesson for using _any_ AI co-pilot code assistants. They can give you the "lions share"
-of what you need, but it won' get you across the finish line. It gives you that "second pair of eyes" and provides
+of what you need, but it won't get you across the finish line. It gives you that "second pair of eyes" and provides
 something to work with, but not everything you need.
 
 Don't believe me? Bring up the terminal and attempt to run this code after you accepting it.
@@ -75,6 +77,9 @@ debug farther. There's a few paths here, personally I'm going to take this code,
 so it's more readable.
 
 ## Cleaning up the AI generated code
+
+!!! note
+    You can try using the built-in autocomplete and code assistant functions to generate any missing code. In our example, we're missing a "main" entry point to the script. Try hitting `cmd/ctrl + I` again, and typing in something like: "write a main function for my game that plays twenty rounds of Conway's game of life using the `board()` function". What happens?
 
 Cleaning up the code. Now everything is smashed together, it's hard to read the logic here, so first
 thing first, going to break up the code and add a `def main` function so I know what the entry point is.
@@ -116,7 +121,7 @@ what does this function do?
 ![explain code](../images/explain_code.png)
 
 Pretty good right? It helped me understand what is actually happening with this and I do it with each
-function so i get a better understanding of what the program is doing.
+function so I get a better understanding of what the program is doing.
 
 Go ahead and walk through your version, see the logic, and who knows maybe it'll highlight why yours
 isn't working yet, or not, the next step will help you even more!
@@ -146,9 +151,9 @@ futureself and team mates will be happy you've built these in.
 
 Finally there are two other things we should mention before heading over to the next Lab. First,
 hopefully you've gotten your Game of Life working, if not, a lot of us are Python developers,
-raise your hand and one of us maybe able to come help you out.
+raise your hand and one of us may be able to come help you out.
 
-## Automagicly commenting your code
+## Automagically commenting your code
 
 Last but not least, there is a great auto comment code option that we'd be remiss not to mention,
 take a look at the next screen shot:
