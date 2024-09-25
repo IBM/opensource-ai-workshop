@@ -160,7 +160,8 @@ take a look at the next screen shot:
 
 ![comment_code](../images/comment_code.png)
 
-It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI) if you want a quick video of other neat https://continue.dev functions we didn't go over.
+It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI)
+if you want a quick video of other neat <https://continue.dev> functions we didn't go over.
 
 On to the next lab!
 

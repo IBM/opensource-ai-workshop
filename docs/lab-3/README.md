@@ -16,6 +16,8 @@ it to have.
 
 !!! warning
     If you are running on Windows, you should use WSL2 for this, but it _is unsupported_ but we will do our best to get you success if you run into any problems.
+    **Note**: You will need to use something _other_ then `pip install 'instructlab[mps]'`, it depends on your GPU, and hardware. You'll need to do some homework
+    here.
 
 ## tl;dr
 
@@ -43,7 +45,8 @@ ilab model serve --model-path instructlab-granite-7b-lab-trained/instructlab-gra
 
 ### Install `ilab`
 
-1) Create a new directory called `instructlab` to store the files the `ilab` CLI needs when running and `cd` into the directory by running the following command:
+1) Open up `iTerm2` or `Terminal` (assuming you're on a Mac and we'll continue assuming this) and create a new directory called `instructlab` to store the files the `ilab`
+CLI needs when running and `cd` into the directory by running the following command:
 
 ```shell
 mkdir instructlab
@@ -249,10 +252,13 @@ After running `ilab config init` your directories will look like the following o
 ├─ ~/Library/Application\ Support/instructlab/checkpoints (4)
 ```
 
- 1) `/Users/USERNAME/Library/Caches/instructlab/models/`: Contains all downloaded large language models, including the saved output of ones you generate with ilab.
- 2) `~/Library/Application\ Support/instructlab/datasets/`: Contains data output from the SDG phase, built on modifications to the taxonomy repository.
- 3) `~/Library/Application\ Support/instructlab/taxonomy/`: Contains the skill and knowledge data.
- 4) `~/Users/USERNAME/Library/Caches/instructlab/checkpoints/`: Contains the output of the training process
+1) `/Users/USERNAME/Library/Caches/instructlab/models/`: Contains all downloaded large language models, including the saved output of ones you generate with ilab.
+
+2) `~/Library/Application\ Support/instructlab/datasets/`: Contains data output from the SDG phase, built on modifications to the taxonomy repository.
+
+3) `~/Library/Application\ Support/instructlab/taxonomy/`: Contains the skill and knowledge data.
+
+4) `~/Users/USERNAME/Library/Caches/instructlab/checkpoints/`: Contains the output of the training process
 
 ### 📥 Download the model
 
@@ -311,13 +317,13 @@ ilab model list
 ilab model serve
 ```
 
-erve a non-default model (e.g. Mixtral-8x7B-Instruct-v0.1):
+Serve a non-default model (e.g. Mixtral-8x7B-Instruct-v0.1):
 
 ```shell
 ilab model serve --model-path models/mixtral-8x7b-instruct-v0.1.Q4_K_M.gguf
 ```
 
-nce the model is served and ready, you'll see the following output:
+Once the model is served and ready, you'll see the following output:
 
 ```shell
 (venv) $ ilab model serve
@@ -330,7 +336,10 @@ Press CTRL+C to shut down the server.
 !!! note
     If multiple `ilab` clients try to connect to the same InstructLab server at the same time, the 1st will connect to the server while the others will start their own temporary server. This will require additional resources on the host machine.
 
-- Serve a non-default Safetensors model (e.g. granite-7b-lab). NOTE: this requires a GPU.
+- Serve a non-default Safetensors model (e.g. granite-7b-lab).
+
+!!! tip
+    `vllm` requires a GPU for the best success.
 
 Ensure vllm is installed:
 
@@ -384,3 +393,4 @@ Before you start adding new skills and knowledge to your model, you can check it
 ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────── elapsed 12.008 seconds ─╯
 ```
 
+Nice! Now that we have InstructLab set up correctly, and we're talking to the model, now lets fine tune it with Lab 4!

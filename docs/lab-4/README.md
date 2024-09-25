@@ -14,6 +14,10 @@ ilab model chat
 /q
 ```
 
+
+TODO: WE NEED TO PUT IN A BLURB ABOUT GRANITE HERE
+
+
 ## Prepare to train your model
 
 !!! note
@@ -310,7 +314,7 @@ After you've built a good knowledge submission like above, the `qna.yaml`, the `
 finally the hosted `.md` file, you need to tell the teacher model to build questions around
 your seeded ones. Lets do that now.
 
-1. If you haven't yet, you'll need to pull down the default teacher model, this is done with this command:
+1) If you haven't yet, you'll need to pull down the default teacher model, this is done with this command:
 
 ```bash
 ilab model download
@@ -324,9 +328,10 @@ ilab serve --model-path models/merlinite-7b-lab-Q4_K_M.gguf
 # in another terminal
 ilab model chat
 ```
+
 After the model is working as expected, ie running "who is batman?" close out the `ilab serve` and `ilab model chat`.
 
-2. Next we need to generate the data, this is done with the following command:
+2) Next we need to generate the data, this is done with the following command:
 
 ```bash
 ilab data generate
@@ -334,7 +339,7 @@ ilab data generate
 
 This can take some time, take note of the time in the right hand corner, this is building 1000 questions off of your initial 15.
 
-3. After this is complete, now we'll need to train the actual model. If this isn't a Mac M3, this will take **at least an hour**, so
+3) After this is complete, now we'll need to train the actual model. If this isn't a Mac M3, this will take **at least an hour**, so
 hopefully you can take a lunch break or something while this is running.
 
 ```bash
@@ -343,12 +348,13 @@ ilab model train --model-dir instructlab/granite-7b-lab --tokenizer-dir models/g
 
 This takes the granite model, leverages the tokenized version of it, and runs the SDG from the `generate` command against it.
 
-4. When this is completed, you'll need to test this model, which is the following command:
+4) When this is completed, you'll need to test this model, which is the following command:
+
 ```bash
 ilab model test --model-dir instructlab-granite-7b-lab-mlx-q
 ```
 
-5. Now to run the command on the Mac M3, or Apple hardware you'll need to convert it to a `gguf`, that is this next command.
+5) Now to run the command on the Mac M3, or Apple hardware you'll need to convert it to a `gguf`, that is this next command.
 
 !!! note
     You won't need to do this if you are running on Linux (or maybe Windows remember that's unsupported at the moment)
@@ -357,7 +363,7 @@ ilab model test --model-dir instructlab-granite-7b-lab-mlx-q
 ilab model convert --model-dir instructlab-granite-7b-lab-mlx-q
 ```
 
-6. Finally run the new model with `ilab model serve`.
+6) Finally run the new model with `ilab model serve`.
 
 ```bash
 ilab model serve --model-path instructlab-granite-7b-lab-trained/instructlab-granite-7b-lab-Q4_K_M.gguf
@@ -370,6 +376,5 @@ though your submission is great for the upstream model, and extremely valuable t
 
 When the full run from the upstream happens, the PR you submit with the new (or corrected) knowledge will be "baked in" better then the quantization
 method you use here, which will give much higher percentage of retrieval.
-
 
 <img src="https://count.asgharlabs.io/count?p=/lab4_opensource_ai_page>
