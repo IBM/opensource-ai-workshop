@@ -65,6 +65,9 @@ Python is a whole programming language. There are multiple ways to install it, a
 the following command, reach out to a teaching assistant or instructor to help you
 get resolved.
 
+!!! note
+    If you have an older version of python, or default "OS" versions of python, you'll need to update.
+
 ```bash
 python --version
 Python 3.11.4
