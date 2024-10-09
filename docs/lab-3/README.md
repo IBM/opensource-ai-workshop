@@ -6,6 +6,11 @@ logo: images/ilab_dog.png
 
 # Getting Started with InstructLab
 
+!!! tip
+    We are jumping in the deep end here, don't hesitate to raise your hand and ask questions.
+    We also assume you have a good _foundational_ (heh) knowledege of `python` if not, ask
+    one of the TA's to run through this on the overhead screen.
+
 Now that we have a working VSCode instance working with the granite model, lets talk about more
 things you can do with an Open Source AI system. This is where the [InstructLab](https://instructlab.ai/)
 project comes into play.
@@ -25,12 +30,12 @@ it to have.
     These steps will pull down a premade `qna.yaml` so you can do a local build. Skip the `wget`, `mv`, and `ilab taxonomy diff` if you don't want to do this.
 
 ```bash
-python3.11 -m venv venv-instructlab-0.18-3.11
-source venv-instructlab-0.18-3.11/bin/activate
+python3.11 -m venv venv-instructlab
+source venv-instructlab/bin/activate
 pip install 'instructlab[mps]'
 which ilab
 ilab config init
-cd ~/Library/Application\ Support/instructlab/
+cd ~/.config/instructlab/
 mkdir -p taxonomy/knowledge/astronomy/constellations/Phoenix/
 wget https://raw.githubusercontent.com/instructlab/taxonomy/26b3fe21ccbb95adc06fe8ce76c7c18559e8dd05/knowledge/science/astronomy/constellations/phoenix/qna.yaml
 mv qna.yaml taxonomy/knowledge/astronomy/constellations/Phoenix/
@@ -210,22 +215,18 @@ Path to taxonomy repo [taxonomy]: <ENTER>
 
    ```shell
    (venv) $ ilab config init
-   Welcome to InstructLab CLI. This guide will help you set up your environment.
+   Welcome to InstructLab CLI. This guide will help you to setup your environment.
    Please provide the following values to initiate the environment [press Enter for defaults]:
-   Path to taxonomy repo [taxonomy]: <ENTER>
-   `taxonomy` seems to not exists or is empty. Should I clone https://github.com/instructlab/taxonomy.git for you? [y/N]: y
+   Path to taxonomy repo [/Users/USERNAME/.local/share/instructlab/taxonomy]:
+   `/Users/USERNAME/.local/share/instructlab/taxonomy` seems to not exist or is empty. Should I clone https://github.com/instructlab/taxonomy.git for you? [Y/n]: y
    Cloning https://github.com/instructlab/taxonomy.git...
-   Path to your model [/Users/USERNAME/Library/Caches/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf]: <ENTER>
+   Path to your model [/Users/USERNAME/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf]: y
+   Generating `/Users/USERNAME/.config/instructlab/config.yaml`...
    ```
 
 5) When prompted, please choose a train profile. Train profiles are GPU specific profiles that enable accelerated training behavior. **YOU ARE ON MacOS**, please choose `No Profile (CPU-Only)` by hitting Enter. There are various flags you can utilize with individual `ilab` commands that will allow you to utilize your GPU if applicable.
 
    ```shell
-   Welcome to InstructLab CLI. This guide will help you to setup your environment.
-   Please provide the following values to initiate the environment [press Enter for defaults]:
-   Path to taxonomy repo [~/Library/Application\ Support/instructlab/taxonomy]:
-   Path to your model [/Users/USERNAME/Library/Caches//instructlab/models/merlinite-7b-lab-Q4_K_M.gguf]:
-   Generating `~/Library/Application\ Support/instructlab/config.yaml`...
    Please choose a train profile to use:
    [0] No profile (CPU-only)
    [1] A100_H100_x2.yaml
@@ -243,22 +244,22 @@ Path to taxonomy repo [taxonomy]: <ENTER>
 
 ### `ilab` directory layout after initializing your system
 
-After running `ilab config init` your directories will look like the following on a Linux system:
+After running `ilab config init` your directories will look like the following on a MacOS system:
 
 ```shell
-├─ ~/Library/Application\ Support/instructlab/models/ (1)
-├─ ~/Library/Application\ Support/instructlab/datasets (2)
-├─ ~/Library/Application\ Support/instructlab/taxonomy (3)
-├─ ~/Library/Application\ Support/instructlab/checkpoints (4)
+├─ ~/.config/instructlab/models/ (1)
+├─ ~/.config/instructlab/datasets (2)
+├─ ~/.config/instructlab/taxonomy (3)
+├─ ~/.config/instructlab/checkpoints (4)
 ```
 
-1) `/Users/USERNAME/Library/Caches/instructlab/models/`: Contains all downloaded large language models, including the saved output of ones you generate with ilab.
+1) `/Users/USERNAME/.config/instructlab/models/`: Contains all downloaded large language models, including the saved output of ones you generate with ilab.
 
-2) `~/Library/Application\ Support/instructlab/datasets/`: Contains data output from the SDG phase, built on modifications to the taxonomy repository.
+2) `~/.config/instructlab/datasets/`: Contains data output from the SDG phase, built on modifications to the taxonomy repository.
 
-3) `~/Library/Application\ Support/instructlab/taxonomy/`: Contains the skill and knowledge data.
+3) `~/.config/instructlab/taxonomy/`: Contains the skill and knowledge data.
 
-4) `~/Users/USERNAME/Library/Caches/instructlab/checkpoints/`: Contains the output of the training process
+4) `~/Users/USERNAME/.config/instructlab/checkpoints/`: Contains the output of the training process
 
 ### 📥 Download the model
 
@@ -272,9 +273,9 @@ ilab model download
 
 ```shell
 (venv) $ ilab model download
-Downloading model from Hugging Face: instructlab/merlinite-7b-lab-GGUF@main to /Users/USERNAME/Library/Caches/instructlab/models...
+Downloading model from Hugging Face: instructlab/merlinite-7b-lab-GGUF@main to /Users/USERNAME/.config/instructlab/models...
 ...
-INFO 2024-08-01 15:05:48,464 huggingface_hub.file_download:1893: Download complete. Moving file to /Users/USERNAME/Library/Caches/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf
+INFO 2024-08-01 15:05:48,464 huggingface_hub.file_download:1893: Download complete. Moving file to /Users/USERNAME/.config/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf
 ```
 
 !!! note

@@ -73,6 +73,15 @@ python --version
 Python 3.11.4
 ```
 
+#### Mac installation steps
+
+##### Terminal Installation
+
+If you need to install Python via `brew` please do the following:
+```bash
+brew install python@3.11
+```
+
 Please confirm that your `python --version` is at least `3.11+` for the best experience.
 
 With this you should have the applications you need, let's start the workshop!

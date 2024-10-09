@@ -5,7 +5,7 @@
 Success! We're ready to start with the first steps on your AI journey with us today.
 With this first lab, we'll be working through the steps in this [blogpost using Granite as a code assistant](https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/).
 
-In this tutorial, I will show how to use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code while addressing data privacy, licensing, and cost challenges that are common to enterprise users. The setup is powered by local large language models (LLMs) with IBM's open-source LLM family, [Granite Code](https://github.com/ibm-granite/granite-code-models). All components run on a developer's workstation and have business-friendly licensing.
+In this tutorial, we will show how to use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code while addressing data privacy, licensing, and cost challenges that are common to enterprise users. The setup is powered by local large language models (LLMs) with IBM's open-source LLM family, [Granite Code](https://github.com/ibm-granite/granite-code-models). All components run on a developer's workstation and have business-friendly licensing.
 
 There are three main barriers to adopting these tools in an enterprise setting:
 
@@ -17,13 +17,14 @@ There are three main barriers to adopting these tools in an enterprise setting:
 
 Why did we select Granite as the LLM of choice for this exercise?
 
-Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]),the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
+Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]), the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
 
 Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns. Granite
 
-Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. I chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
+Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
 
 Open up your terminal, and run the following commands:
+
 ```bash
 ollama pull granite-code:20b
 ollama pull granite-code:8b

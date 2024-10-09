@@ -15,14 +15,13 @@ locally to help it gain some knowledge.
 * How to use an AI model that is built in a verifiable and legal way
 * Learn a suggested workflow on how to fine tune a model with new knowledge and skills!
 
-### About this workshop
+## About this workshop
 
 The introductory page of the workshop is broken down into the following sections:
 
-* [Agenda](./#agenda)
-* [Compatibility](./#compatibility)
-* [Technology Used](./#technology-used)
-* [Credits](./#credits)
+* [Agenda](#agenda)
+* [Compatibility](#compatibility)
+* [Credits](#credits)
 
 ## Agenda
 
@@ -39,7 +38,6 @@ The introductory page of the workshop is broken down into the following sections
 This workshop has been tested on the following platforms:
 
 * **MacOS**: version 14.5
-* **Windows**: version 11
 * **Linux**: Fedora 40
 
 ## Credits

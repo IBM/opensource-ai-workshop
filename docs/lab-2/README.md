@@ -5,7 +5,7 @@ Lets play with our new found local AI Open Source AI!
 ## Sanity checks
 
 When you open up `continue` inside of VSCode it should look something like:
-![](https://docs.continue.dev/assets/images/understand-ca0edc3d06922dd4a95e31fa06f999ec.gif)
+![](https://docs.continue.dev/assets/images/move-to-right-sidebar-b2d315296198e41046fc174d8178f30a.gif)
 
 Before we go any farther, write in "Who is batman?" to verify that `ollama`,
 VSCode, and `continue` are all working correctly.
@@ -13,7 +13,9 @@ VSCode, and `continue` are all working correctly.
 !!! troubleshooting
     If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.
 
-If you would like to go deeper with continue, take a look at the [official Continue.dev how-to guide]( https://docs.continue.dev/how-to-use-continue).
+If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
+Its worth taken the moment if you want, otherwise, when you get home and try this on your own
+hardware, it's awesome to see what `continue` can do.
 
 Now that we have our local AI co-pilot with us, let's start using it. Now these
 next examples are going to be focused on `python` but there is nothing stopping
@@ -39,6 +41,10 @@ Now use the `command-i` or `ctrl-i` to open up the `generate code` command palet
 write me out conways game of life using pygame
 ```
 
+!!! note
+    If you don't know what Conway's Game of Life is, take a look [here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) or
+    raise your hand, I'm betting the TA's would love to talk to you about it. 😁
+
 Now granite-code should start giving you a good suggestion here, it should look something like:
 ![gameoflife_v1](../images/gameoflife_v1.png)
 
@@ -59,17 +65,22 @@ Don't believe me? Bring up the terminal and attempt to run this code after you a
 ![nope doesn't do anything](../images/nowork.png)
 
 Well that isn't good is it? Yours may be different code, or maybe it does work, but at least in this
-example we need to to get it fixed.
+example we need to to get the code fixed.
 
 ## First pass at debugging
 
 I'll run the following commands to build up an virtual environment, and install some modules, lets
 see how far we get.
 
+!!! tip
+    If these next commands are foreign to you, it's ok. These are `python` commands, and you can just
+    copy paste it in. If you'd like to know more or _why_ it is, raise your hand a TA should be able
+    to explain it to you.
+
 ```bash
 python3.11 -m venv venv
 source venv/bin/activate
-workshop-python-ai pip install pygame
+pip install pygame
 ```
 
 Well better, I think, but nothing still happens. So even noticing the `import pygame` tells me I need to
@@ -79,7 +90,10 @@ so it's more readable.
 ## Cleaning up the AI generated code
 
 !!! note
-    You can try using the built-in autocomplete and code assistant functions to generate any missing code. In our example, we're missing a "main" entry point to the script. Try hitting `cmd/ctrl + I` again, and typing in something like: "write a main function for my game that plays twenty rounds of Conway's game of life using the `board()` function". What happens?
+    You can try using the built-in autocomplete and code assistant functions to generate any missing code.
+    In our example, we're missing a "main" entry point to the script. Try hitting `cmd/ctrl + I` again,
+    and typing in something like: "write a main function for my game that plays twenty rounds of Conway's
+    game of life using the `board()` function." What happens?
 
 Cleaning up the code. Now everything is smashed together, it's hard to read the logic here, so first
 thing first, going to break up the code and add a `def main` function so I know what the entry point is.
@@ -126,7 +140,7 @@ function so I get a better understanding of what the program is doing.
 Go ahead and walk through your version, see the logic, and who knows maybe it'll highlight why yours
 isn't working yet, or not, the next step will help you even more!
 
-## Automagicly creating tests!
+## Automagicly creating tests
 
 One of the most powerful/helping stream line your workflow as a developer is writing good tests
 around your code. It's a safety blanket to help make sure your custom code has a way to check for
