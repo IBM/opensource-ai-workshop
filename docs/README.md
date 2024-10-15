@@ -32,6 +32,7 @@ The introductory page of the workshop is broken down into the following sections
 | [Lab 2: Using the local AI co-pilot](lab-2/README.md) | Let's learn about how to use a local AI co-pilot |
 | [Lab 3: Installing InstructLab for local AI Tuning](lab-3/README.md) | Let's set up InstructLab |
 | [Lab 4: Tuning the Granite Model](lab-4/README.md) | Let's fine tune a model with open source software |
+| [Lab 5: Using the InstructLab UI for AI Tuning](lab-5/README.md) | Leveraging the UI instead of the CLI for InstructLab |
 
 ## Compatibility
 
