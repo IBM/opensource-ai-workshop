@@ -240,6 +240,22 @@ On September 28, Moo Deng was the subject of a Saturday Night Live sketch. She w
 ▪ Pesto, another baby zoo animal that gained online popularity in 2024
 ```
 
+## Putting the `qna.yaml` in the correct place
+
+We need to put the `qna.yaml` like above to the correct place so we can actual do the training. The following commands pulls a copy of it down and puts it in your local `taxonomy` tree.
+
+```bash
+cd ~/.local/share/instructlab/taxonomy
+mkdir -p knowledge/science/animals/hippos/
+cd $!
+wget https://raw.githubusercontent.com/instructlab/taxonomy/7ff90c1b7dd7760df130fc21cef46c6a8208048c/knowledge/science/animals/hippos/qna.yaml
+cd -
+```
+
+!!! note
+    If `wget` is not found, please run `brew install wget` that should get it on your laptop.
+
+
 ## Generating synthetic data
 
 After you've built a good knowledge submission like above, the `qna.yaml`, the `attribution.txt` and
