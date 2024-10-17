@@ -2,6 +2,11 @@
 
 Lets play with our new found local AI Open Source AI!
 
+!!! note
+    There is an expectation of some programming experience/knowledge here, if you don't have any
+    or are uncomfortable here, don't fret! Our TA's are here to help and want to help, raise your
+    hand and ask. You can always skip to Lab 3, or Lab 5 if you want.
+
 ## Sanity checks
 
 When you open up `continue` inside of VSCode it should look something like:
@@ -11,7 +16,7 @@ Before we go any farther, write in "Who is batman?" to verify that `ollama`,
 VSCode, and `continue` are all working correctly.
 
 !!! troubleshooting
-    If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.
+    If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart `ollama`.
 
 If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
 Its worth taken the moment if you want, otherwise, when you get home and try this on your own
@@ -64,8 +69,8 @@ Don't believe me? Bring up the terminal and attempt to run this code after you a
 
 ![nope doesn't do anything](../images/nowork.png)
 
-Well that isn't good is it? Yours may be different code, or maybe it does work, but at least in this
-example we need to to get the code fixed.
+Well that isn't good is it? Yours **will probably** be different code, or maybe it does work (if it does you're lucky
+and raise your hand the TAs will want to see it), but at least in this example we need to to get the code fixed.
 
 ## First pass at debugging
 
@@ -73,7 +78,7 @@ I'll run the following commands to build up an virtual environment, and install 
 see how far we get.
 
 !!! tip
-    If these next commands are foreign to you, it's ok. These are `python` commands, and you can just
+    If these next commands are foreign to you, it's OK. These are `python` commands, and you can just
     copy paste it in. If you'd like to know more or _why_ it is, raise your hand a TA should be able
     to explain it to you.
 
@@ -91,7 +96,7 @@ so it's more readable.
 
 !!! note
     You can try using the built-in autocomplete and code assistant functions to generate any missing code.
-    In our example, we're missing a "main" entry point to the script. Try hitting `cmd/ctrl + I` again,
+    In our example, we're missing a "main" entry point to the script. Try hitting `cmd + I` again,
     and typing in something like: "write a main function for my game that plays twenty rounds of Conway's
     game of life using the `board()` function." What happens?
 
@@ -126,7 +131,7 @@ I can at least run my application now:
 
 But that doesn't work right?! OK, lets start debugging more. This next step is to leverage Granite-Code to
 tell me whats going on with the different functions. Go ahead and highlight any _one_ of them and run:
-`ctrl-L` or `command-L` to add it to the context window and ask granite-coder something like
+`cmd-L` to add it to the context window and ask granite-coder something like
 
 ```
 what does this function do?

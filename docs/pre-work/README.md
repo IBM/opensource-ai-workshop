@@ -34,10 +34,6 @@ After the installation is complete, install [ollama](https://ollama.com) via `br
 brew install ollama
 ```
 
-### Windows installation steps
-
-Install ollama via the website [here](https://ollama.com/download/windows).
-
 ## Visual Studio Code
 
 #### Mac installation steps
@@ -53,10 +49,6 @@ After the installation is complete, install [vscode](https://code.visualstudio.c
 ```bash
 brew install --cask visual-studio-code
 ```
-
-### Windows installation steps
-
-Install Code via the website [here](https://code.visualstudio.com/Download).
 
 ## Python
 

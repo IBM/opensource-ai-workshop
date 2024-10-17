@@ -14,16 +14,13 @@ ilab model chat
 /q
 ```
 
+The Granite family of foundation models span an increasing variety of modalities, including language, code, time series, and science (e.g., materials) - with much more to come. We're building them with transparency and with focus on fulfilling rigorous enterprise requirements that are emerging for AI. If you'd like to learn more about the models themselves and how we build them, check out Granite Models.
 
-TODO: WE NEED TO PUT IN A BLURB ABOUT GRANITE HERE
-
+The mission of the Granite Community organization is to work collaboratively across industries and geographies to leverage Granite to solve problems and bring value across use cases, from code generation and modernization, to forecasting and predictive maintenance, to materials discovery.
 
 ## Prepare to train your model
 
-!!! note
-    If you are running CPU only, or don't have a modern GPU or a Apple M1/M2/M3 this will take a long time. We strongly suggest finding someone with a GPU enabled machine to continue with this workshop. If anything the instructor or teaching assistants should have a laptop that can be projected on the main screen.
-
-1. Pull down an example `qna.yaml`. But wait what is a `qna.yaml`? There's a few things you should know before going any further.
+1) Pull down an example `qna.yaml`. But wait what is a `qna.yaml`? There's a few things you should know before going any further.
 
 Knowledge is based more on answering questions that involve facts, data, or references.
 
@@ -59,212 +56,120 @@ Format of the `qna.yaml`:
 ### Knowledge: YAML examples
 
 ```yaml
+created_by: cdoern
 version: 3
-domain: astronomy
-created_by: juliadenham
+domain: animals
 seed_examples:
   - context: |
-      **Phoenix** is a minor [constellation](constellation "wikilink") in the
-      [southern sky](southern_sky "wikilink"). Named after the mythical
-      [phoenix](Phoenix_(mythology) "wikilink"), it was first depicted on a
-      celestial atlas by [Johann Bayer](Johann_Bayer "wikilink") in his 1603
-      *[Uranometria](Uranometria "wikilink")*. The French explorer and
-      astronomer [Nicolas Louis de
-      Lacaille](Nicolas_Louis_de_Lacaille "wikilink") charted the brighter
-      stars and gave their [Bayer designations](Bayer_designation "wikilink")
-      in 1756. The constellation stretches from roughly −39 degrees to −57 degrees
-      [declination](declination "wikilink"), and from 23.5h to 2.5h of [right
-      ascension](right_ascension "wikilink"). The constellations Phoenix,
-      [Grus](Grus_(constellation) "wikilink"),
-      [Pavo](Pavo_(constellation) "wikilink") and [Tucana](Tucana "wikilink"),
-      are known as the Southern Birds.
+      Moo Deng (bouncy pig) is a pygmy hippopotamus, living in Khao Kheow Open Zoo in Si Racha, Chonburi, Thailand. She gained notability at two months of age in September 2024 as a popular Internet meme after images of her went viral online.
+      Moo Deng was born on 10 July 2024. Her name was chosen through a public poll, with over 20,000 people voting for "Moo Deng", translating to "bouncy pork" or "bouncy pig".
     questions_and_answers:
       - question: |
-          What is the Phoenix constellation?
-        answer: |
-          Phoenix is a minor constellation in the southern sky.
+          Who is Moo Deng?
+        answer:
+          Moo Deng is a pygmy hippopotamus living in Khao Kheow Open Zoo, Thailand, who became an Internet sensation in 2024.
       - question: |
-          Who charted the Phoenix constellation?
-        answer: |
-          The Phoenix constellation was charted by french explorer and
-          astronomer Nicolas Louis de Lacaille.
+          When was Moo Deng born?
+        answer:
+          Moo Deng was born on 10 July 2024.
       - question: |
-          How far does the Phoenix constellation stretch?
-        answer: |
-          The phoenix constellation stretches from roughly −39° to −57°
-          declination, and from 23.5h to 2.5h of right ascension.
+          How was Moo Deng's name chosen?
+        answer:
+          Moo Deng's name was chosen through a public poll with over 20,000 votes, translating to "bouncy pork" or "bouncy pig".
   - context: |
-      Phoenix was the largest of the 12 constellations established by [Petrus
-      Plancius](Petrus_Plancius "wikilink") from the observations of [Pieter
-      Dirkszoon Keyser](Pieter_Dirkszoon_Keyser "wikilink") and [Frederick de
-      Houtman](Frederick_de_Houtman "wikilink"). It first appeared on a 35cm
-      diameter celestial globe published in 1597 (or 1598) in Amsterdam by
-      Plancius with [Jodocus Hondius](Jodocus_Hondius "wikilink"). The first
-      depiction of this constellation in a celestial atlas was in [Johann
-      Bayer](Johann_Bayer "wikilink")'s
-      *[Uranometria](Uranometria "wikilink")* of 1603. De Houtman included
-      it in his southern star catalog the same year under the Dutch name *Den
-      voghel Fenicx*, "The Bird Phoenix", symbolising the
-      [phoenix](Phoenix_(mythology) "wikilink") of classical mythology. One
-      name of the brightest star [Alpha
-      Phoenicis](Alpha_Phoenicis "wikilink")—Ankaa—is derived from the Arabic:
-      العنقاء, romanized: al-‘anqā’, lit. 'the phoenix', and
-      was coined sometime after 1800 in relation to the constellation.
+      Moo Deng's father is Tony, and her mother is Jonah. She has two full siblings: Nadet, born in 2010, male, and Moo Tun, born on 27 October 2019, male.
+
+      She also has three half-siblings through her mother's relationship with Rambo: Ko, Kanya, and Phalo. Additionally, Moo Deng has one half-sibling through her father's relationship with Kanya: Moo Wan, female.
     questions_and_answers:
       - question: |
-          What is the brightest star in the Phoenix constellation
-          called?
-        answer: |
-          Alpha Phoenicis or Ankaa is the brightest star in the Phoenix
-          Constellation.
-      - question: Where did the Phoenix constellation first appear?
-        answer: |
-          The Phoenix constellation first appeared on a 35-cm diameter
-          celestial globe published in 1597 (or 1598) in Amsterdam by
-          Plancius with Jodocus Hondius.
+          Who are Moo Deng's parents?
+        answer:
+          Moo Deng's father is Tony, and her mother is Jonah.
       - question: |
-          What does "The Bird Phoenix" symbolize?
-        answer: |
-          "The Bird Phoenix" symbolizes the phoenix of classical mythology.
+          How many full siblings does Moo Deng have?
+        answer:
+          Moo Deng has two full siblings, Nadet and Moo Tun.
+      - question: |
+          How many half-siblings does Moo Deng have?
+        answer:
+          Moo Deng has four half-siblings, Ko, Kanya, Phalo (from her mother's side) and Moo Wan (from her father's side).
   - context: |
-      Phoenix is a small constellation bordered by [Fornax](Fornax "wikilink")
-      and Sculptor to the north, Grus to the west, Tucana to the south,
-      touching on the corner of [Hydrus](Hydrus "wikilink") to the south, and
-      [Eridanus](Eridanus_(constellation) "wikilink") to the east and
-      southeast. The bright star [Achernar](Achernar "wikilink") is
-      nearby. The three-letter abbreviation for the constellation, as
-      adopted by the [International Astronomical
-      Union](International_Astronomical_Union "wikilink") in 1922, is
-      "Phe". The official constellation boundaries, as set by Belgian
-      astronomer [Eugène Delporte](Eugène_Joseph_Delporte "wikilink") in 1930,
-      are defined by a polygon of 10 segments. In the [equatorial coordinate
-      system](equatorial_coordinate_system "wikilink"), the [right
-      ascension](right_ascension "wikilink") coordinates of these borders lie
-      between 23<sup>h</sup> 26.5<sup>m</sup> and 02<sup>h</sup> 25.0<sup>m</sup>,
-      while the [declination](declination "wikilink")
-      coordinates are between −39.31° and −57.84°. This means it remains
-      below the horizon to anyone living north of the [40th
-      parallel](40th_parallel_north "wikilink") in the [Northern
-      Hemisphere](Northern_Hemisphere "wikilink"), and remains low in the sky
-      for anyone living north of the [equator](equator "wikilink"). It is most
-      visible from locations such as Australia and South Africa during late
-      [Southern Hemisphere](Southern_Hemisphere "wikilink") spring. Most
-      of the constellation lies within, and can be located by, forming a
-      triangle of the bright stars Achernar, [Fomalhaut](Fomalhaut "wikilink")
-      and [Beta Ceti](Beta_Ceti "wikilink")—Ankaa lies roughly in the centre
-      of this.
+      Khao Kheow Open Zoo posted images of its pygmy hippopotamuses on its official Facebook page, and Moo Deng quickly became a favorite among fans. She is noted for being more playful and energetic than other hippopotamuses.
+
+      The zoo responded to her popularity by selling merchandise featuring designs based on Moo Deng. Other companies joined in by producing merchandise, including Vetmon Cafe, which created a realistic cake shaped like Moo Deng. Additionally, Sephora posted a makeup tutorial inspired by her, and she became the subject of many fan artworks.
     questions_and_answers:
-      - question: What are the characteristics of the Phoenix constellation?
-        answer: |
-          Phoenix is a small constellation bordered by Fornax and Sculptor to
-          the north, Grus to the west, Tucana to the south, touching on the
-          corner of Hydrus to the south, and Eridanus to the east and southeast.
-          The bright star Achernar is nearby.
       - question: |
-          When is the phoenix constellation most visible?
-        answer: |
-          Phoenix is most visible from locations such as Australia and
-          South Africa during late Southern Hemisphere spring.
+          How did Moo Deng become popular?
+        answer:
+          Moo Deng became popular after Khao Kheow Open Zoo posted images of her on Facebook, where she quickly became a fan favorite.
       - question: |
-          What are the Phoenix Constellation boundaries?
-        answer: |
-          The official constellation boundaries for Phoenix, as set by Belgian
-          astronomer Eugène Delporte in 1930, are defined by a polygon of 10
-          segments.
+          What merchandise was created based on Moo Deng?
+        answer:
+          The zoo sold merchandise featuring designs based on Moo Deng, and Vetmon Cafe created a realistic cake shaped like her.
+      - question: |
+          Which company posted a makeup tutorial inspired by Moo Deng?
+        answer:
+          Sephora posted a makeup tutorial inspired by Moo Deng.
   - context: |
-      Ten stars have been found to have planets to date, and four planetary
-      systems have been discovered with the [SuperWASP](SuperWASP "wikilink")
-      project. [HD 142](HD_142 "wikilink") is a yellow giant that has an
-      apparent magnitude of 5.7, and has a planet ([HD 142b](HD_142_b
-      "wikilink")) 1.36 times the mass of Jupiter which orbits every 328 days.
-      [HD 2039](HD_2039 "wikilink") is a yellow subgiant with an apparent
-      magnitude of 9.0 around 330 light years away which has a planet ([HD 2039
-      b](HD_2039_b "wikilink")) six times the mass of Jupiter. [WASP-18](WASP-18
-      "wikilink") is a star of magnitude 9.29 which was discovered to have a hot
-      Jupiter-like planet ([WASP-18b](WASP-18b "wikilink")) taking less than a
-      day to orbit the star. The planet is suspected to be causing WASP-18 to
-      appear older than it really is. [WASP-4](WASP-4 "wikilink") and
-      [WASP-5](WASP-5 "wikilink") are solar-type yellow stars around 1000
-      light years distant and of 13th magnitude, each with a single planet
-      larger than Jupiter. [WASP-29](WASP-29 "wikilink") is an orange
-      dwarf of spectral type K4V and visual magnitude 11.3, which has a
-      planetary companion of similar size and mass to Saturn. The planet
-      completes an orbit every 3.9 days.
+      Due to Moo Deng's viral online popularity, the number of daily visitors to the zoo doubled in early September 2024. Some visitors harassed the baby hippo by splashing water at her or throwing objects to wake her up. In response, the zoo installed security cameras around her enclosure, and the zoo's director threatened legal action against visitors who harassed her.
+      The zoo also implemented a five-minute time limit for visitors to accommodate the high volume of guests.
     questions_and_answers:
-      - question: In the Phoenix constellation, how many stars have planets?
-        answer: |
-          In the Phoenix constellation, ten stars have been found to have
-          planets to date, and four planetary systems have been discovered
-          with the SuperWASP project.
       - question: |
-          What is HD 142?
-        answer: |
-          HD 142 is a yellow giant that has an apparent magnitude of 5.7, and
-          has a planet (HD 142 b) 1.36 times the mass of Jupiter which
-          orbits every 328 days.
+          How did Moo Deng's popularity affect the number of visitors at Khao Kheow Open Zoo?
+        answer:
+          The number of daily visitors to Khao Kheow Open Zoo doubled in early September 2024 due to Moo Deng's popularity.
       - question: |
-          Are WASP-4 and WASP-5 solar-type yellow stars?
-        answer: |
-          Yes, WASP-4 and WASP-5 are solar-type yellow stars around 1000 light
-          years distant and of 13th magnitude, each with a single planet
-          larger than Jupiter.
+          What actions did the zoo take to protect Moo Deng from harassment?
+        answer:
+          The zoo installed security cameras around Moo Deng's enclosure and threatened legal action against visitors who harassed her.
+      - question: |
+          How long can visitors spend with Moo Deng at the zoo?
+        answer:
+          The zoo implemented a five-minute time limit for visitors to see Moo Deng due to the high volume of guests.
   - context: |
-      The constellation does not lie on the
-      [galactic plane](galactic_plane "wikilink") of the Milky Way, and there
-      are no prominent star clusters. [NGC 625](NGC_625 "wikilink") is a dwarf
-      [irregular galaxy](irregular_galaxy "wikilink") of apparent magnitude 11.0
-      and lying some 12.7 million light years distant. Only 24000 light years in
-      diameter, it is an outlying member of the [Sculptor Group](Sculptor_Group
-      "wikilink"). NGC 625 is thought to have been involved in a collision and
-      is experiencing a burst of [active star formation](Active_galactic_nucleus
-      "wikilink"). [NGC 37](NGC_37 "wikilink") is a
-      [lenticular galaxy](lenticular_galaxy "wikilink") of apparent magnitude
-      14.66. It is approximately 42 [kiloparsecs](kiloparsecs "wikilink")
-      (137,000 [light-years](light-years "wikilink")) in diameter and about
-      12.9 billion years old. [Robert's Quartet](Robert's_Quartet "wikilink")
-      (composed of the irregular galaxy [NGC 87](NGC_87 "wikilink"), and three
-      spiral galaxies [NGC 88](NGC_88 "wikilink"), [NGC 89](NGC_89 "wikilink")
-      and [NGC 92](NGC_92 "wikilink")) is a group of four galaxies located
-      around 160 million light-years away which are in the process of colliding
-      and merging. They are within a circle of radius of 1.6 arcmin,
-      corresponding to about 75,000 light-years. Located in the galaxy ESO
-      243-49 is [HLX-1](HLX-1 "wikilink"), an
-      [intermediate-mass black hole](intermediate-mass_black_hole
-      "wikilink")—the first one of its kind identified. It is thought to be a
-      remnant of a dwarf galaxy that was absorbed in a
-      [collision](Interacting_galaxy "wikilink") with ESO 243-49. Before its
-      discovery, this class of black hole was only hypothesized.
+      In September 2024, zoo director Narongwit Chodchoi announced that the zoo had begun the process of copyrighting and trademarking "Moo Deng the hippo" to raise funds for the zoo. The zoo also plans to launch a continuous livestream to allow fans to watch Moo Deng live over the Internet.
     questions_and_answers:
       - question: |
-          Is the Phoenix Constellation part of the Milky Way?
-        answer: |
-          The Phoenix constellation does not lie on the galactic plane of
-          the Milky Way, and there are no prominent star clusters.
+          What did the zoo do to protect Moo Deng's brand?
+        answer:
+          The zoo began the process of copyrighting and trademarking "Moo Deng the hippo" in September 2024.
       - question: |
-          How many light years away is NGC 625?
-        answer: |
-          NGC 625 is 24000 light years in diameter and is an outlying
-          member of the Sculptor Group.
+          How does the zoo plan to keep fans engaged with Moo Deng online?
+        answer:
+          The zoo plans to launch a continuous livestream for fans to watch Moo Deng live over the Internet.
       - question: |
-          What is Robert's Quartet composed of?
-        answer: |
-          Robert's Quartet is composed of the irregular galaxy NGC 87,
-          and three spiral galaxies NGC 88, NGC 89 and NGC 92.
-document_outline: |
-  Information about the Phoenix Constellation including the
-  history, characteristics, and features of the stars in the constellation.
+          Why is the zoo copyrighting Moo Deng's name?
+        answer:
+          The zoo is copyrighting and trademarking "Moo Deng the hippo" to raise funds for its operations.
+  - context: |
+      On September 28, Moo Deng was the subject of a Saturday Night Live sketch. She was parodied by Bowen Yang on Weekend Update, where the character was used to satirize American pop-artist Chappell Roan's commentary on fame and political endorsements. Yang later extended his support to Roan.
+    questions_and_answers:
+      - question: |
+          How was Moo Deng featured on Saturday Night Live?
+        answer:
+          Moo Deng was parodied by Bowen Yang on Weekend Update on September 28, 2024.
+      - question: |
+          What was Moo Deng's parody on SNL used to satirize?
+        answer:
+          Moo Deng's parody on SNL was used to satirize American pop-artist Chappell Roan's commentary on fame and political endorsements.
+      - question: |
+          Who portrayed Moo Deng on Saturday Night Live?
+        answer:
+          Bowen Yang portrayed Moo Deng on Saturday Night Live.
+document_outline: Verbatim information about Moo Deng, covering her rise to internet fame, her background, online popularity, merchandise, and how the zoo responded to her viral fame.
 document:
-    repo: https://github.com/juliadenham/Summit_knowledge
-    commit: 0a1f2672b9b90582e6115333e3ed62fd628f1c0f
-    patterns: phoenix_constellation.md
+  repo: https://github.com/cdoern/knowledge
+  commit: 142a62438f227e4bcadd8aac55ef4a9fa625ce0f
+  patterns:
+    - pop_culture/moodeng.md
 ```
 
 *Example `attribution.txt` file*
 
 ```text
-Title of work: Phoenix (constellation)
-Link to work: https://en.wikipedia.org/wiki/Phoenix_(constellation)
-Revision: https://en.wikipedia.org/w/index.php?title=Phoenix_(constellation)&oldid=1237187773
+Title of work: Moo Deng
+Link to work: https://en.wikipedia.org/wiki/Moo_Deng
+Revision: https://en.wikipedia.org/w/index.php?title=Moo_Deng&oldid=1250784534
 License of the work: CC-BY-SA-4.0
 Creator names: Wikipedia Authors
 ```
@@ -272,40 +177,67 @@ Creator names: Wikipedia Authors
 ### Knowledge: Markdown file example
 
 ```markdown
-# Phoenix (constellation)
+## Moo Deng
 
-**Phoenix** is a minor [constellation](constellation "wikilink") in the
-[southern sky](southern_sky "wikilink"). Named after the mythical
-[phoenix](Phoenix_(mythology) "wikilink"), it was first depicted on a
-celestial atlas by [Johann Bayer](Johann_Bayer "wikilink") in his 1603
-*[Uranometria](Uranometria "wikilink")*. The French explorer and
-astronomer [Nicolas Louis de
-Lacaille](Nicolas_Louis_de_Lacaille "wikilink") charted the brighter
-stars and gave their [Bayer designations](Bayer_designation "wikilink")
-in 1756. The constellation stretches from roughly −39 degrees to −57 degrees
-[declination](declination "wikilink"), and from 23.5h to 2.5h of [right
-ascension](right_ascension "wikilink"). The constellations Phoenix,
-[Grus](Grus_(constellation) "wikilink"),
-[Pavo](Pavo_(constellation) "wikilink") and [Tucana](Tucana "wikilink"),
-are known as the Southern Birds.
+Moo Deng (bouncy pig) is a pygmy hippopotamus, living in Khao Kheow Open Zoo in Si Racha, Chonburi, Thailand. She gained notability at two months of age in September 2024 as a popular Internet meme after images of her went viral online.
 
-The brightest star, [Alpha Phoenicis](Alpha_Phoenicis "wikilink"), is
-named Ankaa, an [Arabic](Arabic "wikilink") word meaning 'the Phoenix'.
-It is an orange giant of apparent magnitude 2.4. Next is [Beta
-Phoenicis](Beta_Phoenicis "wikilink"), actually a
-[binary](Binary_star "wikilink") system composed of two yellow giants
-with a combined apparent magnitude of 3.3. [Nu
-Phoenicis](Nu_Phoenicis "wikilink") has a dust disk, while the
-constellation has ten star systems with known planets and the recently
-discovered [galaxy clusters](galaxy_cluster "wikilink") [El
-Gordo](El_Gordo_(galaxy_cluster) "wikilink") and the [Phoenix
-Cluster](Phoenix_Cluster "wikilink")—located 7.2 and 5.7 billion light
-years away respectively, two of the largest objects in the [visible
-universe](visible_universe "wikilink"). Phoenix is the
-[radiant](radiant_(meteor_shower) "wikilink") of two annual [meteor
-showers](meteor_shower "wikilink"): the
-[Phoenicids](Phoenicids "wikilink") in December, and the July
-Phoenicids.
+## Background
+
+Moo Deng was born on 10 July 2024. Her name was chosen through a public poll, with over 20,000 people voting for "Moo Deng", translating to "bouncy pork" or "bouncy pig".
+
+## Parents and siblings
+
+Moo Deng's father is Tony, and her mother is Jonah.
+
+Moo Deng has two full siblings:
+
+▪ Nadet, born 2010, age 1314, male
+
+## Moo Deng
+
+Species: Pygmy hippopotamus
+
+Sex: Female
+
+Born: 10 July 2024
+
+Residence:  Khao Kheow Open Zoo
+
+Named after: Thai for "bouncy pig"
+
+Moo Deng has two full siblings
+
+▪ Nadet, born 2010, age 13–14, male
+
+▪ Moo Tun, born 27 October 2019, age 4, male
+
+She has three half-siblings through her mother's relationship with Rambo:
+
+▪ Ko
+
+▪ Kanya
+
+▪ Phalo
+
+She also has one half-sibling through her father's relationship with Kanya:
+
+▪ Moo Wan, female
+
+## Online popularity
+
+Khao Kheow Open Zoo posted images of its pygmy hippopotamuses on its official Facebook page, and Moo Deng quickly became a favorite among fans. Moo Deng is noted to be more playful and energetic than other hippopotamuses. In response to her popularity, the zoo announced that it would sell clothing and other merchandise featuring designs based on Moo Deng. Other companies have produced merchandise based on Moo Deng, including a cake shop, Vetmon Cafe, which created a realistic cake shaped like her. Additionally, Sephora posted a makeup tutorial inspired by her. Moo Deng has become the subject of many pieces of fan art.
+
+Thai-language news coverage of Moo Deng in September 2024
+
+Due to Moo Deng's viral online popularity, the number of daily visitors to the zoo doubled in early September 2024. Some visitors have harassed the baby by splashing her with water. or throwing objects at her to wake her up. As a result, the Khao Kheow Open Zoo installed security cameras around her enclosure and the zoo's director threatened legal action against visitors who harassed her. The misbehavior by some visitors has been widely condemned online. The zoo also implemented a fiveminute time limit for visitors in order to accommodate the high volume.
+
+In September 2024, zoo director Narongwit Chodchoi announced that the zoo had begun the process of copyrighting and trademarking "Moo Deng the hippo" to raise funds for the zoo.The zoo also plans to launch a continuous livestream to allow fans to watch Moo Deng live over the Internet.
+
+On September 28, Moo Deng was the subject of a Saturday Night Live sketch. She was parodied by Bowen Yang on Weekend Update, and the character was used to satirize American pop-artist Chappell Roan's commentary on fame and political endorsements. Yang later extended his support to Roan.
+
+## See also
+
+▪ Pesto, another baby zoo animal that gained online popularity in 2024
 ```
 
 ## Generating synthetic data
@@ -320,33 +252,21 @@ your seeded ones. Lets do that now.
 ilab model download
 ```
 
-Next sanity check the merlinite model, via the following command:
-
-```bash
-ilab serve --model-path models/merlinite-7b-lab-Q4_K_M.gguf
-
-# in another terminal
-ilab model chat
-```
-
-After the model is working as expected, ie running "who is batman?" close out the `ilab serve` and `ilab model chat`.
-
 2) Next we need to generate the data, this is done with the following command:
 
 ```bash
-ilab data generate
+ilab data generate --pipeline full --model ~/.cache/instructlab/models/mistral-7b-instruct-v0.2.Q4_K_M.gguf --model-family mixtral
 ```
 
 This can take some time, take note of the time in the right hand corner, this is building 1000 questions off of your initial 15.
+This takes the granite model, leverages the tokenized version of it, and runs the SDG from the `generate` command against it.
 
 3) After this is complete, now we'll need to train the actual model. If this isn't a Mac M3, this will take **at least an hour**, so
 hopefully you can take a lunch break or something while this is running.
 
 ```bash
-ilab model train --model-dir instructlab/granite-7b-lab --tokenizer-dir models/granite-7b-lab --model-name instructlab/granite-7b-lab
+ilab model train --pipeline full --effective-batch size 64 --is-padding-free false --device mps --max-batch-len 4000 --model-dir instructlab/granite-7b-lab --tokenizer-dir models/granite-7b-lab --model-name instructlab/granite-7b-lab
 ```
-
-This takes the granite model, leverages the tokenized version of it, and runs the SDG from the `generate` command against it.
 
 4) When this is completed, you'll need to test this model, which is the following command:
 
@@ -355,9 +275,6 @@ ilab model test --model-dir instructlab-granite-7b-lab-mlx-q
 ```
 
 5) Now to run the command on the Mac M3, or Apple hardware you'll need to convert it to a `gguf`, that is this next command.
-
-!!! note
-    You won't need to do this if you are running on Linux (or maybe Windows remember that's unsupported at the moment)
 
 ```bash
 ilab model convert --model-dir instructlab-granite-7b-lab-mlx-q

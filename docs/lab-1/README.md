@@ -49,7 +49,7 @@ If not you can use these steps in VSCode:
 Next you'll need to configure `continue` which will require you to take the following `json` and open the `config.json`
 file via the command palette.
 
-1. Open the command palette (Press Ctrl/Cmd+Shift+P)
+1. Open the command palette (Press Cmd+Shift+P)
 2. Select Continue: Open `config.json`.
 
 In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 20b model we downloaded earlier. Replace the line that says `"models": []` with the following:
