@@ -23,7 +23,7 @@ Many open LLMs available today license the model itself for derivative work, but
 
 Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
 
-Open up your terminal, and run the following commands:
+Open up a second terminal, and run the following commands:
 
 ```bash
 ollama pull granite-code:20b

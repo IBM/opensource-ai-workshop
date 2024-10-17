@@ -11,7 +11,7 @@ Before we go any farther, write in "Who is batman?" to verify that `ollama`,
 VSCode, and `continue` are all working correctly.
 
 !!! troubleshooting
-    If Continue is taking a long time to respond, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.
+    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code. If that doesn't resolve your issue, restart Ollama.
 
 If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
 Its worth taken the moment if you want, otherwise, when you get home and try this on your own
@@ -26,6 +26,9 @@ this technology is there to support you, not _do_ your work.
 
 Now, lets open up VSCode and have it look something like the following:
 ![batman](../images/whoisbatman.png)
+
+!!! troubleshooting
+    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visiable again.
 
 ## Building out `main.py`
 
@@ -69,7 +72,7 @@ example we need to to get the code fixed.
 
 ## First pass at debugging
 
-I'll run the following commands to build up an virtual environment, and install some modules, lets
+We'll run the following commands to build up an virtual environment, and install some modules, lets
 see how far we get.
 
 !!! tip
@@ -115,7 +118,7 @@ For me, all I had to do was remove those extra spaces, but I'd be curious to kno
 
 ## Second pass at debugging
 
-Now that I've clean it up, and it seems I had to do some importing:
+Now that I've cleaned it up, and it seems I had to do some importing:
 
 ```python
 import tkinter
