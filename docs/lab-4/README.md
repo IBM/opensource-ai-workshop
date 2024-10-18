@@ -271,7 +271,7 @@ ilab model download
 2) Next we need to generate the data, this is done with the following command:
 
 ```bash
-ilab data generate --pipeline full --model ~/.cache/instructlab/models/mistral-7b-instruct-v0.2.Q4_K_M.gguf --model-family mixtral
+ilab data generate --pipeline full --model ~/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf --model-family mixtral
 ```
 
 This can take some time, take note of the time in the right hand corner, this is building 1000 questions off of your initial 15.
@@ -281,7 +281,7 @@ This takes the granite model, leverages the tokenized version of it, and runs th
 hopefully you can take a lunch break or something while this is running.
 
 ```bash
-ilab model train --pipeline full --effective-batch size 64 --is-padding-free false --device mps --max-batch-len 4000 --model-dir instructlab/granite-7b-lab --tokenizer-dir models/granite-7b-lab --model-name instructlab/granite-7b-lab
+ilab model train --pipeline full --effective-batch-size 64 --is-padding-free false --device mps --max-batch-len 4000 --model-dir instructlab/granite-7b-lab --tokenizer-dir models/granite-7b-lab --model-name instructlab/granite-7b-lab
 ```
 
 4) When this is completed, you'll need to test this model, which is the following command:
