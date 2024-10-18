@@ -4,15 +4,8 @@ Now that you've set up InstructLab, lets get tuning the Granite Model.
 
 ## Sanity check
 
-First thing you should do is verify you can talk to the Granite model, go ahead and run
-the following commands to verify you can.
-
-```bash
-cd instructlab
-source venv/bin/activate
-ilab model chat
-/q
-```
+Take a moment to verify that you are not running `ilab model chat` or `ilab model serve` anywhere,
+it will clash with the following commands with training and tuning the model.
 
 The Granite family of foundation models span an increasing variety of modalities, including language, code, time series, and science (e.g., materials) - with much more to come. We're building them with transparency and with focus on fulfilling rigorous enterprise requirements that are emerging for AI. If you'd like to learn more about the models themselves and how we build them, check out Granite Models.
 
@@ -39,7 +32,7 @@ Knowledge in the taxonomy tree consists of a few more elements than skills:
 
 Format of the `qna.yaml`:
 
-- `version`: The chache verion of the qna.yaml file, this is the format of the file used for SDG. The value must be the number 3.
+- `version`: The cache version of the qna.yaml file, this is the format of the file used for SDG. The value must be the number 3.
 - `created_by`: Your GitHub username.
 - `domain`: Specify the category of the knowledge.
 - `seed_examples`: A collection of key/value entries.
@@ -271,7 +264,7 @@ ilab model download
 2) Next we need to generate the data, this is done with the following command:
 
 ```bash
-ilab data generate --pipeline full --model ~/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf --model-family mixtral
+ilab data generate
 ```
 
 This can take some time, take note of the time in the right hand corner, this is building 1000 questions off of your initial 15.
@@ -281,7 +274,7 @@ This takes the granite model, leverages the tokenized version of it, and runs th
 hopefully you can take a lunch break or something while this is running.
 
 ```bash
-ilab model train --pipeline full --effective-batch-size 64 --is-padding-free false --device mps --max-batch-len 4000 --model-dir instructlab/granite-7b-lab --tokenizer-dir models/granite-7b-lab --model-name instructlab/granite-7b-lab
+ilab model train
 ```
 
 4) When this is completed, you'll need to test this model, which is the following command:
