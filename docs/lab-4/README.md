@@ -240,7 +240,7 @@ We need to put the `qna.yaml` like above to the correct place so we can actual d
 ```bash
 cd ~/.local/share/instructlab/taxonomy
 mkdir -p knowledge/science/animals/hippos/
-cd $!
+cd knowledge/science/animals/hippos/
 wget https://raw.githubusercontent.com/instructlab/taxonomy/7ff90c1b7dd7760df130fc21cef46c6a8208048c/knowledge/science/animals/hippos/qna.yaml
 cd -
 ```
