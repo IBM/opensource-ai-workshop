@@ -18,6 +18,7 @@ nav:
     - Lab 2. Using the local AI co-pilot: lab-2/README.md
     - Lab 3. Installing InstructLab for local AI Tuning: lab-3/README.md
     - Lab 4. Tuning the Granite Model: lab-4/README.md
+    - Lab 5. Using the InstructLab UI: lab-5/README.md
   - References:
     - Additional Resources: resources/RESOURCES.md
     - MkDocs Cheatsheet: resources/MKDOCS.md

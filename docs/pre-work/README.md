@@ -34,11 +34,6 @@ After the installation is complete, install [ollama](https://ollama.com) via `br
 brew install ollama
 ```
 
-Then start the Ollama server in a terminal window
-```bash
-ollama serve
-```
-
 ### Windows installation steps
 
 Install ollama via the website [here](https://ollama.com/download/windows).
@@ -58,18 +53,6 @@ After the installation is complete, install [vscode](https://code.visualstudio.c
 ```bash
 brew install --cask visual-studio-code
 ```
-
-Then start up VSCode:
-
-```bash
-mkdir ~/INSTRUCTLAB
-cd ~/INSTRUCTLAB
-code .
-```
-
-### Windows installation steps
-
-Install Code via the website [here](https://code.visualstudio.com/Download).
 
 ## Python
 
