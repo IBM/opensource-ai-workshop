@@ -274,7 +274,7 @@ This takes the granite model, leverages the tokenized version of it, and runs th
 hopefully you can take a lunch break or something while this is running.
 
 ```bash
-ilab model train
+ilab model train --pipeline simple
 ```
 
 4) When this is completed, you'll need to test this model, which is the following command:
