@@ -34,6 +34,10 @@ After the installation is complete, install [ollama](https://ollama.com) via `br
 brew install ollama
 ```
 
+### Windows installation steps
+
+Install ollama via the website [here](https://ollama.com/download/windows).
+
 ## Visual Studio Code
 
 #### Mac installation steps
