@@ -48,7 +48,7 @@ cd instructlab
 python3 -m venv --upgrade-deps venv
 source venv/bin/activate
 pip cache remove llama_cpp_python
-pip install 'instructlab[mps]' # yes you will need the 's
+pip install 'instructlab[mps]==0.19.3'
 ```
 
 4) From your `venv` environment, verify `ilab` is installed correctly, by running the `ilab` command.
@@ -78,10 +78,9 @@ Please provide the following values to initiate the environment [press Enter for
 
 2) When prompted by the interface, press **Enter** to add a new default `config.yaml` file.
 
-3) When prompted, clone the `https://github.com/instructlab/taxonomy.git` repository into the current directory by typing **y**.
+3) When prompted, clone the `https://github.com/instructlab/taxonomy.git` repository by typing **y**.
 
-
-4) When prompted, provide the path to your default model. Otherwise, the default of a quantized [Merlinite](https://huggingface.co/instructlab/merlinite-7b-lab-GGUF) model will be used - you can download this model with `ilab model download` (see below).
+4) When prompted to provide the path to your model, hit enter. A quantized [Merlinite](https://huggingface.co/instructlab/merlinite-7b-lab-GGUF) model will be used - you can download this model with `ilab model download` (see below).
 
    ```shell
    Welcome to InstructLab CLI. This guide will help you to setup your environment.
