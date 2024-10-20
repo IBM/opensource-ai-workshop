@@ -45,7 +45,7 @@ cd instructlab
     or if your system is setup with [pyenv](https://github.com/pyenv/pyenv) by using the `file -b $(pyenv which python)` command.
 
 ```shell
-python3 -m venv --upgrade-deps venv
+python3.11 -m venv --upgrade-deps venv
 source venv/bin/activate
 pip cache remove llama_cpp_python
 pip install 'instructlab[mps]' # yes you will need the 's
