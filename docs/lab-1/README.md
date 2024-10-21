@@ -57,14 +57,14 @@ file via the command palette.
 1. Open the command palette (Press Cmd+Shift+P)
 2. Select Continue: Open `config.json`.
 
-In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 20b model we downloaded earlier. Replace the line that says `"models": []` with the following:
+In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 8b model we downloaded earlier. Replace the line that says `"models": []` with the following:
 
 ```json
   "models": [
     {
-      "title": "Granite Code 20b",
+      "title": "Granite Code 8b",
       "provider": "ollama",
-      "model": "granite-code:20b"
+      "model": "granite-code:8b"
     }
   ],
 ```

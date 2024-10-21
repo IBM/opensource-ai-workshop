@@ -16,7 +16,7 @@ Before we go any farther, write in "Who is batman?" to verify that `ollama`,
 VSCode, and `continue` are all working correctly.
 
 !!! troubleshooting
-    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code. 
+    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code.
     If that doesn't resolve your issue, restart Ollama.
 
 If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
