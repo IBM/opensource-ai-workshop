@@ -32,7 +32,6 @@ ollama serve
 In a third terminal:
 
 ```bash
-ollama pull granite-code:20b
 ollama pull granite-code:8b
 ```
 
