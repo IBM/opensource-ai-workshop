@@ -264,7 +264,7 @@ ilab model download
 2) Next we need to generate the data, this is done with the following command:
 
 ```bash
-ilab data generate --model /Users/rentex/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf --taxonomy-path /Users/rentex/.local/share/instructlab/taxonomy
+ilab data generate --model /Users/rentex/.cache/instructlab/models/merlinite-7b-lab-Q4_K_M.gguf --taxonomy-path /Users/rentex/.local/share/instructlab/taxonomy --pipeline simple
 ```
 
 This can take some time, take note of the time in the right hand corner, this is building 1000 questions off of your initial 15.
