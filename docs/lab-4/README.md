@@ -280,11 +280,13 @@ ilab model train --pipeline simple
 4) When this is completed, you'll need to test this model, which is the following command:
 
 ```bash
-ilab model test --model-dir ~/.local/share/instructlab/instructlab-granite-7b-lab --adapter-file ~/.local/share/instructlab/checkpoints/instructlab-granite-7b-lab-mlx-q/adapters-100.npz --data-dir ~/.local/share/instructlab/datasets
+ilab model test --model-dir ~/instructlab/instructlab-granite-7b-lab --adapter-file ~/.local/share/instructlab/checkpoints/instructlab-granite-7b-lab-mlx-q/adapters-100.npz --data-dir ~/.local/share/instructlab/datasets
 ```
 
 5) Now to run the command on the Mac M3, or Apple hardware you'll need to convert it to a `gguf`, that is this next command.
 
+!!! warning
+    Make sure you run `ilab test` before you try to convert, converting will delete the neccesary files for testing.
 
 ```bash
 ilab model convert --adapter-file ~/.local/share/instructlab/checkpoints/instructlab-granite-7b-lab-mlx-q/adapters-100.npz --model-dir ~/.local/share/instructlab/checkpoints/instructlab-granite-7b-lab-mlx-q
