@@ -213,6 +213,7 @@ INFO 2024-10-17 12:05:55,951 instructlab.model.backends.llama_cpp:190: After app
 Because you're serving the model in one terminal window, you will have to create a new window and re-activate your Python virtual environment to run `ilab model chat` command:
 
 ```shell
+cd instructlab
 source venv/bin/activate
 ilab model chat
 ```
