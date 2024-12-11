@@ -19,17 +19,11 @@ Why did we select Granite as the LLM of choice for this exercise?
 
 Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]), the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
 
-Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns. Granite
+Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns.
 
 Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
 
 Open up a second terminal, and run the following command:
-
-```bash
-ollama serve
-```
-
-In a third terminal:
 
 ```bash
 ollama pull granite-code:8b

@@ -4,11 +4,11 @@ These are the required applications and general installation notes for this work
 
 You'll need:
 
-* [Ollama](#ollama) - This application allows you to locally host an LLM model on your computer.
-
-* [Visual Studio Code](#visual-studio-code) - We'll be walking through an extension to VSCode in this workshop.
-
-* [Python](#python) - Python is required because of InstructLab, and the demo code will be run on it.
+- [Ollama](#ollama) - This application allows you to locally host an LLM model on your computer.
+- [Visual Studio Code](#visual-studio-code) - We'll be walking through an extension to VSCode in this workshop. OR
+- [One of the Jetbrains IDEs](#jetbrains) - You can choose the one you want, if the wifi is bad, please reach out to a TA to give you a USB stick.
+- [Python](#python) - If you don't already have a proficently in a languge, please follow the `python` steps.
+- [AnythingLLM](#anythingllm) - This will be a GUI interface to your LLM(s).
 
 ## Ollama
 
@@ -54,6 +54,13 @@ After the installation is complete, install [vscode](https://code.visualstudio.c
 brew install --cask visual-studio-code
 ```
 
+## Jetbrains
+
+Head on over to [here](https://www.jetbrains.com/ides/#choose-your-ide) and
+download the IDE if you haven't already. If you are leveraging `python` like
+this workshop will be, you should pick
+[PyCharm](https://www.jetbrains.com/pycharm/)
+
 ## Python
 
 Python is a whole programming language. There are multiple ways to install it, and
@@ -81,5 +88,10 @@ brew install python@3.11
 Please confirm that your `python --version` is at least `3.11+` for the best experience.
 
 With this you should have the applications you need, let's start the workshop!
+
+## AnythingLLM
+
+Head on over [here](https://anythingllm.com/desktop) choose the correct version
+for your Operating System. We will configure it later in the workshop.
 
 <img src="https://count.asgharlabs.io/count?p=/prework_opensource_ai_page>
