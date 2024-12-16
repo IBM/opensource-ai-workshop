@@ -1,106 +1,101 @@
 ---
-title: Contributing with the UI
-description: Steps to contribute skills and knowledge through the InstructLab UI
+title: Useful Prompts and Use Cases
+description: Some general useful prompt templates
 logo: images/ilab_dog.png
 ---
 
-# Using the InstructLab UI
+Now here comes the fun part, and exploration for your Prompt Engineering (PE) journey.
+Be sure you have AnythingLLM (or Open-WebUI) available, and open in a _new_ Workspace.
+The testing "Who is Batman?" workspace should be left alone for this.
+Maybe call it "Learning Prompt Engineering" or the like, just like below.
 
-Now that you've run InstructLab locally, let's try contributing to the Open-Source project using the [InstructLab UI](https://qa.ui.instructlab.ai/)
+![](../images/anythingllm_learning_pe.png)
 
-## Verify Access
+## Brain storming prompt
 
-If you are not part of the InstructLab organization already, you will need to request access using your GitHub username
-through this [link](https://instructlab-inviter-instructlab-public-inviter.qa-ui-instructlab-ai-0e3e0ef4c9c6d831e8aa6fe01f33bfc4-0000.us-south.containers.appdomain.cloud/)
+Now lets try our first real prompt, copy the following into the message box:
+```
+I'm looking to explore [subject] in a [format]. Do you have any suggestions on [topics] I can cover?
+```
 
-You will then be able to login the [InstructLab UI](https://qa.ui.instructlab.ai/) using GitHub SSO
+This is a good "brain storming idea" prompt. Fill in `[subject]`, `[format]`, and `[topics]` for liking,
+I'll be running:
+```
+I'm looking to explore pasta making recipes. Do you have any suggestions on recipes that are unique and challanging?
+```
 
-## Chatting with Model
+As you can see granite-3.0 comes back with some very challenging options:
 
-Through the UI, you will have access to the chat function. Like the chat through the CLI, this will allow you to chat with the model
-to see if the model has the knowledge/skill you are looking for. Unlike the CLI version, this will give you the opportunity to chat
-with a full Granite-7B model, giving you a better understanding of what capabilities the model already has.
+![pasta challenges](../images/anythingllm_pasta_challenges.png)
 
-You can navigate to this Chat by going the menu on the left-hand side -> Playground dropdown -> Chat:
-![uichat](../images/ui_chat.png)
+Now if you put the same question in does it give you the same? Or is it different?
 
-From here try asking it some questions! If you are able to find a knowledge or skill the model is not yet capable of, we can move on to the next steps and create contributions.
+I'm a fan of Homemade Ravioli, so lets ask what the recipe is for that, in the message box in this _thread_ I'll write
+out:
+```
+I do like some homemade ravioli, what is the spinach ricotta and cheese recipe you suggest?
+```
 
-## Creating a Skill Contribution
+![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
 
-If you have found a missing skill in granite chat, you can create a skill contribution easily through the UI. Remember, a guide to help you learn about what a Skill is can be found in the [InstructLab Github](https://github.com/instructlab/taxonomy/blob/main/docs/SKILLS_GUIDE.md)
+Now this may seem odd, or even pointless, but hopefully you can start seeing that if you treat the prompt like
+a conversation that you interate on, you can talk back and forth with the granite-3.0 and find interesting
+nuggets of knowledge.
 
-Navigate to the Contribute section of the sidebar and click Skill. Here you will see the form to contribute a Skill to the open-source taxonomy tree.
-![uiskill](../images/ui_skill.png)
+## Client or Customer email generation
 
-On this page you will find all the necessary pieces to fill in to create you Skill contribution, let's go through each one here
+Next create a new "thread" so the context window resets, and lets try something everyone has probably already
+done, but give you a "mad libs" prompt that can help just churn them out for you.
 
-### Author Information
-Use your GitHub account email address and full name here. This will make sure that this contribution and the data with it is properly signed off and credited to you.
+![new thread](../images/anythingllm_new_thread.png)
 
-### Skill Information
-In the box for the submission summary, give a brief description of what your skill is. This will be used in the PR description after you submit.
-Below that you will fill in a detailed description of what your skill is teaching the model to do.
-For example, if your skill is extracting the date from a bean count ledger, you would fill in "Teaching the model to extract the date from a bean count ledger"
+Take the following prompt, and fill it out to your content. Have some fun with it :)
+```
+I want you to act as a customer support assistant who is [characteristic]. How would you respond to [text] as a representative of our [type] company?
+```
 
-!!! note
-    The detailed description is very important for quality synthetic data generation. What you fill in for this box will be used as prompting during the SDG process. Imagine you are telling the teacher model: "The task is (your description here)"
+My version will be:
+```
+I want you to act as a customer support assistant who is an expert in shipping logistics.  How would you respond to client who has had their freight lost as a representative of our company?
+```
 
-### Taxonomy Directory Path
-Using the dropdown menu, you will be able to select where you think your skill will fit the best in the taxonomy tree. If your skill is a grounded skill (meaning that it requires context to answer) you will need to navigate into the "grounded" section of the taxonomy tree before selecting the proper subsection. Otherwise, select the section you think best represents the subject of your skill.
+![lost freight](../images/anythingllm_lost_freight.png)
 
-!!! note
-    Proper placement within the taxonomy tree will allow other users to more accurately locate existing leaf nodes. Ask yourself: "What section of the library would I expect to find my skill under?"
+Oh, that's not nearly enough, or interesting right? Well it's because we haven't interated on it, we just wrote a "client" with no context, or what they may
+have lost. So lets see if we can fill it out more:
+```
+The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. I need you to write out an apology letter, with reference to the shipping order, of #00234273 and the help line of 18003472845, with a discount code of OPPSWEDIDITAGAIN for 15% off shipping their next order.
+Mention that sometimes the trucks have accidents and need to be repaired and we should be able to reach out in a couple weeks.
+```
 
-### Seed Examples
-Here you will begin filling out your QNA examples that represent the skill you are trying to teach. You will need a minimum of 5 seed examples, which each example consisting of a Question and Answer. If your skill is a grounded skill and requires context, you will also add context for each QNA pair here.
+![better lost freight](../images/anythingllm_better_lost_freight.png)
 
-!!! note
-    The QNA pairs that you create here should be diverse. You should try to rephrase questions in different ways and create unique contexts. For example, in the case of date extraction from bean count, you do not want to use the same date repeatedly in your seed examples, as this may have the unintended consequence of teaching the model to simply regurgitate the same date when asked any date extraction question.
+So much better! With more context, and more of a back story to what you are asking for, building off the intial prompt, we got something
+that with just a small tweaks we can email to our client.
 
-### Attribution Information
-The information filled in this section will create the attribution.txt file needed for your submission. Fill in a concise title for your skill. If your skill is entirely self created, you can put your name as the creator and use Apache-2.0 as the license. Otherwise please refer to your source material for creator and licensing information.
+## Your work history prompt
 
-Once you have filled in all the necessary information, you can finally submit your skill! If you would like to download or view the qna.yaml or attribution.txt, there are drop down menus provided for both. If you choose to, you can download these files to create a PR in the taxonomy repository yourself. Otherwise, you can press submit and the UI will automatically create a PR under your GitHub namespace in the InstructLab Taxonomy repository.
+You probably have your resume on this machine we are working on right? Lets take it and build a "blurb" about your skill set and who you are
+and maybe if you are feeling adventurous you can even get a cover letter out of it. (Don't forget to start a new thread!)
 
-## Creating a Knowledge Contribution
+Here's a prompt to help you getting started:
+```
+The following text is my resume for my career up until my most recent job. I am [your job now] with [number of years of experiance] considered
+an expert or highly skilled individual in [your core skill set]. I am looking to build a couple paragraph explanation on why someone should
+hire me for the next role with both my modern skill set, and my previous expertise
+```
 
-If you have found missing knowledge in granite chat, you can create a knowledge contribution easily through the UI. Remember, a guide to help you learn about what Knowledge is can be found in the [InstructLab Github](https://github.com/instructlab/taxonomy/blob/main/docs/KNOWLEDGE_GUIDE.md)
+![](../images/anythingllm_resume.png)
 
-Firstly you will need to find a source document for your knowledge. Accepted sources can be found [here](https://github.com/instructlab/taxonomy/blob/main/docs/KNOWLEDGE_GUIDE.md#accepted-knowledge)
+Now for mine, it wasn't great, but it at least give me somethings to work off of. Again, this is just a start, but you can build off of this blurb and
+see what you can actually accomplish.
 
-Navigate to the Contribute section of the sidebar and click Knowledge. Here you will see the form to contribute Knowledge to the open-source taxonomy tree.
-![uiknowledge](../images/ui_knowledge.png)
+## Zero, Single, Multi Shot prompting
 
-On this page you will find all the necessary pieces to fill in to create you knowledge contribution, let's go through each one here
-
-### Author Information
-Use your GitHub account email address and full name here. This will make sure that this contribution and the data with it is properly signed off and credited to you.
-
-### Knowledge Information
-In the box for the submission summary, give a brief description of what your knowledge is. This will be used in the PR description after you submit.
-Below that you will fill in the domain the knowledge you are adding would fall under. For example, if you want to teach the model the winners at the 2024 Olympics, you might put "Olympic history" as the domain.
-
-!!! note
-    The task domain is a critical part of the SDG process and will be part of the prompt when generating synthetic data. Ask your self: "What kind of textbook would contain the knowledge I am trying to teach the model?"
-
-The final box in Knowledge Information will contain an outline of the document. Using the example above, you may put "Document listing the medalists in the 2024 Summer Olympics"
-
-### Taxonomy Directory Path
-Using the dropdown menu, you will be able to select where you think your knowledge will fit the best in the taxonomy tree.
-
-!!! note
-    Proper placement within the taxonomy tree will allow other users to more accurately locate existing leaf nodes. Ask yourself: "What section of the library would I expect to find my skill under?"
-
-### Seed Examples
-Here you will begin filling out your QNA examples that represent the knowledge you are trying to teach. There must be exactly 5 seed examples in this section. Each seed example needs one unique piece of context from your source document with no more than 500 characters. From this piece of context, you will need to create 3 QNA pairs that can be answered from the context you have selected.
-
-### Document
-You will now need to upload the source document for your knowledge submission here. If you choose to automatically upload, summitting the file will automatically create a repo in your GitHub namespace with the markdown document and generate the link to the repo in your knowledge submission. Otherwise, you can manually enter the details of where your knowledge document is located.
-
-!!! note
-    Your knowledge document must be place in a public GitHub repo in order to be accepted. When your submission is being reviewed and merged, this document will need to be accessible publicly.
-
-### Attribution Information
-
-Lastly you will fill in the attribution information. For a Wikipedia article, this means you will need the Title of the article, URL to the article, and Document Revision link to the article. The license for Wikipedia articles will be "CC-BY-SA-4.0" and Creator Name can simply be "Wikipedia Authors"
+Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+- Zero Shot: No previous data or guidelines given before completing request.
+  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
+- One Shot: One piece of data or guideline given before completing request.
+  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
+- Few Shot: Multiple pieces of data or guidelines given before completing request.
+  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
