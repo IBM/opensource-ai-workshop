@@ -31,8 +31,8 @@ The introductory page of the workshop is broken down into the following sections
 | [Lab 1: Building a local AI co-pilot](lab-1/README.md) | Let's get it installed! |
 | [Lab 2: Using the local AI co-pilot](lab-2/README.md) | Let's learn about how to use a local AI co-pilot |
 | [Lab 3: Configuring AnythingLLM](lab-3/README.md) | Let's configure AnythingLLM |
-| [Lab 4: Prompt engineering overview](lab-4/README.md) | Let's learn about leveraging the `granite-3.0-dense` model |
-| [Lab 5: Useful prompts and use cases](lab-5/README.md) | Let's get some good over arching prompts and uses cases with `granite-3.0-dense` model |
+| [Lab 4: Prompt engineering overview](lab-4/README.md) | Let's learn about leveraging the `granite3.1-dense` model |
+| [Lab 5: Useful prompts and use cases](lab-5/README.md) | Let's get some good over arching prompts and uses cases with `granite3.1-dense` model |
 
 ## Compatibility
 

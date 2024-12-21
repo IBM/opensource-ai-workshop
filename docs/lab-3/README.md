@@ -15,14 +15,14 @@ Open up AnyThingLLM, and you should see something like the following:
 If you see this that means AnythingLLM is installed correctly, and we can continue configuration, if not, please find a workshop TA or
 raise your hand we'll be there to help you ASAP.
 
-Next as a sanity check, run the following command to confirm you have the [granite3-dense](https://ollama.com/library/granite3-dense)
+Next as a sanity check, run the following command to confirm you have the [granite3.1-dense](https://ollama.com/library/granite3.1-dense)
 model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
 
 !!! note
     We need to figure out a way to copy the models into ollama without downloading.
 
 ```bash
-ollama pull granite3-dense:8b
+ollama pull granite3.1-dense:8b
 ```
 
 Next click on the `wrench` icon, and open up the settings. For now we are going to configure the global settings for `ollama`
@@ -52,5 +52,5 @@ it knows _something_.
 Now you may notice that the answer is slighty different then the screen shot above. That's expected and nothing to worry about. If
 you have more questions about it raise your hand and one of the helpers would love to talk you about it.
 
-Congratulations! You have AnythingLLM running now, configured to work with `granite-3.0-dense` and `Ollama`!
+Congratulations! You have AnythingLLM running now, configured to work with `granite3.1-dense` and `Ollama`!
 

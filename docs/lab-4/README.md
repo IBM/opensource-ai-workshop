@@ -37,12 +37,12 @@ desired subject, style, layout, lighting, and aesthetic.
 ## The three key principles of PE?
 1. Be specific: The more criteria you give, the more focused the output will be
 1. Work in steps: break the task into smaller chunks. This returns better results, just like a human
-1. Iterate and improve: Re-work the inputs and have the granite-3.0 model improve its own output.
+1. Iterate and improve: Re-work the inputs and have the granite-3.1 model improve its own output.
 
 ## What makes a good prompt?
 1. Clear and concise language that is direct and unambiguous
 1. The information and examples that you provide area your input.
-1. A specific task that you are requesting granite-3.0 to complete area your desired output
+1. A specific task that you are requesting granite-3.1 to complete area your desired output
 1. Refinement as needed once you receive your first response area reiteration until receiving the desired output
 
 

@@ -24,7 +24,7 @@ I'll be running:
 I'm looking to explore pasta making recipes. Do you have any suggestions on recipes that are unique and challanging?
 ```
 
-As you can see granite-3.0 comes back with some very challenging options:
+As you can see granite-3.1 comes back with some very challenging options:
 
 ![pasta challenges](../images/anythingllm_pasta_challenges.png)
 
@@ -39,7 +39,7 @@ I do like some homemade ravioli, what is the spinach ricotta and cheese recipe y
 ![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
 
 Now this may seem odd, or even pointless, but hopefully you can start seeing that if you treat the prompt like
-a conversation that you interate on, you can talk back and forth with the granite-3.0 and find interesting
+a conversation that you interate on, you can talk back and forth with the granite-3.1 and find interesting
 nuggets of knowledge.
 
 ## Client or Customer email generation
