@@ -15,13 +15,15 @@ Maybe call it "Learning Prompt Engineering" or the like, just like below.
 
 Now lets try our first real prompt, copy the following into the message box:
 ```
-I'm looking to explore [subject] in a [format]. Do you have any suggestions on [topics] I can cover?
+I'm looking to explore [subject] in a [format].
+Do you have any suggestions on [topics] I can cover?
 ```
 
 This is a good "brain storming idea" prompt. Fill in `[subject]`, `[format]`, and `[topics]` for liking,
 I'll be running:
 ```
-I'm looking to explore pasta making recipes. Do you have any suggestions on recipes that are unique and challanging?
+I'm looking to explore pasta making recipes. Do you
+have any suggestions on recipes that are unique and challanging?
 ```
 
 As you can see granite-3.1 comes back with some very challenging options:
@@ -33,7 +35,8 @@ Now if you put the same question in does it give you the same? Or is it differen
 I'm a fan of Homemade Ravioli, so lets ask what the recipe is for that, in the message box in this _thread_ I'll write
 out:
 ```
-I do like some homemade ravioli, what is the spinach ricotta and cheese recipe you suggest?
+I do like some homemade ravioli, what is the spinach
+ricotta and cheese recipe you suggest?
 ```
 
 ![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
@@ -51,12 +54,17 @@ done, but give you a "mad libs" prompt that can help just churn them out for you
 
 Take the following prompt, and fill it out to your content. Have some fun with it :)
 ```
-I want you to act as a customer support assistant who is [characteristic]. How would you respond to [text] as a representative of our [type] company?
+I want you to act as a customer support assistant who
+is [characteristic]. How would you respond to [text]
+as a representative of our [type] company?
 ```
 
 My version will be:
 ```
-I want you to act as a customer support assistant who is an expert in shipping logistics.  How would you respond to client who has had their freight lost as a representative of our company?
+I want you to act as a customer support assistant who
+is an expert in shipping logistics.  How would you respond
+to client who has had their freight lost as a
+representative of our company?
 ```
 
 ![lost freight](../images/anythingllm_lost_freight.png)
@@ -64,8 +72,15 @@ I want you to act as a customer support assistant who is an expert in shipping l
 Oh, that's not nearly enough, or interesting right? Well it's because we haven't interated on it, we just wrote a "client" with no context, or what they may
 have lost. So lets see if we can fill it out more:
 ```
-The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. I need you to write out an apology letter, with reference to the shipping order, of #00234273 and the help line of 18003472845, with a discount code of OPPSWEDIDITAGAIN for 15% off shipping their next order.
-Mention that sometimes the trucks have accidents and need to be repaired and we should be able to reach out in a couple weeks.
+The freight they lost was an industrial refrigerator,
+from Burbank, California to Kanas City, MO. I need you to
+write out an apology letter, with reference to the
+shipping order, of #00234273 and the help line of 18003472845,
+with a discount code of OPPSWEDIDITAGAIN for 15% off
+shipping their next order.
+Mention that sometimes the trucks have accidents and
+need to be repaired and we should be able to reach
+out in a couple weeks.
 ```
 
 ![better lost freight](../images/anythingllm_better_lost_freight.png)
@@ -80,9 +95,14 @@ and maybe if you are feeling adventurous you can even get a cover letter out of 
 
 Here's a prompt to help you getting started:
 ```
-The following text is my resume for my career up until my most recent job. I am [your job now] with [number of years of experiance] considered
-an expert or highly skilled individual in [your core skill set]. I am looking to build a couple paragraph explanation on why someone should
-hire me for the next role with both my modern skill set, and my previous expertise
+The following text is my resume for my career up until
+my most recent job. I am [your job now] with
+[number of years of experiance] considered
+an expert or highly skilled individual in
+[your core skill set]. I am looking to build a
+couple paragraph explanation on why someone should
+hire me for the next role with both my modern
+skill set, and my previous expertise
 ```
 
 ![](../images/anythingllm_resume.png)
@@ -90,9 +110,26 @@ hire me for the next role with both my modern skill set, and my previous experti
 Now for mine, it wasn't great, but it at least give me somethings to work off of. Again, this is just a start, but you can build off of this blurb and
 see what you can actually accomplish.
 
+## Summarization Prompt
+
+Something you'll discover quickly is that leveraging your local AI model to summarize long documents and/or emails can help figure out if you
+actually need to read the details of something. Showing the age of the author here, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Yep, you have your own
+built in CliffNotes bot with AI.
+
+Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
+
+```
+Generate an X-word summary of the following document,
+highlighting key insights, notable quotes, and the overall
+tone of the core point of it.
+Be sure to add any specific call to actions or things that
+need to be done by a specific date.
+```
+
 ## Zero, Single, Multi Shot prompting
 
 Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+
 - Zero Shot: No previous data or guidelines given before completing request.
   - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
 - One Shot: One piece of data or guideline given before completing request.
