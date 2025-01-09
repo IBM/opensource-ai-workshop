@@ -19,9 +19,11 @@ Next as a sanity check, run the following command to confirm you have the [grani
 model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
 
 If you didn't know, the supported languages with `granite3.1-dense` now include:
+
 - English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
 
 And the Capabilities also include:
+
 - Summarization
 - Text classification
 - Text extraction
