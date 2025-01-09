@@ -6,7 +6,7 @@ logo: images/ibm-blue-background.png
 
 # Configuring AnythingLLM
 
-Now that you've gotten [AnythingLLM installed](../pre-work/#anythingllm) we need to configure it with `ollama` and AnythingLLM
+Now that you've gotten [AnythingLLM installed](../pre-work/README.md#anythingllm) we need to configure it with `ollama` and AnythingLLM
 to talk to one another. The following screenshots will be from a Mac, but the gist of this should be the same on Windows and Linux.
 
 Open up AnyThingLLM, and you should see something like the following:

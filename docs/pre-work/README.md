@@ -9,6 +9,7 @@ You'll need:
 - [One of the Jetbrains IDEs](#jetbrains) - You can choose the one you want, if the wifi is bad, please reach out to a TA to give you a USB stick.
 - [Python](#python) - If you don't already have a proficently in a languge, please follow the `python` steps.
 - [AnythingLLM](#anythingllm) - This will be a GUI interface to your LLM(s).
+- [Open WebUI](#open-webui) - This is a browser based GUI for your LLM(s).
 
 ## Ollama
 
@@ -66,7 +67,7 @@ this workshop will be, you should pick
 Python is a whole programming language. There are multiple ways to install it, and
 [here is the official website](https://www.python.org). Please take a moment and if you can't run
 the following command, reach out to a teaching assistant or instructor to help you
-get resolved.
+ get resolved.
 
 !!! note
     If you have an older version of python, or default "OS" versions of python, you'll need to update.
@@ -94,4 +95,24 @@ With this you should have the applications you need, let's start the workshop!
 Head on over [here](https://anythingllm.com/desktop) choose the correct version
 for your Operating System. We will configure it later in the workshop.
 
-<img src="https://count.asgharlabs.io/count?p=/prework_opensource_ai_page>
+## Open-Webui
+
+If you have decided to run the Web Based/Browser based way to interact with your LLM(s) [open-webui](https://github.com/open-webui/open-webui)
+is a fine if not _the_ defacto choice.
+
+!!! note
+    You only need to pick one of AnythingLLM or Open-WebUI, though you could
+    pick both, it's really up to you!
+
+Assuming you've set up [Python](#python) above, you'll need the following commands
+to get it installed.
+
+```bash
+cd ~
+mkdir openweb-ui
+cd openweb-ui
+python3.11 -m venv --upgrade-deps venv
+source venv/bin/activate
+pip install open-webui
+open-webui serve
+```

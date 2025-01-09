@@ -188,4 +188,3 @@ if you want a quick video of other neat <https://continue.dev> functions we didn
 
 On to the next lab!
 
-<img src="https://count.asgharlabs.io/count?p=/lab2_opensource_ai_page>

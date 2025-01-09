@@ -57,4 +57,3 @@ problem leveraging development processes.
 
 Now that you see this overview, lets actually get into some prompts and helpful prompt templates.
 
-<img src="https://count.asgharlabs.io/count?p=/lab4_opensource_ai_page>

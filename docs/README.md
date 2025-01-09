@@ -47,4 +47,3 @@ This workshop has been tested on the following platforms:
 * [Gabe Goodhart](https://github.com/gabe-l-hart)
 * [Ming Zhao](https://github.com/mingxzhao)
 
-<img src="https://count.asgharlabs.io/count?p=/main_opensource_ai_page">
