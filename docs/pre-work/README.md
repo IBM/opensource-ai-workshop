@@ -15,7 +15,7 @@ per your preferences. If you don't know what to select choose the **SUGGESTED** 
 - [Python](#python) - If you don't already have a proficiently in a language, please follow the `python` steps.
 
 ## Student's Choice
-- [Visual Studio Code](#visual-studio-code) - **SUGGESTED** We'll be walking through an extension to VSCode in this workshop. OR
+- [Visual Studio Code](#visual-studio-code) - **SUGGESTED** We'll be walking through an extension to VSCode in this workshop.
 - [One of the Jetbrains IDEs](#jetbrains) - You can choose the one you want, if the wifi is bad, please reach out to a TA to give you a USB stick.
 - [AnythingLLM](#anythingllm) - **SUGGESTED** This will be a GUI interface to your LLM(s).
 - [Open WebUI](#open-webui) - This is a browser based GUI for your LLM(s).

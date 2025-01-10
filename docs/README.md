@@ -4,10 +4,13 @@ description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
-## Open Source AI Workshop
+## Open Source AI workshop
 
-Welcome to our workshop! In this workshop we'll be using a local AI Model for code completion, and learning best practices
-leveraging an Open Source LLM.
+Welcome to our workshop! Thank you for trusting us to help you learn about this
+new and exciting space. There is a lot going on here, and we want to give you
+enough to be able to feel confident in consuming LLM(s) and ideally find success
+quickly. In this workshop we'll be using a local AI Model for code completion,
+and learning best practices leveraging an Open Source LLM.
 
 Our overarching goals of this workshop is as follows:
 
