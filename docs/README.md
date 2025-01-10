@@ -27,17 +27,9 @@ Our overarching goals of this workshop is as follows:
     By the time you leave today, you'll have everything you need leverage this on your laptop
     at home, without internet access, in a secure manner.
 
-## About this workshop
-
-The introductory page of the workshop is broken down into the following sections:
-
-* [Agenda](#agenda)
-* [Compatibility](#compatibility)
-* [Credits](#credits)
-
 ## Agenda
 
-|  |  |
+| Lab  | Description  |
 | :--- | :--- |
 | [Lab 0: Pre-work](pre-work/README.md) | Pre-work and set up for the workshop |
 | [Lab 1: Building a local AI co-pilot](lab-1/README.md) | Let's get VSCode and our local AI working together |

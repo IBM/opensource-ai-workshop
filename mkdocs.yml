@@ -11,7 +11,7 @@ edit_uri: edit/master/docs
 # Navigation
 nav:
   - Welcome:
-    - About the workshop: README.md
+    - Introduction: README.md
   - Workshop:
     - Lab 0. Pre-work: pre-work/README.md
     - Lab 1. Building a local AI co-pilot: lab-1/README.md
