@@ -4,8 +4,6 @@ description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
-# Introduction
-
 ## Open Source AI Workshop
 
 Welcome to our workshop! In this workshop we'll be using a local AI Model for code completion, and learning best practices
