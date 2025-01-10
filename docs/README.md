@@ -52,6 +52,7 @@ This workshop has been tested on the following platforms:
 
 * **MacOS**: version 14.5
 * **Linux**: Fedora 40
+* **Windows 10**
 
 ## Credits
 
