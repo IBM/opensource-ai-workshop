@@ -1,11 +1,15 @@
-# Using the local AI co-pilot
+---
+title: Using the local AI co-pilot
+description: Learn how to leverage Open Source AI
+logo: images/ibm-blue-background.png
+---
 
-Lets play with our new found local AI Open Source AI!
+Let's play with our new found local AI Open Source AI!
 
 !!! note
     There is an expectation of some programming experience/knowledge here, if you don't have any
     or are uncomfortable here, don't fret! Our TA's are here to help and want to help, raise your
-    hand and ask. You can always skip to Lab 3, or Lab 5 if you want.
+    hand and ask.
 
 ## Sanity checks
 
@@ -34,7 +38,7 @@ Now, lets open up VSCode and have it look something like the following:
 ![batman](../images/whoisbatman.png)
 
 !!! troubleshooting
-    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visiable again.
+    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visible again.
 
 ## Building out `main.py`
 
@@ -185,6 +189,3 @@ take a look at the next screen shot:
 
 It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI)
 if you want a quick video of other neat <https://continue.dev> functions we didn't go over.
-
-On to the next lab!
-

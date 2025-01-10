@@ -1,4 +1,8 @@
-# Building a local AI co-pilot
+---
+title: Building a local AI co-pilot
+description: Learn how to leverage Open Source AI
+logo: images/ibm-blue-background.png
+---
 
 ## Overview
 

@@ -1,7 +1,7 @@
 ---
 title: Useful Prompts and Use Cases
 description: Some general useful prompt templates
-logo: images/ilab_dog.png
+logo: images/ibm-blue-background.png
 ---
 
 Now here comes the fun part, and exploration for your Prompt Engineering (PE) journey.
@@ -10,6 +10,17 @@ The testing "Who is Batman?" workspace should be left alone for this.
 Maybe call it "Learning Prompt Engineering" or the like, just like below.
 
 ![](../images/anythingllm_learning_pe.png)
+
+## Zero, Single, Multi Shot prompting
+
+Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+
+- Zero Shot: No previous data or guidelines given before completing request.
+  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
+- One Shot: One piece of data or guideline given before completing request.
+  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
+- Few Shot: Multiple pieces of data or guidelines given before completing request.
+  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
 
 ## Brain storming prompt
 
@@ -126,13 +137,34 @@ Be sure to add any specific call to actions or things that
 need to be done by a specific date.
 ```
 
-## Zero, Single, Multi Shot prompting
+## Role playing prompt
 
-Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+If you noticed in the previous lab we talked about leveraging a single prompt to build a
+"single shot" role playing if you skipped it, we'll be going over it again here.
 
-- Zero Shot: No previous data or guidelines given before completing request.
-  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
-- One Shot: One piece of data or guideline given before completing request.
-  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
-- Few Shot: Multiple pieces of data or guidelines given before completing request.
-  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
+```
+Generate a self-contained dungeon adventure for a party of 4 adventurers,
+set in a [specific environment like a forgotten temple or an abandoned mine],
+with a clear objective, unique challenges, and a memorable boss encounter,
+all designed to be completed in a single session of gameplay
+```
+
+The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes deeper in depth, and can build out the
+whole thing for you if you want.
+
+The best part of this prompt is that you can take the output and extend or contract
+the portions it starts with, and tailor the story to your adventurers needs!
+
+## Other ideas?
+
+We'd love to add more to this workshop for future students, if you've come up with something
+clever or maybe someone beside you has and you'd like to save it for others we'd love
+a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-5) of it.
+
+
+!!! success
+    Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
+    the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
+    to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
+    [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
+    ASAP.
