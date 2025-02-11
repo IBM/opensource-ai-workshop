@@ -20,6 +20,7 @@ nav:
     - Lab 3.5 Configuring Open-WebUI: lab-3.5/README.md
     - Lab 4. Prompt engineering overview: lab-4/README.md
     - Lab 5. Useful prompts and use cases: lab-5/README.md
+    - Lab 6. Using AnythingLLM for a Local RAG: lab-6/README.md
   - References:
     - Additional Resources: resources/RESOURCES.md
     - MkDocs Cheatsheet: resources/MKDOCS.md
