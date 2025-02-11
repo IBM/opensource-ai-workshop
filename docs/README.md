@@ -38,6 +38,7 @@ Our overarching goals of this workshop is as follows:
 | [Lab 3.5: Configuring Open-WebUI](lab-3.5/README.md) | Let's configure Open-WebUI or AnythingLLM |
 | [Lab 4: Prompt engineering overview](lab-4/README.md) | Let's learn about leveraging and engaging with the `granite3.1-dense` model |
 | [Lab 5: Useful prompts and use cases](lab-5/README.md) | Let's get some good over arching prompts and uses cases with `granite3.1-dense` model |
+| [Lab 6: Using AnythingLLM for a local RAG](lab-6/README.md) | Let's build a local RAG and use `granite3.1-dense` to talk to it |
 
 !!! success
     Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions

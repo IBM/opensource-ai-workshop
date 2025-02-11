@@ -82,7 +82,7 @@ What was the US federal budget for 2024?
 
 You should come back with something like the following, it may be different, but the gist is there.
 
-![doesnt know the budget](../images/doesnt_know.png)
+![doesnt know the budget](../images/doent_know.png)
 
 Not great right? Well now we need to give it a way to look up this data, luckly, we have a backed up
 copy of the budget pdf [here](https://github.com/user-attachments/files/18510560/budget_fy2024.pdf).
