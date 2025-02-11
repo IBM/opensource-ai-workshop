@@ -88,7 +88,7 @@ Not great right? Well now we need to give it a way to look up this data, luckly,
 copy of the budget pdf [here](https://github.com/user-attachments/files/18510560/budget_fy2024.pdf).
 Go ahead and save it to your local machine, and be ready to grab it.
 
-Now spin up a new workspace, (yes, please a new workspace, it seems that sometimes AnythingLLM has
+Now spin up a **New Workspace**, (yes, please a new workspace, it seems that sometimes AnythingLLM has
 issues with adding things, so a clean environment is always easier to teach in) and call it
 something else.
 
