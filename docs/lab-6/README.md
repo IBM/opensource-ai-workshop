@@ -1,116 +1,199 @@
 ---
-title: Using AnythingLLM for a local RAG
-description: Learn how to build a simple local RAG
+title: Using the local AI co-pilot
+description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
-## Configuration and Sanity Check
+Let's play with our new found local AI Open Source AI!
 
-Open up AnyThingLLM, and you should see something like the following:
-![default screen](../images/anythingllm_open_screen.png)
+!!! note
+    There is an expectation of some programming experience/knowledge here, if you don't have any
+    or are uncomfortable here, don't fret! Our TA's are here to help and want to help, raise your
+    hand and ask.
 
-If you see this that means AnythingLLM is installed correctly, and we can continue configuration, if not, please find a workshop TA or
-raise your hand we'll be there to help you ASAP.
+## Sanity checks
 
-Next as a sanity check, run the following command to confirm you have the [granite3.1-dense](https://ollama.com/library/granite3.1-dense)
-model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
+When you open up `continue` inside of VSCode it should look something like:
+![](https://docs.continue.dev/assets/images/move-to-right-sidebar-b2d315296198e41046fc174d8178f30a.gif)
+
+Before we go any farther, write in "Who is batman?" to verify that `ollama`,
+VSCode, and `continue` are all working correctly.
+
+!!! troubleshooting
+    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code.
+    If that doesn't resolve your issue, restart Ollama.
+
+If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
+Its worth taken the moment if you want, otherwise, when you get home and try this on your own
+hardware, it's awesome to see what `continue` can do.
+
+Now that we have our local AI co-pilot with us, let's start using it. Now these
+next examples are going to be focused on `python` but there is nothing stopping
+you from doing this exact same process with `go`, `javascript`, `rust`, or the
+like. Part of learning about leveraging this technology is finding the boarders
+of its skill sets, and hopefully walking through this you'll understand that
+this technology is there to support you, not _do_ your work.
+
+Now, lets open up VSCode and have it look something like the following:
+![batman](../images/whoisbatman.png)
+
+!!! troubleshooting
+    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visible again.
+
+## Building out `main.py`
+
+Now create a new file, and put it in a new directory. Normally it's `ctrl-n` or `command-n` call it
+`main.py`.
+
+This is where you should probably "clear" the context window, so either use `ctrl-l` or `command-l` so
+your context is clear like the example here:
+![clear](../images/clearscreen.png)
+
+Now use the `command-i` or `ctrl-i` to open up the `generate code` command palette, and write in:
+```
+write me out conways game of life using pygame
+```
+
+!!! note
+    If you don't know what Conway's Game of Life is, take a look [here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) or
+    raise your hand, I'm betting the TA's would love to talk to you about it. 😁
+
+Now granite-code should start giving you a good suggestion here, it should look something like:
+![gameoflife_v1](../images/gameoflife_v1.png)
+
+!!! note
+    It won't be the same will it? That is expected, but you should notice that it's _close_.
+
+
+## Reading AI generated code
+
+Now what have you noticed here? Try to run it...does it work? Wait, why are there errors in this code?
+
+This is an important lesson for using _any_ AI co-pilot code assistants. They can give you the "lions share"
+of what you need, but it won't get you across the finish line. It gives you that "second pair of eyes" and provides
+something to work with, but not everything you need.
+
+Don't believe me? Bring up the terminal and attempt to run this code after you accepting it.
+
+![nope doesn't do anything](../images/nowork.png)
+
+Well that isn't good is it? Yours **will probably** be different code, or maybe it does work (if it does you're lucky
+and raise your hand the TAs will want to see it), but at least in this example we need to to get the code fixed.
+
+## First pass at debugging
+
+We'll run the following commands to build up an virtual environment, and install some modules, lets
+see how far we get.
+
+!!! tip
+    If these next commands are foreign to you, it's OK. These are `python` commands, and you can just
+    copy paste it in. If you'd like to know more or _why_ it is, raise your hand a TA should be able
+    to explain it to you.
 
 ```bash
-ollama pull granite3.1-dense:8b
+python3.11 -m venv venv
+source venv/bin/activate
+pip install pygame
 ```
 
-If you didn't know, the supported languages with `granite3.1-dense` now include:
+Well better, I think, but nothing still happens. So even noticing the `import pygame` tells me I need to
+debug farther. There's a few paths here, personally I'm going to take this code, and clean it up a bit
+so it's more readable.
 
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
+## Cleaning up the AI generated code
 
-And the Capabilities also include:
+!!! note
+    You can try using the built-in autocomplete and code assistant functions to generate any missing code.
+    In our example, we're missing a "main" entry point to the script. Try hitting `cmd + I` again,
+    and typing in something like: "write a main function for my game that plays twenty rounds of Conway's
+    game of life using the `board()` function." What happens?
 
-- Summarization
-- Text classification
-- Text extraction
-- Question-answering
-- Retrieval Augmented Generation (RAG)
-- Code related tasks
-- Function-calling tasks
-- Multilingual dialog use cases
-- Long-context tasks including long document/meeting summarization, long document QA, etc.
+Cleaning up the code. Now everything is smashed together, it's hard to read the logic here, so first
+thing first, going to break up the code and add a `def main` function so I know what the entry point is.
 
-Next click on the `wrench` icon, and open up the settings. For now we are going to configure the global settings for `ollama`
-but you may want to change it in the future.
-
-![wrench icon](../images/anythingllm_wrench_icon.png)
-
-Click on the "LLM" section, and select **Ollama** as the LLM Provider. Also select the `granite3-dense:8b` model. (You should be able to
-see all the models you have access to through `ollama` there.)
-
-![llm configuration](../images/anythingllm_llm_config.png)
-
-Click the "Back to workspaces" button where the wrench was. And Click "New Workspace."
-
-![new workspace](../images/anythingllm_new_workspace.png)
-
-Name it something like "learning llm" or the name of the event we are right now, something so you know it's somewhere you are learning
-how to use this LLM.
-
-![naming new workspace](../images/anythingllm_naming_workspace.png)
-
-Now we can test our connections _through_ AnythingLLM! I like the "Who is Batman?" question, as a sanity check on connections and that
-it knows _something_.
-
-![who is batman](../images/anythingllm_who_is_batman.png)
-
-Now you may notice that the answer is slighty different then the screen shot above. That's expected and nothing to worry about. If
-you have more questions about it raise your hand and one of the helpers would love to talk you about it.
-
-Congratulations! You have AnythingLLM running now, configured to work with `granite3.1-dense` and `ollama`!
-
-## Creating your own local RAG
-
-Now that you have everything set up, lets build our own RAG. You need a document, of some sort to questions to answer against
-it. Lets start with something fun. As of right now, our Granite model doesn't know about the US Federal Budget in 2024, so lets
-ask it a question about it to verify.
-
-Create a new workspace, and call it whatever you want:
-
-![new budget workspace](../images/new_budget_workspace.png)
-
-Now you have a new workspace, ask it a question like:
-
-```
-What was the US federal budget for 2024?
+On my version, I had a `tkinter` section, I decided to put the main game loop there:
+```python
+if __name__ == '__main__':
+    root = tkinter.Tk()
+    game_of_life(tkinter.Canvas(root))
+    root.mainloop()
 ```
 
-You should come back with something like the following, it may be different, but the gist is there.
+But above it, it seems there's a red squiggly! Remember all I added was some line breaks to for readability,
+so another problem this AI gave me, so I need to resolve this too.
 
-![doesnt know the budget](../images/doent_know.png)
+![broken main](../images/broken_main.png)
 
-Not great right? Well now we need to give it a way to look up this data, luckly, we have a backed up
-copy of the budget pdf [here](https://github.com/user-attachments/files/18510560/budget_fy2024.pdf).
-Go ahead and save it to your local machine, and be ready to grab it.
+For me, all I had to do was remove those extra spaces, but I'd be curious to know what your AI gave you...
 
-Now spin up a **New Workspace**, (yes, please a new workspace, it seems that sometimes AnythingLLM has
-issues with adding things, so a clean environment is always easier to teach in) and call it
-something else.
+## Second pass at debugging
 
-![budget workspace](../images/budget_workspace.png)
+Now that I've cleaned it up, and it seems I had to do some importing:
 
-Click on the "upload a document" to get the pdf added.
+```python
+import tkinter
+import time
+```
+I can at least run my application now:
+![tk nothing](../images/tk_nothing.png)
 
-Next we need to add it to the workspace.
+But that doesn't work right?! OK, lets start debugging more. This next step is to leverage Granite-Code to
+tell me whats going on with the different functions. Go ahead and highlight any _one_ of them and run:
+`cmd-L` to add it to the context window and ask granite-coder something like
 
-![adding pdf](../images/adding_pdf.png)
+```
+what does this function do?
+```
 
-Next click the upload or drag and drop and put the pdf in there, and then the arrow to move it to the
-workspace. Click Save and Embed.
+![explain code](../images/explain_code.png)
 
-You have now added the pdf to the workspace.
+Pretty good right? It helped me understand what is actually happening with this and I do it with each
+function so I get a better understanding of what the program is doing.
 
-Now when the chat comes back up ask the same question, and you should see some new answers!
+Go ahead and walk through your version, see the logic, and who knows maybe it'll highlight why yours
+isn't working yet, or not, the next step will help you even more!
 
-![success pdf](../images/success.png)
+## Automagicly creating tests
 
-It won't be exactly what we are looking for, but it's enough to now see that the Granite model can
-leverage the local RAG and in turn can _look things up_ for you. You'll need some prompt engineering
-to get exactly what you want but this is just the start of leveraging the AI!
+One of the most powerful/helping stream line your workflow as a developer is writing good tests
+around your code. It's a safety blanket to help make sure your custom code has a way to check for
+any adverse changes in a day, week, month, year down the line. Most people hate writing tests,
+turns out Granite-Code can do it for you!
 
+That function you recently put in the context window? How about you ask it this:
+
+```text
+write a pytest test for this function
+```
+
+Now I got a good framework for a test here:
+![lazy pytest](../images/pytest_test.png)
+
+Notice that it only knew about what is in the context, so yep I'll need to add `pip install pytest` to
+my project. I'll also need to create a new test file and integrate `pytest` into my project. But
+this highlights you not blindly taking from the AI, you need to put it _in_ your system.
+
+Admittedly, if you have trouble building out tests though this is insanely powerful, and your
+futureself and team mates will be happy you've built these in.
+
+Finally there are two other things we should mention before heading over to the next Lab. First,
+hopefully you've gotten your Game of Life working, if not, a lot of us are Python developers,
+raise your hand and one of us may be able to come help you out.
+
+## Automagically commenting your code
+
+Last but not least, there is a great auto comment code option that we'd be remiss not to mention,
+take a look at the next screen shot:
+
+![comment_code](../images/comment_code.png)
+
+It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI)
+if you want a quick video of other neat <https://continue.dev> functions we didn't go over.
+
+!!! success
+    Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
+    the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
+    to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
+    [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
+    ASAP.
 

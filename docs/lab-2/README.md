@@ -1,191 +1,162 @@
 ---
-title: Using the local AI co-pilot
-description: Learn how to leverage Open Source AI
+title: Useful Prompts and Use Cases
+description: Some general useful prompt templates
 logo: images/ibm-blue-background.png
 ---
 
-Let's play with our new found local AI Open Source AI!
+Now here comes the fun part, and exploration for your Prompt Engineering (PE) journey.
+Be sure you have AnythingLLM (or Open-WebUI) available, and open in a _new_ Workspace.
+The testing "Who is Batman?" workspace should be left alone for this.
+Maybe call it "Learning Prompt Engineering" or the like, just like below.
 
-!!! note
-    There is an expectation of some programming experience/knowledge here, if you don't have any
-    or are uncomfortable here, don't fret! Our TA's are here to help and want to help, raise your
-    hand and ask.
+![](../images/anythingllm_learning_pe.png)
 
-## Sanity checks
+## Zero, Single, Multi Shot prompting
 
-When you open up `continue` inside of VSCode it should look something like:
-![](https://docs.continue.dev/assets/images/move-to-right-sidebar-b2d315296198e41046fc174d8178f30a.gif)
+Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
 
-Before we go any farther, write in "Who is batman?" to verify that `ollama`,
-VSCode, and `continue` are all working correctly.
+- Zero Shot: No previous data or guidelines given before completing request.
+  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
+- One Shot: One piece of data or guideline given before completing request.
+  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
+- Few Shot: Multiple pieces of data or guidelines given before completing request.
+  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
 
-!!! troubleshooting
-    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code.
-    If that doesn't resolve your issue, restart Ollama.
+## Brain storming prompt
 
-If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
-Its worth taken the moment if you want, otherwise, when you get home and try this on your own
-hardware, it's awesome to see what `continue` can do.
-
-Now that we have our local AI co-pilot with us, let's start using it. Now these
-next examples are going to be focused on `python` but there is nothing stopping
-you from doing this exact same process with `go`, `javascript`, `rust`, or the
-like. Part of learning about leveraging this technology is finding the boarders
-of its skill sets, and hopefully walking through this you'll understand that
-this technology is there to support you, not _do_ your work.
-
-Now, lets open up VSCode and have it look something like the following:
-![batman](../images/whoisbatman.png)
-
-!!! troubleshooting
-    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visible again.
-
-## Building out `main.py`
-
-Now create a new file, and put it in a new directory. Normally it's `ctrl-n` or `command-n` call it
-`main.py`.
-
-This is where you should probably "clear" the context window, so either use `ctrl-l` or `command-l` so
-your context is clear like the example here:
-![clear](../images/clearscreen.png)
-
-Now use the `command-i` or `ctrl-i` to open up the `generate code` command palette, and write in:
+Now lets try our first real prompt, copy the following into the message box:
 ```
-write me out conways game of life using pygame
+I'm looking to explore [subject] in a [format].
+Do you have any suggestions on [topics] I can cover?
 ```
 
-!!! note
-    If you don't know what Conway's Game of Life is, take a look [here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) or
-    raise your hand, I'm betting the TA's would love to talk to you about it. 😁
-
-Now granite-code should start giving you a good suggestion here, it should look something like:
-![gameoflife_v1](../images/gameoflife_v1.png)
-
-!!! note
-    It won't be the same will it? That is expected, but you should notice that it's _close_.
-
-
-## Reading AI generated code
-
-Now what have you noticed here? Try to run it...does it work? Wait, why are there errors in this code?
-
-This is an important lesson for using _any_ AI co-pilot code assistants. They can give you the "lions share"
-of what you need, but it won't get you across the finish line. It gives you that "second pair of eyes" and provides
-something to work with, but not everything you need.
-
-Don't believe me? Bring up the terminal and attempt to run this code after you accepting it.
-
-![nope doesn't do anything](../images/nowork.png)
-
-Well that isn't good is it? Yours **will probably** be different code, or maybe it does work (if it does you're lucky
-and raise your hand the TAs will want to see it), but at least in this example we need to to get the code fixed.
-
-## First pass at debugging
-
-We'll run the following commands to build up an virtual environment, and install some modules, lets
-see how far we get.
-
-!!! tip
-    If these next commands are foreign to you, it's OK. These are `python` commands, and you can just
-    copy paste it in. If you'd like to know more or _why_ it is, raise your hand a TA should be able
-    to explain it to you.
-
-```bash
-python3.11 -m venv venv
-source venv/bin/activate
-pip install pygame
+This is a good "brain storming idea" prompt. Fill in `[subject]`, `[format]`, and `[topics]` for liking,
+I'll be running:
+```
+I'm looking to explore pasta making recipes. Do you
+have any suggestions on recipes that are unique and challanging?
 ```
 
-Well better, I think, but nothing still happens. So even noticing the `import pygame` tells me I need to
-debug farther. There's a few paths here, personally I'm going to take this code, and clean it up a bit
-so it's more readable.
+As you can see granite-3.1 comes back with some very challenging options:
 
-## Cleaning up the AI generated code
+![pasta challenges](../images/anythingllm_pasta_challenges.png)
 
-!!! note
-    You can try using the built-in autocomplete and code assistant functions to generate any missing code.
-    In our example, we're missing a "main" entry point to the script. Try hitting `cmd + I` again,
-    and typing in something like: "write a main function for my game that plays twenty rounds of Conway's
-    game of life using the `board()` function." What happens?
+Now if you put the same question in does it give you the same? Or is it different?
 
-Cleaning up the code. Now everything is smashed together, it's hard to read the logic here, so first
-thing first, going to break up the code and add a `def main` function so I know what the entry point is.
-
-On my version, I had a `tkinter` section, I decided to put the main game loop there:
-```python
-if __name__ == '__main__':
-    root = tkinter.Tk()
-    game_of_life(tkinter.Canvas(root))
-    root.mainloop()
+I'm a fan of Homemade Ravioli, so lets ask what the recipe is for that, in the message box in this _thread_ I'll write
+out:
+```
+I do like some homemade ravioli, what is the spinach
+ricotta and cheese recipe you suggest?
 ```
 
-But above it, it seems there's a red squiggly! Remember all I added was some line breaks to for readability,
-so another problem this AI gave me, so I need to resolve this too.
+![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
 
-![broken main](../images/broken_main.png)
+Now this may seem odd, or even pointless, but hopefully you can start seeing that if you treat the prompt like
+a conversation that you interate on, you can talk back and forth with the granite-3.1 and find interesting
+nuggets of knowledge.
 
-For me, all I had to do was remove those extra spaces, but I'd be curious to know what your AI gave you...
+## Client or Customer email generation
 
-## Second pass at debugging
+Next create a new "thread" so the context window resets, and lets try something everyone has probably already
+done, but give you a "mad libs" prompt that can help just churn them out for you.
 
-Now that I've cleaned it up, and it seems I had to do some importing:
+![new thread](../images/anythingllm_new_thread.png)
 
-```python
-import tkinter
-import time
+Take the following prompt, and fill it out to your content. Have some fun with it :)
 ```
-I can at least run my application now:
-![tk nothing](../images/tk_nothing.png)
-
-But that doesn't work right?! OK, lets start debugging more. This next step is to leverage Granite-Code to
-tell me whats going on with the different functions. Go ahead and highlight any _one_ of them and run:
-`cmd-L` to add it to the context window and ask granite-coder something like
-
-```
-what does this function do?
+I want you to act as a customer support assistant who
+is [characteristic]. How would you respond to [text]
+as a representative of our [type] company?
 ```
 
-![explain code](../images/explain_code.png)
-
-Pretty good right? It helped me understand what is actually happening with this and I do it with each
-function so I get a better understanding of what the program is doing.
-
-Go ahead and walk through your version, see the logic, and who knows maybe it'll highlight why yours
-isn't working yet, or not, the next step will help you even more!
-
-## Automagicly creating tests
-
-One of the most powerful/helping stream line your workflow as a developer is writing good tests
-around your code. It's a safety blanket to help make sure your custom code has a way to check for
-any adverse changes in a day, week, month, year down the line. Most people hate writing tests,
-turns out Granite-Code can do it for you!
-
-That function you recently put in the context window? How about you ask it this:
-
-```text
-write a pytest test for this function
+My version will be:
+```
+I want you to act as a customer support assistant who
+is an expert in shipping logistics.  How would you respond
+to client who has had their freight lost as a
+representative of our company?
 ```
 
-Now I got a good framework for a test here:
-![lazy pytest](../images/pytest_test.png)
+![lost freight](../images/anythingllm_lost_freight.png)
 
-Notice that it only knew about what is in the context, so yep I'll need to add `pip install pytest` to
-my project. I'll also need to create a new test file and integrate `pytest` into my project. But
-this highlights you not blindly taking from the AI, you need to put it _in_ your system.
+Oh, that's not nearly enough, or interesting right? Well it's because we haven't interated on it, we just wrote a "client" with no context, or what they may
+have lost. So lets see if we can fill it out more:
+```
+The freight they lost was an industrial refrigerator,
+from Burbank, California to Kanas City, MO. I need you to
+write out an apology letter, with reference to the
+shipping order, of #00234273 and the help line of 18003472845,
+with a discount code of OPPSWEDIDITAGAIN for 15% off
+shipping their next order.
+Mention that sometimes the trucks have accidents and
+need to be repaired and we should be able to reach
+out in a couple weeks.
+```
 
-Admittedly, if you have trouble building out tests though this is insanely powerful, and your
-futureself and team mates will be happy you've built these in.
+![better lost freight](../images/anythingllm_better_lost_freight.png)
 
-Finally there are two other things we should mention before heading over to the next Lab. First,
-hopefully you've gotten your Game of Life working, if not, a lot of us are Python developers,
-raise your hand and one of us may be able to come help you out.
+So much better! With more context, and more of a back story to what you are asking for, building off the intial prompt, we got something
+that with just a small tweaks we can email to our client.
 
-## Automagically commenting your code
+## Your work history prompt
 
-Last but not least, there is a great auto comment code option that we'd be remiss not to mention,
-take a look at the next screen shot:
+You probably have your resume on this machine we are working on right? Lets take it and build a "blurb" about your skill set and who you are
+and maybe if you are feeling adventurous you can even get a cover letter out of it. (Don't forget to start a new thread!)
 
-![comment_code](../images/comment_code.png)
+Here's a prompt to help you getting started:
+```
+The following text is my resume for my career up until
+my most recent job. I am [your job now] with
+[number of years of experiance] considered
+an expert or highly skilled individual in
+[your core skill set]. I am looking to build a
+couple paragraph explanation on why someone should
+hire me for the next role with both my modern
+skill set, and my previous expertise
+```
 
-It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI)
-if you want a quick video of other neat <https://continue.dev> functions we didn't go over.
+![](../images/anythingllm_resume.png)
+
+Now for mine, it wasn't great, but it at least give me somethings to work off of. Again, this is just a start, but you can build off of this blurb and
+see what you can actually accomplish.
+
+## Summarization Prompt
+
+Something you'll discover quickly is that leveraging your local AI model to summarize long documents and/or emails can help figure out if you
+actually need to read the details of something. Showing the age of the author here, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Yep, you have your own
+built in CliffNotes bot with AI.
+
+Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
+
+```
+Generate an X-word summary of the following document,
+highlighting key insights, notable quotes, and the overall
+tone of the core point of it.
+Be sure to add any specific call to actions or things that
+need to be done by a specific date.
+```
+
+## Role playing prompt
+
+If you noticed in the previous lab we talked about leveraging a single prompt to build a
+"single shot" role playing if you skipped it, we'll be going over it again here.
+
+```
+Generate a self-contained dungeon adventure for a party of 4 adventurers,
+set in a [specific environment like a forgotten temple or an abandoned mine],
+with a clear objective, unique challenges, and a memorable boss encounter,
+all designed to be completed in a single session of gameplay
+```
+
+The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes deeper in depth, and can build out the
+whole thing for you if you want.
+
+The best part of this prompt is that you can take the output and extend or contract
+the portions it starts with, and tailor the story to your adventurers needs!
+
+## Other ideas?
+
+We'd love to add more to this workshop for future students, if you've come up with something
+clever or maybe someone beside you has and you'd like to save it for others we'd love
+a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-5) of it.

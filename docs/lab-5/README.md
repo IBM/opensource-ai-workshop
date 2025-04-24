@@ -1,170 +1,102 @@
 ---
-title: Useful Prompts and Use Cases
-description: Some general useful prompt templates
+title: Building a local AI co-pilot
+description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
-Now here comes the fun part, and exploration for your Prompt Engineering (PE) journey.
-Be sure you have AnythingLLM (or Open-WebUI) available, and open in a _new_ Workspace.
-The testing "Who is Batman?" workspace should be left alone for this.
-Maybe call it "Learning Prompt Engineering" or the like, just like below.
+## Overview
 
-![](../images/anythingllm_learning_pe.png)
+Success! We're ready to start with the first steps on your AI journey with us today.
+With this first lab, we'll be working through the steps in this [blogpost using Granite as a code assistant](https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/).
 
-## Zero, Single, Multi Shot prompting
+In this tutorial, we will show how to use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code while addressing data privacy, licensing, and cost challenges that are common to enterprise users. The setup is powered by local large language models (LLMs) with IBM's open-source LLM family, [Granite Code](https://github.com/ibm-granite/granite-code-models). All components run on a developer's workstation and have business-friendly licensing.
 
-Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+There are three main barriers to adopting these tools in an enterprise setting:
 
-- Zero Shot: No previous data or guidelines given before completing request.
-  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
-- One Shot: One piece of data or guideline given before completing request.
-  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
-- Few Shot: Multiple pieces of data or guidelines given before completing request.
-  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
+- **Data Privacy:** Many corporations have privacy regulations that prohibit sending internal code or data to third party services.
+- **Generated Material Licensing:** Many models, even those with permissive usage licenses, do not disclose their training data and therefore may produce output that is derived from training material with licensing restrictions.
+- **Cost:** Many of these tools are paid solutions which require investment by the organization. For larger organizations, this would often include paid support and maintenance contracts which can be extremely costly and slow to negotiate.
 
-## Brain storming prompt
+## Fetching the Granite Models
 
-Now lets try our first real prompt, copy the following into the message box:
-```
-I'm looking to explore [subject] in a [format].
-Do you have any suggestions on [topics] I can cover?
-```
+Why did we select Granite as the LLM of choice for this exercise?
 
-This is a good "brain storming idea" prompt. Fill in `[subject]`, `[format]`, and `[topics]` for liking,
-I'll be running:
-```
-I'm looking to explore pasta making recipes. Do you
-have any suggestions on recipes that are unique and challanging?
+Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]), the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
+
+Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns.
+
+Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
+
+Open up a second terminal, and run the following command:
+
+```bash
+ollama pull granite-code:8b
 ```
 
-As you can see granite-3.1 comes back with some very challenging options:
+## Set up Continue
 
-![pasta challenges](../images/anythingllm_pasta_challenges.png)
+Now we need to install [continue.dev](https://continue.dev) so VSCode can "talk" to the ollama instance, and work with the
+granite model(s). There are two different ways of getting `continue` installed. If you have your `terminal` already open
+you can run:
 
-Now if you put the same question in does it give you the same? Or is it different?
-
-I'm a fan of Homemade Ravioli, so lets ask what the recipe is for that, in the message box in this _thread_ I'll write
-out:
-```
-I do like some homemade ravioli, what is the spinach
-ricotta and cheese recipe you suggest?
+```bash
+code --install-extension continue.continue
 ```
 
-![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
+If not you can use these steps in VSCode:
 
-Now this may seem odd, or even pointless, but hopefully you can start seeing that if you treat the prompt like
-a conversation that you interate on, you can talk back and forth with the granite-3.1 and find interesting
-nuggets of knowledge.
+1. Open the Extensions tab.
+2. Search for "continue."
+3. Click the Install button.
 
-## Client or Customer email generation
+Next you'll need to configure `continue` which will require you to take the following `json` and open the `config.json`
+file via the command palette.
 
-Next create a new "thread" so the context window resets, and lets try something everyone has probably already
-done, but give you a "mad libs" prompt that can help just churn them out for you.
+1. Open the command palette (Press Cmd+Shift+P)
+2. Select Continue: Open `config.json`.
 
-![new thread](../images/anythingllm_new_thread.png)
+In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 8b model we downloaded earlier. Replace the line that says `"models": []` with the following:
 
-Take the following prompt, and fill it out to your content. Have some fun with it :)
-```
-I want you to act as a customer support assistant who
-is [characteristic]. How would you respond to [text]
-as a representative of our [type] company?
-```
-
-My version will be:
-```
-I want you to act as a customer support assistant who
-is an expert in shipping logistics.  How would you respond
-to client who has had their freight lost as a
-representative of our company?
+```json
+  "models": [
+    {
+      "title": "Granite Code 8b",
+      "provider": "ollama",
+      "model": "granite-code:8b"
+    }
+  ],
 ```
 
-![lost freight](../images/anythingllm_lost_freight.png)
+For inline code suggestions, we're going to use the smaller 8b model since tab completion runs constantly as you type. This will reduce load on the machine. In the section that starts with `"tabAutocompleteModel"`, replace the whole section with the following:
 
-Oh, that's not nearly enough, or interesting right? Well it's because we haven't interated on it, we just wrote a "client" with no context, or what they may
-have lost. So lets see if we can fill it out more:
-```
-The freight they lost was an industrial refrigerator,
-from Burbank, California to Kanas City, MO. I need you to
-write out an apology letter, with reference to the
-shipping order, of #00234273 and the help line of 18003472845,
-with a discount code of OPPSWEDIDITAGAIN for 15% off
-shipping their next order.
-Mention that sometimes the trucks have accidents and
-need to be repaired and we should be able to reach
-out in a couple weeks.
+```json
+  "tabAutocompleteModel": {
+    "title": "Granite Code 8b",
+    "provider": "ollama",
+    "model": "granite-code:8b"
+  },
 ```
 
-![better lost freight](../images/anythingllm_better_lost_freight.png)
+## Sanity Check
 
-So much better! With more context, and more of a back story to what you are asking for, building off the intial prompt, we got something
-that with just a small tweaks we can email to our client.
+Now that you have everything wired together in VSCode, let's make sure that everything works. Go ahead and open
+up `continue` on the extension bar:
 
-## Your work history prompt
+![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/lKHl3FNCegebKYdHuXR-GA/continue-sidebar.png)
 
-You probably have your resume on this machine we are working on right? Lets take it and build a "blurb" about your skill set and who you are
-and maybe if you are feeling adventurous you can even get a cover letter out of it. (Don't forget to start a new thread!)
+And ask it something! Something fun I like is:
 
-Here's a prompt to help you getting started:
-```
-The following text is my resume for my career up until
-my most recent job. I am [your job now] with
-[number of years of experiance] considered
-an expert or highly skilled individual in
-[your core skill set]. I am looking to build a
-couple paragraph explanation on why someone should
-hire me for the next role with both my modern
-skill set, and my previous expertise
+```text
+What language should I use for backend development?
 ```
 
-![](../images/anythingllm_resume.png)
+If you open a file for editing, you should also see possible tab completions to the right of your cursor.
 
-Now for mine, it wasn't great, but it at least give me somethings to work off of. Again, this is just a start, but you can build off of this blurb and
-see what you can actually accomplish.
+It should give you a pretty generic answer, but as you can see, it works, and hopefully will help spur a thought
+or two.
 
-## Summarization Prompt
+Now let's continue on to Lab 2, where we are going to actually try this process in-depth!
 
-Something you'll discover quickly is that leveraging your local AI model to summarize long documents and/or emails can help figure out if you
-actually need to read the details of something. Showing the age of the author here, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Yep, you have your own
-built in CliffNotes bot with AI.
-
-Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
-
-```
-Generate an X-word summary of the following document,
-highlighting key insights, notable quotes, and the overall
-tone of the core point of it.
-Be sure to add any specific call to actions or things that
-need to be done by a specific date.
-```
-
-## Role playing prompt
-
-If you noticed in the previous lab we talked about leveraging a single prompt to build a
-"single shot" role playing if you skipped it, we'll be going over it again here.
-
-```
-Generate a self-contained dungeon adventure for a party of 4 adventurers,
-set in a [specific environment like a forgotten temple or an abandoned mine],
-with a clear objective, unique challenges, and a memorable boss encounter,
-all designed to be completed in a single session of gameplay
-```
-
-The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes deeper in depth, and can build out the
-whole thing for you if you want.
-
-The best part of this prompt is that you can take the output and extend or contract
-the portions it starts with, and tailor the story to your adventurers needs!
-
-## Other ideas?
-
-We'd love to add more to this workshop for future students, if you've come up with something
-clever or maybe someone beside you has and you'd like to save it for others we'd love
-a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-5) of it.
+[paper]: https://arxiv.org/pdf/2405.04324?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-local-ai-copilot-ibm-granite-code-ollama-continue
 
 
-!!! success
-    Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
-    the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
-    to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
-    [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
-    ASAP.

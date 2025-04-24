@@ -4,6 +4,9 @@ description: Steps to configure Open-WebUI for usage
 logo: images/ibm-blue-background.png
 ---
 
+!!! warning
+    This should be noted that this is optional. You don't need Open-WebUI if you have AnythingLLM already running. This is **optional**.
+
 Now that you've gotten [Open-WebUI installed](../pre-work/README.md#open-webui) we need to configure it with `ollama` and Open-WebUI
 to talk to one another. The following screenshots will be from a Mac, but the gist of this should be the same on Windows and Linux.
 
