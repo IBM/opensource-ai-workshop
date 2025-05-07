@@ -6,113 +6,88 @@ logo: images/ibm-blue-background.png
 
 These are the required applications and general installation notes for this workshop.
 
-Please have the "Required" software installed, and then choose from the Student's choice section
-per your preferences. If you don't know what to select choose the **SUGGESTED** options.
+**Ollama** and **Python** are required for this workshop, but you can choose an IDE and GUI interface from the options provided. If you don't know what to select, just go with the recommended options!
 
-## Required
+*Remember, you can **always** ask the teacher for help if you get stuck on any step!*
 
-- [Ollama](#ollama) - This application allows you to locally host an LLM model on your computer.
-- [Python](#python) - If you don't already have a proficiently in a language, please follow the `python` steps.
+## Required Software
 
-## Student's Choice
-- [Visual Studio Code](#visual-studio-code) - **SUGGESTED** We'll be walking through an extension to VSCode in this workshop.
-- [One of the Jetbrains IDEs](#jetbrains) - You can choose the one you want, if the wifi is bad, please reach out to a TA to give you a USB stick.
-- [AnythingLLM](#anythingllm) - **SUGGESTED** This will be a GUI interface to your LLM(s).
-- [Open WebUI](#open-webui) - This is a browser based GUI for your LLM(s).
+- [Python](#installing-python)
+- [Ollama](#installing-ollama) - Allows you to locally host an LLM model on your computer.
+- An IDE - either [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
 
-## Ollama
+- A GUI - either [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
 
-#### Mac installation steps
+## Installing Python
 
-##### Download via the Ollama website
+There are multiple ways to install Python, you can follow their [beginner's guide](https://wiki.python.org/moin/BeginnersGuide/Download) or try one of the options below:
 
-[Download Ollama](https://ollama.com/download/Ollama-darwin.zip) via the website.
+### On a Mac
 
-Unzip the folder, and move the Ollama app to your applications folder.
+#### Via the Terminal
 
-##### Terminal Installation
-
-Open up a terminal, and install [homebrew](https://brew.sh/).
+Install [Homebrew](https://brew.sh/) using the following command:
 
 ```bash
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-After the installation is complete, install [ollama](https://ollama.com) via `brew`.
+Then, install Python via `brew`:
 
-```bash
-brew install ollama
-```
-
-### Windows installation steps
-
-Install ollama via the website [here](https://ollama.com/download/windows).
-
-## Visual Studio Code
-
-#### Mac installation steps
-
-Open up a terminal, and install [homebrew](https://brew.sh/), if you didn't install this during the Ollama step.
-
-```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-After the installation is complete, install [vscode](https://code.visualstudio.com/) via `brew`.
-
-```bash
-brew install --cask visual-studio-code
-```
-
-## Jetbrains
-
-Head on over to [here](https://www.jetbrains.com/ides/#choose-your-ide) and
-download the IDE if you haven't already. If you are leveraging `python` like
-this workshop will be, you should pick
-[PyCharm](https://www.jetbrains.com/pycharm/)
-
-## Python
-
-Python is a whole programming language. There are multiple ways to install it, and
-[here is the official website](https://www.python.org). Please take a moment and if you can't run
-the following command, reach out to a teaching assistant or instructor to help you
- get resolved.
-
-!!! note
-    If you have an older version of python, or default "OS" versions of python, you'll need to update.
-
-```bash
-python --version
-Python 3.11.4
-```
-
-#### Mac installation steps
-
-##### Terminal Installation
-
-If you need to install Python via `brew` please do the following:
 ```bash
 brew install python@3.11
 ```
 
 Please confirm that your `python --version` is at least `3.11+` for the best experience.
 
-## AnythingLLM
+## Installing Ollama
 
-Head on over [here](https://anythingllm.com/desktop) choose the correct version
-for your Operating System. We will configure it later in the workshop.
+### On a Mac
 
-## Open-WebUI
+#### Via the Desktop
 
-If you have decided to run the Web Based/Browser based way to interact with your LLM(s) [open-webui](https://github.com/open-webui/open-webui)
-is a fine if not _the_ defacto choice.
+Simply download Ollama from its [website](https://ollama.com/download), unzip the folder and move it into your applications folder.
+
+#### Via the Terminal
+
+Install [Homebrew](https://brew.sh/) using the following command:
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Then, install [Ollama](https://ollama.com) via `brew`:
+
+```bash
+brew install ollama
+```
+
+### On Windows
+
+You can download and install Ollama from its [website](https://ollama.com/download).
+
+## Installing Visual Studio Code
+
+You can download and install VSCode from their [website](https://code.visualstudio.com/Download) based on your operating system..
 
 !!! note
-    You only need to pick one of AnythingLLM or Open-WebUI, though you could
-    pick both, it's really up to you!
+    You only need one of VSCode or Jetbrains for this lab.
 
-Assuming you've set up [Python](#python) above, you'll need the following commands
-to get it installed.
+## Installing Jetbrains
+
+Download and install the IDE of your choice [here](https://www.jetbrains.com/ides/#choose-your-ide).
+If you'll be using `python` (like this workshop does), pick [PyCharm](https://www.jetbrains.com/pycharm/).
+
+## Installing AnythingLLM
+
+Download and install it from their [website](https://anythingllm.com/desktop) based on your operating system. We'll configure it later in the workshop.
+
+!!! note
+    You only need one of AnythingLLM or Open-WebUI for this lab.
+
+## Installing Open-WebUI
+
+Assuming you've set up [Python](#installing-python) above, use the following commands to install Open-WebUI:
 
 ```bash
 cd ~
@@ -124,4 +99,4 @@ pip install open-webui
 open-webui serve
 ```
 
-With this you should have the applications you need, let's start the workshop!
+**Now that you have all of the tools you need, let's start the workshop!**
