@@ -5,50 +5,26 @@ logo: images/ibm-blue-background.png
 ---
 
 !!! warning
-    This should be noted that this is optional. You don't need Open-WebUI if you have AnythingLLM already running. This is **optional**.
+    This is **optional**. You don't need Open-WebUI if you have AnythingLLM already running.
 
-Now that you've gotten [Open-WebUI installed](../pre-work/README.md#open-webui) we need to configure it with `ollama` and Open-WebUI
-to talk to one another. The following screenshots will be from a Mac, but the gist of this should be the same on Windows and Linux.
+Now that you have [Open-WebUI installed](../pre-work/README.md#installing-open-webui) let's configure it with `ollama` and Open-WebUI to talk to one another. The following screenshots will be from a Mac, but the gist of this should be the same on Windows and Linux.
 
-Open up Open-WebUI (assuming all you have done is `open-webui serve` and
-nothing else), and you should see something like the following:
+Open up Open-WebUI (assuming you've run `open-webui serve` and nothing else), and you should see something like the following:
+
 ![default screen](../images/openwebui_open_screen.png)
 
-If you see this that means Open-WebUI is installed correctly, and we can continue configuration, if not, please find a workshop TA or
-raise your hand we'll be there to help you ASAP.
+If you see something similar, Open-WebUI is installed correctly! Continue on, if not, please find a workshop TA or raise your hand for some help.
 
-Before clicking the "Getting Started" button, make sure that `ollama` has
-`granite3.1-dense` pulled down.
+Before clicking the *Getting Started* button, make sure that `ollama` has `granite3.1-dense` downloaded:
 
 ```bash
 ollama pull granite3.1-dense:8b
 ```
 
-Run the following command to confirm you have the [granite3.1-dense](https://ollama.com/library/granite3.1-dense)
-model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
-
-If you didn't know, the supported languages with `granite3.1-dense` now include:
-
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
-
-And the Capabilities also include:
-
-- Summarization
-- Text classification
-- Text extraction
-- Question-answering
-- Retrieval Augmented Generation (RAG)
-- Code related tasks
-- Function-calling tasks
-- Multilingual dialog use cases
-- Long-context tasks including long document/meeting summarization, long document QA, etc.
-
 !!! note
-    We need to figure out a way to copy the models into ollama without downloading.
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for.
 
-Click the "Getting Started" button, and fill out the next screen, and click the
-"Create Admin Account". This will be your login for your local machine, remember this because
-it will also be the Open-WebUI configuration user if want to dig deeper into it after this workshop.
+Click *Getting Started*. Fill out the next screen and click the *Create Admin Account*. This will be your login for your local machine. Remember that this because it will be your Open-WebUI configuration login information if want to dig deeper into it after this workshop.
 
 ![user setup screen](../images/openwebui_user_setup_screen.png)
 
@@ -57,22 +33,12 @@ the center!
 
 ![main screen](../images/openwebui_main_screen.png)
 
-Ask it a question, see that it works as you expect...may I suggest:
+Test it out! I like asking the question, "Who is Batman?" as a sanity check. Every LLM should know who Batman is.
 
-```
-Who is Batman?
-```
+The first response may take a minute to process. This is because `ollama` is spinning up to serve the model. Subsequent responses should be much faster.
 
 ![batman](../images/openwebui_who_is_batman.png)
 
-Now you may notice that the answer is slighty different then the screen shot above. That's expected and nothing to worry about. If
-you have more questions about it raise your hand and one of the helpers would love to talk you about it.
+You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
 
-Congratulations! You have Open-WebUI running now, configured to work with `granite3.1-dense` and `ollama`!
-
-!!! note
-    This was done on your local machine, take a moment and realize if you
-    needed to create a shared AI enviroment, this could be easily leveraged
-    here. This is very out of scope of this workshop, but the TAs can help if
-    you have some general questions around running this in this "space."
-
+**Congratulations!** Now you have Open-WebUI running and it's configured to work with `granite3.1-dense` and `ollama`. Have a quick chat with your model before moving on to the next lab!

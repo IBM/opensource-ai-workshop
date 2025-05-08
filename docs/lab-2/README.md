@@ -1,110 +1,88 @@
 ---
-title: Useful Prompts and Use Cases
+title: Using the local AI co-pilot
 description: Some general useful prompt templates
 logo: images/ibm-blue-background.png
 ---
 
-Now here comes the fun part, and exploration for your Prompt Engineering (PE) journey.
-Be sure you have AnythingLLM (or Open-WebUI) available, and open in a _new_ Workspace.
-The testing "Who is Batman?" workspace should be left alone for this.
-Maybe call it "Learning Prompt Engineering" or the like, just like below.
+Now, here comes the fun exploration for your Prompt Engineering (PE) journey.
+
+Open a brand _new_ Workspace in AnythingLLM (or Open-WebUI) called "Learning Prompt Engineering".
 
 ![](../images/anythingllm_learning_pe.png)
 
 ## Zero, Single, Multi Shot prompting
 
-Now that we've played with a couple different versions of prompts, lets talk about the differences between them:
+Let's talk about different types of prompts with examples.
 
-- Zero Shot: No previous data or guidelines given before completing request.
-  - Our "brain storming prompt" was a zero shot prompt, it just started with "do this thing." Then we built off of it, and turned it into a Single Shot prompt.
-- One Shot: One piece of data or guideline given before completing request.
-  - Our email option was a One Shot/Single Shot prompt, because we gave more context on the email and referenced the situation. You'll notice that this is where you'll normally start.
-- Few Shot: Multiple pieces of data or guidelines given before completing request.
-  - Finally our resume one is a Few Shot, because hopefully you did some back and forth to build out a great blurb about yourself, and how you can be ready for this next great job.
+### Zero-shot Prompting
 
-## Brain storming prompt
+These prompts don't have any previous data, structure, or guidelines provided with the request. Here's an example you can try out:
 
-Now lets try our first real prompt, copy the following into the message box:
 ```
-I'm looking to explore [subject] in a [format].
-Do you have any suggestions on [topics] I can cover?
+I want to explore pasta making recipes. 
+Do you have any suggestions for recipes that are unique and challenging?
 ```
 
-This is a good "brain storming idea" prompt. Fill in `[subject]`, `[format]`, and `[topics]` for liking,
-I'll be running:
-```
-I'm looking to explore pasta making recipes. Do you
-have any suggestions on recipes that are unique and challanging?
-```
-
-As you can see granite-3.1 comes back with some very challenging options:
+As you can see, this Granite model comes back with some very challenging options:
 
 ![pasta challenges](../images/anythingllm_pasta_challenges.png)
 
-Now if you put the same question in does it give you the same? Or is it different?
+Try it for yourself, did you get a different response? Would you be satisfied with it?
 
-I'm a fan of Homemade Ravioli, so lets ask what the recipe is for that, in the message box in this _thread_ I'll write
-out:
+I'm a fan of the "Homemade Ravioli" option in my response, so I'll ask for the recipe to make that. In the message box, in the same _thread_:
+
 ```
-I do like some homemade ravioli, what is the spinach
-ricotta and cheese recipe you suggest?
+I do like some homemade ravioli. 
+What is the spinach, ricotta and cheese recipe you suggest?
 ```
 
 ![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
 
-Now this may seem odd, or even pointless, but hopefully you can start seeing that if you treat the prompt like
-a conversation that you interate on, you can talk back and forth with the granite-3.1 and find interesting
-nuggets of knowledge.
+These simple back-and-forth questions are examples of zero-shot prompts. Try testing out the model with simple prompts like this about any subject you can think of. Next, we'll start to add some complexity to our prompts
 
-## Client or Customer email generation
+## One-Shot and Multi-Shot Prompting
 
-Next create a new "thread" so the context window resets, and lets try something everyone has probably already
-done, but give you a "mad libs" prompt that can help just churn them out for you.
+First, create a new "thread" so the context window resets. You can think of a *context window* as the amount of information a model can "remember".
 
 ![new thread](../images/anythingllm_new_thread.png)
 
-Take the following prompt, and fill it out to your content. Have some fun with it :)
+In the following examples, we'll add more guidance in our prompt. By providing **one** example or structure, we achieve *one-shot prompting*. Take the provided prompts, and replace the [words] in brackets with your own choices. Have fun with it!
+
 ```
-I want you to act as a customer support assistant who
-is [characteristic]. How would you respond to [text]
-as a representative of our [type] company?
+I want you to act as a customer support assistant who is [characteristic]. 
+How would you respond to [text] as a representative of our [type] company?
 ```
 
 My version will be:
 ```
-I want you to act as a customer support assistant who
-is an expert in shipping logistics.  How would you respond
-to client who has had their freight lost as a
-representative of our company?
+I want you to act as a customer support assistant who is an expert in shipping logistics. 
+How would you respond to client who has had their freight lost as a representative of our company?
 ```
 
 ![lost freight](../images/anythingllm_lost_freight.png)
 
-Oh, that's not nearly enough, or interesting right? Well it's because we haven't interated on it, we just wrote a "client" with no context, or what they may
-have lost. So lets see if we can fill it out more:
+That's not a satisfactory or interesting response, right? We need to interate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
+
 ```
-The freight they lost was an industrial refrigerator,
-from Burbank, California to Kanas City, MO. I need you to
-write out an apology letter, with reference to the
-shipping order, of #00234273 and the help line of 18003472845,
-with a discount code of OPPSWEDIDITAGAIN for 15% off
-shipping their next order.
-Mention that sometimes the trucks have accidents and
-need to be repaired and we should be able to reach
-out in a couple weeks.
+The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. 
+I need you to write out an apology letter, with reference to the shipping order #00234273 
+and the help line of 1-800-347-2845, with a discount code of OPPSWEDIDITAGAIN for 15% off 
+shipping their next order. Mention that sometimes, the trucks have accidents and need 
+to be repaired and we should be able to reach out in a couple weeks.
 ```
 
 ![better lost freight](../images/anythingllm_better_lost_freight.png)
 
-So much better! With more context, and more of a back story to what you are asking for, building off the intial prompt, we got something
-that with just a small tweaks we can email to our client.
+So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly with small tweaks.
 
-## Your work history prompt
+By providing **multiple** examples, you're achieving *multi-shot prompting*!.
 
-You probably have your resume on this machine we are working on right? Lets take it and build a "blurb" about your skill set and who you are
-and maybe if you are feeling adventurous you can even get a cover letter out of it. (Don't forget to start a new thread!)
+## Work History Prompt
 
-Here's a prompt to help you getting started:
+You might have your resume on the laptop you're working on. If you do, you can take it and build a summary about your skill set and who you are. If you are really adventurous, you can even try to make the model write you a cover letter! *Don't forget to start a new thread!*
+
+Here's a prompt to help you getting started, you can fill in the [words] again.
+
 ```
 The following text is my resume for my career up until
 my most recent job. I am [your job now] with
@@ -118,29 +96,27 @@ skill set, and my previous expertise
 
 ![](../images/anythingllm_resume.png)
 
-Now for mine, it wasn't great, but it at least give me somethings to work off of. Again, this is just a start, but you can build off of this blurb and
-see what you can actually accomplish.
+My response has room for improvement, but gives me something to work with. Try to build off of and modify this blurb until you're happy with the quality of the response you receive. Think outside of the box!
 
 ## Summarization Prompt
 
-Something you'll discover quickly is that leveraging your local AI model to summarize long documents and/or emails can help figure out if you
-actually need to read the details of something. Showing the age of the author here, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Yep, you have your own
-built in CliffNotes bot with AI.
+Summarizing long documents or emails is a very popular use case to leverage your local AI model for.
+
+The author of this workshop is probably older than you, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Well, you have your own built-in CliffNotes bot with AI on your laptop now!
 
 Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
 
 ```
-Generate an X-word summary of the following document,
+Generate an [X]-word summary of the following document,
 highlighting key insights, notable quotes, and the overall
 tone of the core point of it.
 Be sure to add any specific call to actions or things that
 need to be done by a specific date.
 ```
 
-## Role playing prompt
+## Role-Playing Prompt
 
-If you noticed in the previous lab we talked about leveraging a single prompt to build a
-"single shot" role playing if you skipped it, we'll be going over it again here.
+If you're familiar with the role-playing game Dungeons & Dragons, this excercise is for you!
 
 ```
 Generate a self-contained dungeon adventure for a party of 4 adventurers,
@@ -149,14 +125,13 @@ with a clear objective, unique challenges, and a memorable boss encounter,
 all designed to be completed in a single session of gameplay
 ```
 
-The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes deeper in depth, and can build out the
-whole thing for you if you want.
+The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes more in-depth, and can build out a whole game for you if you want.
 
-The best part of this prompt is that you can take the output and extend or contract
-the portions it starts with, and tailor the story to your adventurers needs!
+The best part of this prompt is that you can take the output and extend or shorten
+the portions it starts with, and tailor the story to your adventurers' needs!
 
-## Other ideas?
+## Other Ideas?
 
 We'd love to add more to this workshop for future students, if you've come up with something
 clever or maybe someone beside you has and you'd like to save it for others we'd love
-a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-5) of it.
+a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-2) of it.
