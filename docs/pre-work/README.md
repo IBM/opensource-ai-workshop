@@ -20,11 +20,9 @@ These are the required applications and general installation notes for this work
 
 ## Installing Python
 
-There are multiple ways to install Python, you can follow their [beginner's guide](https://wiki.python.org/moin/BeginnersGuide/Download) or try one of the options below:
+There are multiple ways to install Python, you can follow their [beginner's guide](https://wiki.python.org/moin/BeginnersGuide/Download) based on your operating system.
 
-### On a Mac
-
-#### Via the Terminal
+### Using Homebrew (Mac)
 
 Install [Homebrew](https://brew.sh/) using the following command:
 
@@ -42,13 +40,9 @@ Please confirm that your `python --version` is at least `3.11+` for the best exp
 
 ## Installing Ollama
 
-### On a Mac
+Most users can simply download Ollama from its [website](https://ollama.com/download).
 
-#### Via the Desktop
-
-Simply download Ollama from its [website](https://ollama.com/download), unzip the folder and move it into your applications folder.
-
-#### Via the Terminal
+### Using Homebrew (Mac)
 
 Install [Homebrew](https://brew.sh/) using the following command:
 
@@ -62,9 +56,8 @@ Then, install [Ollama](https://ollama.com) via `brew`:
 brew install ollama
 ```
 
-### On Windows
-
-You can download and install Ollama from its [website](https://ollama.com/download).
+!!! note
+    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal.
 
 ## Installing Visual Studio Code
 
@@ -99,4 +92,6 @@ pip install open-webui
 open-webui serve
 ```
 
-**Now that you have all of the tools you need, let's start the workshop!**
+Now that you have all of the tools you need, let's start building our local AI co-pilot.
+
+**Head over to [Lab 1](/docs/lab-1/README.md) if you have AnythingLLM or [Lab 1.5](/docs/lab-1.5/README.md) for Open-WebUI.**

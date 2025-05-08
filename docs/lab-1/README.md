@@ -4,67 +4,41 @@ description: Steps to configure AnythingLLM for usage
 logo: images/ibm-blue-background.png
 ---
 
-Now that you've gotten [AnythingLLM installed](../pre-work/README.md#anythingllm) we need to configure it with `ollama` and AnythingLLM
-to talk to one another. The following screenshots will be from a Mac, but the gist of this should be the same on Windows and Linux.
+Now that you've got [AnythingLLM installed](../pre-work/README.md#anythingllm), we need to configure it with `ollama`. The following screenshots are taken from a Mac, but the gist of this should be the same on Windows and Linux.
 
-Open up AnyThingLLM, and you should see something like the following:
-![default screen](../images/anythingllm_open_screen.png)
-
-If you see this that means AnythingLLM is installed correctly, and we can continue configuration, if not, please find a workshop TA or
-raise your hand we'll be there to help you ASAP.
-
-Next as a sanity check, run the following command to confirm you have the [granite3.1-dense](https://ollama.com/library/granite3.1-dense)
-model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
+First, if you haven't already, download the Granite 3.1 model. Open up a terminal and run the following command:
 
 ```bash
 ollama pull granite3.1-dense:8b
 ```
 
-If you didn't know, the supported languages with `granite3.1-dense` now include:
-
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
-
-And the Capabilities also include:
-
-- Summarization
-- Text classification
-- Text extraction
-- Question-answering
-- Retrieval Augmented Generation (RAG)
-- Code related tasks
-- Function-calling tasks
-- Multilingual dialog use cases
-- Long-context tasks including long document/meeting summarization, long document QA, etc.
-
 !!! note
-    We need to figure out a way to copy the models into ollama without downloading, conference wifi is never fast enough.
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for.
 
-Next click on the `wrench` icon, and open up the settings. For now we are going to configure the global settings for `ollama`
-but you may want to change it in the future.
+Either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 
 ![wrench icon](../images/anythingllm_wrench_icon.png)
 
-Click on the "LLM" section, and select **Ollama** as the LLM Provider. Also select the `granite3-dense:8b` model. (You should be able to
-see all the models you have access to through `ollama` there.)
+Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite3-dense:8b` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
 
 ![llm configuration](../images/anythingllm_llm_config.png)
 
-Click the "Back to workspaces" button where the wrench was. And Click "New Workspace."
+Click the *Back to workspaces* button (where the 🔧 was) and head back to the homepage.
+
+Click *New Workspace*.
 
 ![new workspace](../images/anythingllm_new_workspace.png)
 
-Name it something like "learning llm" or the name of the event we are right now, something so you know it's somewhere you are learning
-how to use this LLM.
+Give it a name (e.g. the event you're attending today):
 
 ![naming new workspace](../images/anythingllm_naming_workspace.png)
 
-Now we can test our connections _through_ AnythingLLM! I like the "Who is Batman?" question, as a sanity check on connections and that
-it knows _something_.
+Now, let's test our connection AnythingLLM! I like asking the question, "Who is Batman?" as a sanity check. Every LLM should know who Batman is.
+
+The first response may take a minute to process. This is because `ollama` is spinning up to serve the model. Subsequent responses should be much faster.
 
 ![who is batman](../images/anythingllm_who_is_batman.png)
 
-Now you may notice that the answer is slighty different then the screen shot above. That's expected and nothing to worry about. If
-you have more questions about it raise your hand and one of the helpers would love to talk you about it.
+You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
 
-Congratulations! You have AnythingLLM running now, configured to work with `granite3.1-dense` and `ollama`!
-
+**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Have a quick chat with your model before moving on to the next lab!

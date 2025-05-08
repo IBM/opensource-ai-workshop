@@ -1,5 +1,5 @@
 ---
-title: Useful Prompts and Use Cases
+title: Using the local AI co-pilot
 description: Some general useful prompt templates
 logo: images/ibm-blue-background.png
 ---
