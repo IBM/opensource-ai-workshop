@@ -4,10 +4,11 @@ description: Learn how to leverage Open Source AI
 logo: images/ibm-blue-background.png
 ---
 
-## Open Source AI workshop
+## Open Source AI Workshop
 
-Welcome to the Open Source AI workshop! Thank you for trusting us to help you learn about this
-new and exciting space. In this workshop, you'll gain the skills and confidence to effectively use LLMs locally through simple exercises and experimentation, and learn best practices for leveraging open source AI.
+You've probably heard how tools like ChatGPT are changing workflows — but when it comes to privacy, security, and control, using public AI tools isn't always an option. In this hands-on workshop, you'll learn how to run your own local, open-source LLMs — no cloud, no cost, and no compromise.
+
+We'll walk through installing and running models with tools like ollama, AnythingLLM, and Continue using familiar environments like VS Code. By the end, you'll have a fully functional local AI assistant, ready to support your work securely and offline.
 
 Our overarching goals of this workshop is as follows:
 
@@ -16,31 +17,25 @@ Our overarching goals of this workshop is as follows:
 * Learn about Prompt Engineering and how to leverage a local LLM in daily tasks.
 
 !!! tip
-    This workshop may seem short, but a lot of working with AI is exploration and engagement.
-    These labs is set up for you to get "everything you need to start" put together so you
-    can share in a collaborative learning environment and shared exploration. Don't hesitate
-    to raise your hand ask questions and engage with the other students.
-
-    By the time you leave today, you'll have everything you need leverage this on your laptop
-    at home, without internet access, in a secure manner.
+    working with AI is all about exploration and hands-on engagement. These labs are designed to give you everything you need to get started — so you can collaborate, experiment, and learn together. Don’t hesitate to ask questions, raise your hand, and connect with other participants.
 
 ## Agenda
 
 | Lab  | Description  |
 | :--- | :--- |
-| [Lab 0: Pre-work](pre-work/README.md) | Install pre-requisites for the workshop |
+| [Lab 0: Workshop Pre-work](pre-work/README.md) | Install pre-requisites for the workshop |
 | [Lab 1: Configuring AnythingLLM](lab-1/README.md) | Set up AnythingLLM to start using an LLM locally |
-| [Lab 2: Using the local LLM](lab-2/README.md) | Get acquainted with the local LLM |
-| [Lab 3: Engineering prompts](lab-3/README.md) | Learn and apply Prompt Engineering concepts |
-| [Lab 4: Using AnythingLLM for a local RAG](lab-4/README.md) | Build a simple local RAG |
-| [Lab 5: Building an AI co-pilot](lab-5/README.md) | Build a coding assistant |
-| [Lab 6: Using your coding co-pilot](lab-6/README.md) | Use your coding assistant for tasks |
+| [Lab 1.5: Configuring Open-WebUI](lab-1.5/README.md) | Set up Open-WebUI to start using an LLM locally |
+| [Lab 2: Chatting with Your Local AI](lab-2/README.md) | Get acquainted with your local LLM |
+| [Lab 3: Prompt Engineering](lab-3/README.md) | A general overview of Prompt Engineering |
+| [Lab 4: Applying What You Learned](lab-4/README.md) | Try prompting exercises |
+| [Lab 5: Building a local AI Assistant](lab-5/README.md) | Build a Granite coding assistant |
+| [Lab 6: Coding with an AI Assistant](lab-6/README.md) | Write code using Continue and Granite |
 
-Thank you SO MUCH for joining us in this workshop! If you have any thoughts or questions at any point,
-the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
+Thank you SO MUCH for joining us in this workshop! If you have any questions or feedback,
+the TAs would love answer them for you. If you come across any issues or bugs, don't hesitate
 to open a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
-[Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
-ASAP.
+[Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) -- we'll take a look as soon as we can.
 
 ## Compatibility
 

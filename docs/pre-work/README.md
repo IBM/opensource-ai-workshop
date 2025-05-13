@@ -1,6 +1,6 @@
 ---
-title: Open Source AI Workshop Pre-Work or Setup
-description: Setup or Pre-Work for the Open Source AI Workshop
+title: Workshop Pre-Work
+description: Install pre-requisites for the workshop
 logo: images/ibm-blue-background.png
 ---
 
@@ -14,9 +14,9 @@ These are the required applications and general installation notes for this work
 
 - [Python](#installing-python)
 - [Ollama](#installing-ollama) - Allows you to locally host an LLM model on your computer.
-- An IDE - either [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
-
-- A GUI - either [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
+- [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
+- [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
+- [Continue](#installing-continue) - An IDE extension for AI code assistants.
 
 ## Installing Python
 
@@ -95,3 +95,7 @@ open-webui serve
 Now that you have all of the tools you need, let's start building our local AI co-pilot.
 
 **Head over to [Lab 1](/docs/lab-1/README.md) if you have AnythingLLM or [Lab 1.5](/docs/lab-1.5/README.md) for Open-WebUI.**
+
+## Installing Continue
+
+Choose your IDE on their [website](https://www.continue.dev/) and install the extension.

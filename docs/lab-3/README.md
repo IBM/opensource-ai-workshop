@@ -1,5 +1,5 @@
 ---
-title: Prompt Engineering Overview
+title: Prompt Engineering
 description: A general overview of Prompt Engineering
 logo: images/ibm-blue-background.png
 ---
@@ -103,83 +103,9 @@ to be repaired and we should be able to reach out in a couple weeks.
 
 ![better lost freight](../images/anythingllm_better_lost_freight.png)
 
-So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly.
+So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly. Also, by providing **multiple** examples, you're achieving *multi-shot prompting*!.
 
-By providing **multiple** examples, you're achieving *multi-shot prompting*!.
-
-## Applying What You Learned
-
-## Employee Cover Letter Prompt
-
-Do you have your work resume on the laptop you're using? If you do, you can take it and build a summary about your skill set and who you are. If you are really adventurous, you can even try to make the model write you a cover letter! If you don't have your resume available, have the model create one! *Don't forget to start a new thread!*
-
-Here's a prompt to help you get started with a cover letter, you can fill in the [words] again.
-
-<details>
-<summary> Show example prompt </summary>
-```
-The following text is my resume for my career up 
-until my most recent job. I am [current job] with
-[years of experience] considered a highly skilled 
-individual in [core skill set]. I want to build a
-two paragraph explanation about why someone should
-hire me for a role with both my current skill set 
-and previous experience.
-```
-
-![](../images/anythingllm_resume.png)
-
-The response I received has room for improvement, but gives me something to work with!
-</details>
-
-Try to build and modify this blurb using the principles of prompt engineering you learned until you're happy with the quality of the response you receive. Think outside of the box!
-
-## Summarization Prompt
-
-Summarizing long documents or emails is a very popular use case to leverage your local AI model for.
-
-The author of this workshop is probably older than you, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Well, you have your own built-in CliffNotes bot with AI on your laptop now!
-
-<details>
-<summary> Show example prompt </summary>
-Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
-
-```
-Generate an [X]-word summary of the following document,
-highlighting key insights, notable quotes, and the overall
-tone of the core point of it.
-Be sure to add any specific call to actions or things that
-need to be done by a specific date.
-```
-</details>
-
-## Role-Playing Prompt
-
-If you're familiar with the role-playing game Dungeons & Dragons, this excercise is for you! Write a prompt that you would give to an AI to generate a one-shot D&D adventure. 
-
-Keep it focused, creative, and self-contained—just enough detail to inspire a full session of gameplay.
-
-
-```
-Generate a self-contained dungeon adventure for a party of 4 adventurers,
-set in a [specific environment like a forgotten temple or an abandoned mine],
-with a clear objective, unique challenges, and a memorable boss encounter,
-all designed to be completed in a single session of gameplay
-```
-
-The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes more in-depth, and can build out a whole game for you if you want.
-
-The best part of this prompt is that you can take the output and extend or shorten
-the portions it starts with, and tailor the story to your adventurers' needs!
-
-## Hands-on Exercises
-
-Let's get back to interfacing with your local LLM. You can go back to AnythingLLM or Open-WebUI.
+Let's move on to the next lab and apply what you've learned with some exercises.
 
 !!! tip
-    You could even use `ollama`'s CLI in a terminal by using `ollama run granite3.1-dense`
-
-!!! tip
-    Have you figured something neat out? Raise your hand and offer it to the workshop. Only you know what you came up with.
-    We've had stories of leveraging `granite` as a DM for a "one shot" dungeon campaign and leveraged it for collaborative
-    writing exercises. We are excited to see what you share!
+    You could even use `ollama`'s CLI in a terminal to interact with your model by using `ollama run granite3.1-dense`

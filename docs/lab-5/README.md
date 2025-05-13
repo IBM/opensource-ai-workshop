@@ -1,61 +1,49 @@
 ---
-title: Building a local AI co-pilot
-description: Learn how to leverage Open Source AI
+title: Building a Local AI Assistant
+description: Build a Granite coding assistant
 logo: images/ibm-blue-background.png
 ---
 
-## Overview
+Do you use LLMs in an enterprise-setting? There are usually three main barriers to adopting its use in an enterprise setting:
 
-Success! We're ready to start with the first steps on your AI journey with us today.
-With this first lab, we'll be working through the steps in this [blogpost using Granite as a code assistant](https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/).
+- **Data Privacy:** Corporate privacy regulations that prohibit sending internal code or data to third party services.
+- **Generated Material Licensing:** Many models, even those with permissive usage licenses, don't disclose their training data and may produce output that is derived from material with licensing restrictions.
+- **Cost:** Many tools are paid solutions that require investment. For larger organizations, this would often include paid support and maintenance contracts which can be extremely costly and slow to
 
-In this tutorial, we will show how to use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code while addressing data privacy, licensing, and cost challenges that are common to enterprise users. The setup is powered by local large language models (LLMs) with IBM's open-source LLM family, [Granite Code](https://github.com/ibm-granite/granite-code-models). All components run on a developer's workstation and have business-friendly licensing.
+In this lab, we'll use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code. Previously, we used `granite3.1-dense`, for general use cases like summarization, question-answering, and classification. Now, we'll try IBM's [Granite Code](https://github.com/ibm-granite/granite-code-models), which are geared towards code generation tasks.
 
-There are three main barriers to adopting these tools in an enterprise setting:
+This lab is a rendition of this [blogpost](https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/).
 
-- **Data Privacy:** Many corporations have privacy regulations that prohibit sending internal code or data to third party services.
-- **Generated Material Licensing:** Many models, even those with permissive usage licenses, do not disclose their training data and therefore may produce output that is derived from training material with licensing restrictions.
-- **Cost:** Many of these tools are paid solutions which require investment by the organization. For larger organizations, this would often include paid support and maintenance contracts which can be extremely costly and slow to negotiate.
+!!! note
+    The following labs assume some programming experience/knowledge. If you don't have any, don't fret! Raise your hand and ask a TA for help! They'll be more than happy to.
 
-## Fetching the Granite Models
+## Download the Model
 
-Why did we select Granite as the LLM of choice for this exercise?
-
-Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]), the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
+[Granite Code](https://github.com/ibm-granite/granite-code-models) was produced by IBM Research, with the goal of building an LLM that has only seen code which used enterprise-friendly licenses. According to section 2 of the , the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity. You can read more about how they were built in its [paper](https://arxiv.org/pdf/2405.04324).
 
 Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns.
 
-Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
+Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. In this lab, we'll try the 8b option for code generation. You could also use the `20b` version, if the wifi connection speed allows for it.
 
-Open up a second terminal, and run the following command:
+Open up a terminal, and run the following command:
 
 ```bash
 ollama pull granite-code:8b
 ```
 
-## Set up Continue
+## Set up Continue in VS Code
 
-Now we need to install [continue.dev](https://continue.dev) so VSCode can "talk" to the ollama instance, and work with the
-granite model(s). There are two different ways of getting `continue` installed. If you have your `terminal` already open
-you can run:
+Assuming you've already [installed `continue`](/docs/pre-work/README.md#installing-continue), you'll need to configure it.
 
-```bash
-code --install-extension continue.continue
-```
+Open the extension in the sidebar and find the Local Assistant's gear icon.
 
-If not you can use these steps in VSCode:
+To open this config.yaml, you need to open the assistant's dropdown in the top-right portion of the chat input. On that dropdown beside the "Local Assistant" option, select the cog icon. It will open the local config.yaml.
 
-1. Open the Extensions tab.
-2. Search for "continue."
-3. Click the Install button.
+![](/docs/images/continue.png)
 
-Next you'll need to configure `continue` which will require you to take the following `json` and open the `config.json`
-file via the command palette.
+*The config.json can usually be found in `~/.continue/config.yaml`*
 
-1. Open the command palette (Press Cmd+Shift+P)
-2. Select Continue: Open `config.json`.
-
-In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 8b model we downloaded earlier. Replace the line that says `"models": []` with the following:
+You can add a section for each model you want to use in this file. For this lab, we'll register the Granite Code model we downloaded earlier. Replace the line `"models": []` with the following:
 
 ```json
   "models": [
@@ -67,7 +55,7 @@ In `config.json`, add a section for each model you want to use. Here, we're regi
   ],
 ```
 
-For inline code suggestions, we're going to use the smaller 8b model since tab completion runs constantly as you type. This will reduce load on the machine. In the section that starts with `"tabAutocompleteModel"`, replace the whole section with the following:
+For inline code suggestions, it's generally recommended that you use smaller models since tab completion runs constantly as you type. This will reduce load on the machine. In the section that starts with `"tabAutocompleteModel"`, replace the whole section with the following:
 
 ```json
   "tabAutocompleteModel": {
@@ -79,24 +67,13 @@ For inline code suggestions, we're going to use the smaller 8b model since tab c
 
 ## Sanity Check
 
-Now that you have everything wired together in VSCode, let's make sure that everything works. Go ahead and open
-up `continue` on the extension bar:
+Now that you have everything configured in VSCode, let's make sure that it works. Ensure that `ollama` is running in the background either as a status bar item or in the terminal using `ollama serve`.
 
-![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/lKHl3FNCegebKYdHuXR-GA/continue-sidebar.png)
 
-And ask it something! Something fun I like is:
+Open the Continue exension and test your local assistant.
 
 ```text
-What language should I use for backend development?
+What language is popular for backend development?
 ```
 
-If you open a file for editing, you should also see possible tab completions to the right of your cursor.
-
-It should give you a pretty generic answer, but as you can see, it works, and hopefully will help spur a thought
-or two.
-
-Now let's continue on to Lab 2, where we are going to actually try this process in-depth!
-
-[paper]: https://arxiv.org/pdf/2405.04324?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-local-ai-copilot-ibm-granite-code-ollama-continue
-
-
+Additionally, if you open a file for editing you should see possible tab completions to the right of your cursor (it may take a few seconds to show up).

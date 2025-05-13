@@ -1,6 +1,6 @@
 ---
 title: Applying What You Learned
-description: 
+description: Try prompting exercises
 logo: images/ibm-blue-background.png
 ---
 
@@ -156,7 +156,7 @@ Use a resume to prompt the model to generate a **two-paragraph cover letter** th
 1. Who you are and what your expertise is.
 2. Why a hiring manager should consider you for a new role.
 
-A sample resume is provided below, but you could even use your own if you have it saved locally! *You could even ask the model to generate a short resume for you to use.*
+A sample resume is provided below, but use your own if you have it saved locally! *You could even ask the model to generate a short resume for you to use.*
 
 ```
 Name: Jordan Rivera

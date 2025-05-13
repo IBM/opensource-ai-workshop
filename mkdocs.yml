@@ -13,14 +13,14 @@ nav:
   - Welcome:
     - Introduction: README.md
   - Workshop:
-    - Lab 0. Pre-work: pre-work/README.md
+    - Lab 0. Workshop Pre-Work: pre-work/README.md
     - Lab 1. Configuring AnythingLLM: lab-1/README.md
     - Lab 1.5 Configuring Open-WebUI: lab-1.5/README.md
-    - Lab 2. Using AnythingLLM: lab-2/README.md
-    - Lab 3. Useful prompts and use cases: lab-3/README.md
-    - Lab 4. Using AnythingLLM for a Local RAG: lab-4/README.md
-    - Lab 5. Building a local AI co-pilot: lab-5/README.md
-    - Lab 6. Using the local AI co-pilot: lab-6/README.md
+    - Lab 2. Chatting with Your Local AI: lab-2/README.md
+    - Lab 3. Prompt Engineering: lab-3/README.md
+    - Lab 4. Applying What You Learned: lab-4/README.md
+    - Lab 5. Configuring an AI Co-pilot: lab-5/README.md
+    - Lab 6. Coding with an AI Co-pilot: lab-6/README.md
   - References:
     - Additional Resources: resources/RESOURCES.md
     - MkDocs Cheatsheet: resources/MKDOCS.md

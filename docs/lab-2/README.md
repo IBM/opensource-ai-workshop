@@ -1,6 +1,6 @@
 ---
-title: Chat with your local AI
-description: Get to know your local LLM
+title: Chatting with Your Local AI
+description: Get acquainted with your local LLM
 logo: images/ibm-blue-background.png
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: Configuring Open-WebUI
-description: Steps to configure Open-WebUI for usage
+description: Set up Open-WebUI to start using an LLM locally
 logo: images/ibm-blue-background.png
 ---
 
