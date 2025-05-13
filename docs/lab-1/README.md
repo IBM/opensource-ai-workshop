@@ -1,102 +1,44 @@
 ---
-title: Building a local AI co-pilot
-description: Learn how to leverage Open Source AI
+title: Configuring AnythingLLM
+description: Steps to configure AnythingLLM for usage
 logo: images/ibm-blue-background.png
 ---
 
-## Overview
+Now that you've got [AnythingLLM installed](../pre-work/README.md#anythingllm), we need to configure it with `ollama`. The following screenshots are taken from a Mac, but the gist of this should be the same on Windows and Linux.
 
-Success! We're ready to start with the first steps on your AI journey with us today.
-With this first lab, we'll be working through the steps in this [blogpost using Granite as a code assistant](https://developer.ibm.com/tutorials/awb-local-ai-copilot-ibm-granite-code-ollama-continue/).
-
-In this tutorial, we will show how to use a collection of open-source components to run a feature-rich developer code assistant in Visual Studio Code while addressing data privacy, licensing, and cost challenges that are common to enterprise users. The setup is powered by local large language models (LLMs) with IBM's open-source LLM family, [Granite Code](https://github.com/ibm-granite/granite-code-models). All components run on a developer's workstation and have business-friendly licensing.
-
-There are three main barriers to adopting these tools in an enterprise setting:
-
-- **Data Privacy:** Many corporations have privacy regulations that prohibit sending internal code or data to third party services.
-- **Generated Material Licensing:** Many models, even those with permissive usage licenses, do not disclose their training data and therefore may produce output that is derived from training material with licensing restrictions.
-- **Cost:** Many of these tools are paid solutions which require investment by the organization. For larger organizations, this would often include paid support and maintenance contracts which can be extremely costly and slow to negotiate.
-
-## Fetching the Granite Models
-
-Why did we select Granite as the LLM of choice for this exercise?
-
-Granite Code was produced by IBM Research, with the goal of building an LLM that had only seen code which used enterprise-friendly licenses. According to section 2 of the Granite Code paper ([Granite Code Models: A Family of Open Foundation Models for Code Intelligence][paper]), the IBM Granite Code models meticulously curated their training data for licenses, and to make sure that all text did not contain any hate, abuse, or profanity.
-
-Many open LLMs available today license the model itself for derivative work, but because they bring in large amounts of training data without discriminating by license, most companies can't use the output of those models since it potentially presents intellectual property concerns.
-
-Granite Code comes in a wide range of sizes to fit your workstation's available resources. Generally, the bigger the model, the better the results, with a tradeoff: model responses will be slower, and it will take up more resources on your machine. We chose the 20b option as my starting point for chat and the 8b option for code generation. Ollama offers a convenient pull feature to download models:
-
-Open up a second terminal, and run the following command:
+First, if you haven't already, download the Granite 3.1 model. Open up a terminal and run the following command:
 
 ```bash
-ollama pull granite-code:8b
+ollama pull granite3.1-dense:8b
 ```
 
-## Set up Continue
+!!! note
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for.
 
-Now we need to install [continue.dev](https://continue.dev) so VSCode can "talk" to the ollama instance, and work with the
-granite model(s). There are two different ways of getting `continue` installed. If you have your `terminal` already open
-you can run:
+Either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 
-```bash
-code --install-extension continue.continue
-```
+![wrench icon](../images/anythingllm_wrench_icon.png)
 
-If not you can use these steps in VSCode:
+Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite3-dense:8b` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
 
-1. Open the Extensions tab.
-2. Search for "continue."
-3. Click the Install button.
+![llm configuration](../images/anythingllm_llm_config.png)
 
-Next you'll need to configure `continue` which will require you to take the following `json` and open the `config.json`
-file via the command palette.
+Click the *Back to workspaces* button (where the 🔧 was) and head back to the homepage.
 
-1. Open the command palette (Press Cmd+Shift+P)
-2. Select Continue: Open `config.json`.
+Click *New Workspace*.
 
-In `config.json`, add a section for each model you want to use. Here, we're registering the Granite Code 8b model we downloaded earlier. Replace the line that says `"models": []` with the following:
+![new workspace](../images/anythingllm_new_workspace.png)
 
-```json
-  "models": [
-    {
-      "title": "Granite Code 8b",
-      "provider": "ollama",
-      "model": "granite-code:8b"
-    }
-  ],
-```
+Give it a name (e.g. the event you're attending today):
 
-For inline code suggestions, we're going to use the smaller 8b model since tab completion runs constantly as you type. This will reduce load on the machine. In the section that starts with `"tabAutocompleteModel"`, replace the whole section with the following:
+![naming new workspace](../images/anythingllm_naming_workspace.png)
 
-```json
-  "tabAutocompleteModel": {
-    "title": "Granite Code 8b",
-    "provider": "ollama",
-    "model": "granite-code:8b"
-  },
-```
+Now, let's test our connection AnythingLLM! I like asking the question, "Who is Batman?" as a sanity check. Every LLM should know who Batman is.
 
-## Sanity Check
+The first response may take a minute to process. This is because `ollama` is spinning up to serve the model. Subsequent responses should be much faster.
 
-Now that you have everything wired together in VSCode, let's make sure that everything works. Go ahead and open
-up `continue` on the extension bar:
+![who is batman](../images/anythingllm_who_is_batman.png)
 
-![](https://cf-courses-data.s3.us.cloud-object-storage.appdomain.cloud/lKHl3FNCegebKYdHuXR-GA/continue-sidebar.png)
+You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
 
-And ask it something! Something fun I like is:
-
-```text
-What language should I use for backend development?
-```
-
-If you open a file for editing, you should also see possible tab completions to the right of your cursor.
-
-It should give you a pretty generic answer, but as you can see, it works, and hopefully will help spur a thought
-or two.
-
-Now let's continue on to Lab 2, where we are going to actually try this process in-depth!
-
-[paper]: https://arxiv.org/pdf/2405.04324?utm_source=ibm_developer&utm_content=in_content_link&utm_id=tutorials_awb-local-ai-copilot-ibm-granite-code-ollama-continue
-
-
+**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Have a quick chat with your model before moving on to the next lab!

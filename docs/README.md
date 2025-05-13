@@ -6,17 +6,14 @@ logo: images/ibm-blue-background.png
 
 ## Open Source AI workshop
 
-Welcome to our workshop! Thank you for trusting us to help you learn about this
-new and exciting space. There is a lot going on here, and we want to give you
-enough to be able to feel confident in consuming LLM(s) and ideally find success
-quickly. In this workshop we'll be using a local AI Model for code completion,
-and learning best practices leveraging an Open Source LLM.
+Welcome to the Open Source AI workshop! Thank you for trusting us to help you learn about this
+new and exciting space. In this workshop, you'll gain the skills and confidence to effectively use LLMs locally through simple exercises and experimentation, and learn best practices for leveraging open source AI.
 
 Our overarching goals of this workshop is as follows:
 
-* Understand what Open Source AI is, and its general use cases
-* How to use an Open Source AI model that is built in a verifiable and legal way
-* Learn about Prompt Engineering, how to leverage a local LLM in starter daily tasks
+* Learn about Open Source AI and its general use cases.
+* Use an open source LLM that is built in a verifiable and legal way.
+* Learn about Prompt Engineering and how to leverage a local LLM in daily tasks.
 
 !!! tip
     This workshop may seem short, but a lot of working with AI is exploration and engagement.
@@ -31,20 +28,19 @@ Our overarching goals of this workshop is as follows:
 
 | Lab  | Description  |
 | :--- | :--- |
-| [Lab 0: Pre-work](pre-work/README.md) | Pre-work and set up for the workshop |
-| [Lab 1: Building a local AI co-pilot](lab-1/README.md) | Let's get VSCode and our local AI working together |
-| [Lab 2: Using the local AI co-pilot](lab-2/README.md) | Let's learn about how to use a local AI co-pilot |
-| [Lab 3: Configuring AnythingLLM](lab-3/README.md) | Let's configure AnythingLLM or Open-WebUI |
-| [Lab 3.5: Configuring Open-WebUI](lab-3.5/README.md) | Let's configure Open-WebUI or AnythingLLM |
-| [Lab 4: Prompt engineering overview](lab-4/README.md) | Let's learn about leveraging and engaging with the `granite3.1-dense` model |
-| [Lab 5: Useful prompts and use cases](lab-5/README.md) | Let's get some good over arching prompts and uses cases with `granite3.1-dense` model |
+| [Lab 0: Pre-work](pre-work/README.md) | Install pre-requisites for the workshop |
+| [Lab 1: Configuring AnythingLLM](lab-1/README.md) | Set up AnythingLLM to start using an LLM locally |
+| [Lab 2: Using the local LLM](lab-2/README.md) | Test some general prompt templates |
+| [Lab 3: Engineering prompts](lab-3/README.md) | Learn and apply Prompt Engineering concepts |
+| [Lab 4: Using AnythingLLM for a local RAG](lab-4/README.md) | Build a simple local RAG |
+| [Lab 5: Building an AI co-pilot](lab-5/README.md) | Build a coding assistant |
+| [Lab 6: Using your coding co-pilot](lab-6/README.md) | Use your coding assistant for tasks |
 
-!!! success
-    Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
-    the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
-    to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
-    [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
-    ASAP.
+Thank you SO MUCH for joining us in this workshop! If you have any thoughts or questions at any point,
+the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
+to open a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
+[Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
+ASAP.
 
 ## Compatibility
 
@@ -59,4 +55,3 @@ This workshop has been tested on the following platforms:
 * [JJ Asghar](https://github.com/jjasghar)
 * [Gabe Goodhart](https://github.com/gabe-l-hart)
 * [Ming Zhao](https://github.com/mingxzhao)
-
