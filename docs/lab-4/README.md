@@ -1,6 +1,6 @@
 ---
 title: Applying What You Learned
-description: Try prompting exercises
+description: Refine your prompting skills
 logo: images/ibm-blue-background.png
 ---
 

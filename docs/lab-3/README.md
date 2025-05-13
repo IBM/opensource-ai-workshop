@@ -1,6 +1,6 @@
 ---
 title: Prompt Engineering
-description: A general overview of Prompt Engineering
+description: Learn about prompt engineering techniques
 logo: images/ibm-blue-background.png
 ---
 
