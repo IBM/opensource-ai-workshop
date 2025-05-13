@@ -64,7 +64,6 @@ Now granite-code should start giving you a good suggestion here, it should look 
 !!! note
     It won't be the same will it? That is expected, but you should notice that it's _close_.
 
-
 ## Reading AI generated code
 
 Now what have you noticed here? Try to run it...does it work? Wait, why are there errors in this code?

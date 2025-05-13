@@ -41,4 +41,4 @@ The first response may take a minute to process. This is because `ollama` is spi
 
 You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
 
-**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Have a quick chat with your model before moving on to the next lab!
+**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Moving on to the next lab and have a chat with your model!

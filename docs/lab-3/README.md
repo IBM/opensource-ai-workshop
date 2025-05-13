@@ -4,87 +4,161 @@ description: A general overview of Prompt Engineering
 logo: images/ibm-blue-background.png
 ---
 
-First off, a lot of this information was taken from some training from
-[@juliandiscovers](https://www.youtube.com/channel/UCXKuHxwAeZZu_dg_qs8Z-9w) and [@BenzaMaman](https://www.instagram.com/benzamaman/)
-workshops and content. This is just a broad overview of what they teach,
-and if you are looking for in depth tutorials, on Prompt Engineering they
-are amazing.
+!!! note
+    This lab was informed by [@juliandiscovers](https://www.youtube.com/channel/UCXKuHxwAeZZu_dg_qs8Z-9w) and [@BenzaMaman](https://www.instagram.com/benzamaman/)'s workshops and content and presents a broad overview of what they teach. If you want to dive deeper into Prompt Engineering we recommend checking them out.
 
 ## What is Prompt Engineering (PE)?
 
-An [article from IBM](https://www.ibm.com/topics/prompt-engineering).
+Prompt engineering is the practice of designing clear, intentional instructions to guide the behavior of an AI model.
 
-From [Wikipedia](https://en.wikipedia.org/wiki/Prompt_engineering):
-Prompt engineering is the process of structuring an instruction that can be
-interpreted and understood by a generative artificial intelligence (AI) model.
-A prompt is natural language text describing the task that an AI should perform.
-A prompt for a text-to-text language model can be a query such as "what is Fermat's
-little theorem?", a command such as "write a poem in the style of Edgar Allan Poe
-about leaves falling", or a longer statement including context, instructions,
-and conversation history.
+It involves crafting prompts—usually in natural language—that help a model identify what task to perform, how to perform it, and if there are considerations in style or format.
+This can include specifying tone, structure, context, or even assigning the AI a particular role.
+Prompt engineering is essential because the quality and precision of the prompt can significantly influence the quality, relevance, and creativity of the generated output.
+As generative models become more powerful, skillful prompting becomes a key tool for unlocking their full potential.
 
-Prompt engineering may involve phrasing a query, specifying a style, choice of words
-and grammar, providing relevant context or assigning a role to the AI such as "act
-as a native French speaker".
+### The Three Key Principles of PE
 
-When communicating with a text-to-image or a text-to-audio model, a typical prompt is
-a description of a desired output such as "a high-quality photo of an astronaut riding
-a horse" or "Lo-fi slow BPM electro chill with organic samples". Prompting a text-to-image
-model may involve adding, removing, emphasizing, and re-ordering words to achieve a
-desired subject, style, layout, lighting, and aesthetic.
+1. Specificity - The more detailed your criteria, the more focused and relevant the output will be.
+2. Step-by-step structuring - Break complex tasks down into smaller parts to guide the model more effectively.
+3. Iterative refinement - Adjust your prompt or build on previous responses to achieve the best result.
 
-## The three key principles of PE?
-1. Be specific: The more criteria you give, the more focused the output will be
-1. Work in steps: break the task into smaller chunks. This returns better results, just like a human
-1. Iterate and improve: Re-work the inputs and have the granite-3.1 model improve its own output.
+### What Makes a Good Prompt?
 
-## What makes a good prompt?
-1. Clear and concise language that is direct and unambiguous
-1. The information and examples that you provide area your input.
-1. A specific task that you are requesting granite-3.1 to complete area your desired output
-1. Refinement as needed once you receive your first response area reiteration until receiving the desired output
+1. Use natural, unambiguous language – Phrase your prompt as if you're explaining the task to a person.
+2. Provide guiding context – Share relevant background information, examples, or constraints to clarify your intent.
+3. Define format and tone when needed – Specify style, structure, or voice (e.g., bullet points, formal, pirate).
+4. Adapt based on responses – Treat the model’s output as feedback and refine accordingly.
 
+### The Prompting Workflow
 
-## The main prompting steps and/or loop
-1. Define the problem or goal
-1. Use relevant keywords and phrases
-1. Write the prompt
-1. Test, evaluate, and iterate
+1. Define the problem or goal → *“I want a fun fact about cats to share with kids.”*
+2. Include relevant context and keywords → *“Keep it short, easy to understand, and fun.”*
+3. Write the prompt → *“Tell me a fun and simple fact about cats that a 7-year-old would enjoy.”*
+4. Test, evaluate, and iterate → If the fact is too complex: *“Make it even simpler and add a playful tone.”*
 
-You'll notice that it's a lot like programming in general. And that's by design, PE is just an engineering
-problem leveraging development processes.
+## Types of Prompts
 
-## Hands on portion
+Open a brand _new_ Workspace in AnythingLLM (or Open-WebUI) called "Learning Prompt Engineering". Read along with the examples below, and be sure to try them out for yourself!
 
-Bring up your interface to your local LLM, this can be one of the previous configured systems like
-AnythingLLM or Open-WebUI, or even `ollama` on the command line.
+### Zero-shot Prompting
 
-This is an example of using the CLI with vanilla `ollama`:
+These prompts don't have any previous data, structure, or guidelines provided with the request. Here's an example:
 
-```bash
-$ ollama run granite3.1-dense
->>> Send a message (/? for help)
+```
+I want to explore pasta making recipes. 
+Do you have any suggestions for recipes that are unique and challenging?
 ```
 
-You can pretty much write whatever you want to, give it a shot. Treat it like a good friend, be polite,
-and guide it to an answer you are looking for.
+As you can see, this Granite model comes back with some very challenging options:
 
-I really do like starting with `Who is Batman?` then work from there. Maybe see if the LLM knows who's
-Batman's top 10 enemies are, and what was the most interesting way Batman saved the day? You have an opportunity
-to ask a knowledge repository here on everything Batman related, or any super hero for that matter, take advantage of
-it.
+![pasta challenges](../images/anythingllm_pasta_challenges.png)
 
-If you treat the LLM like the knowledge repository it is, you can get so much useful information out of it, but like
-all interpreted knowledge repositories you need can't blindly take it's output. You should always cross reference important things,
-and treat it like the "best librarian" you've ever seen. They know a TON of information, know how to
-find it, and where to get more, but they aren't the final authority on the topic.
+Try it for yourself, did you get a different response? Think about how the response could be better.
 
-!!! tip
-    Have you figured something neat out? Raise your hand and offer it to the workshop. Only you know what you came up with.
-    We've had stories of leveraging `granite` as a DM for a "one shot" dungeon campaign and leveraged it for collaborative
-    writing exercises. We are excited to see what you share!
+As a follow-up, I'll ask for the recipe to make the "Homemade Ravioli" option in the response I received:
 
-If you're curious the one shot `prompt` was this, the student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures):
+```
+I do like some homemade ravioli. 
+What is the spinach, ricotta and cheese recipe you suggest?
+```
+
+![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
+
+These simple back-and-forth questions are examples of **zero-shot prompts*.
+
+Come up with your own zero-shot prompt about any subject you want. Then, we'll start to add some complexity to our prompts.
+
+## One-Shot and Multi-Shot Prompting
+
+First, create a new "thread" so the context window resets. You can think of a *context window* as the amount of information a model can "remember".
+
+![new thread](../images/anythingllm_new_thread.png)
+
+In the following examples, we'll add more guidance in our prompt. By providing **one** example or structure, we achieve *one-shot prompting*.
+
+Take the provided prompts, and replace the [words] in brackets with your own choices. Get creative with it!
+
+```
+I want you to act as a customer support assistant who is [characteristic]. 
+How would you respond to [text] as a representative of our [type] company?
+```
+
+My version will be:
+```
+I want you to act as a customer support assistant who is an expert in shipping logistics. 
+How would you respond to client who has had their freight lost as a representative of our company?
+```
+
+![lost freight](../images/anythingllm_lost_freight.png)
+
+That's not a satisfactory or interesting response, right? We need to interate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
+
+```
+The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. 
+I need you to write out an apology letter, with reference to the shipping order #00234273 
+and the help line of 1-800-347-2845, with a discount code of OPPSWEDIDITAGAIN for 15% off 
+shipping their next order. Mention that sometimes, the trucks have accidents and need 
+to be repaired and we should be able to reach out in a couple weeks.
+```
+
+![better lost freight](../images/anythingllm_better_lost_freight.png)
+
+So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly.
+
+By providing **multiple** examples, you're achieving *multi-shot prompting*!.
+
+## Applying What You Learned
+
+## Employee Cover Letter Prompt
+
+Do you have your work resume on the laptop you're using? If you do, you can take it and build a summary about your skill set and who you are. If you are really adventurous, you can even try to make the model write you a cover letter! If you don't have your resume available, have the model create one! *Don't forget to start a new thread!*
+
+Here's a prompt to help you get started with a cover letter, you can fill in the [words] again.
+
+<details>
+<summary> Show example prompt </summary>
+```
+The following text is my resume for my career up 
+until my most recent job. I am [current job] with
+[years of experience] considered a highly skilled 
+individual in [core skill set]. I want to build a
+two paragraph explanation about why someone should
+hire me for a role with both my current skill set 
+and previous experience.
+```
+
+![](../images/anythingllm_resume.png)
+
+The response I received has room for improvement, but gives me something to work with!
+</details>
+
+Try to build and modify this blurb using the principles of prompt engineering you learned until you're happy with the quality of the response you receive. Think outside of the box!
+
+## Summarization Prompt
+
+Summarizing long documents or emails is a very popular use case to leverage your local AI model for.
+
+The author of this workshop is probably older than you, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Well, you have your own built-in CliffNotes bot with AI on your laptop now!
+
+<details>
+<summary> Show example prompt </summary>
+Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
+
+```
+Generate an [X]-word summary of the following document,
+highlighting key insights, notable quotes, and the overall
+tone of the core point of it.
+Be sure to add any specific call to actions or things that
+need to be done by a specific date.
+```
+</details>
+
+## Role-Playing Prompt
+
+If you're familiar with the role-playing game Dungeons & Dragons, this excercise is for you! Write a prompt that you would give to an AI to generate a one-shot D&D adventure. 
+
+Keep it focused, creative, and self-contained—just enough detail to inspire a full session of gameplay.
+
 
 ```
 Generate a self-contained dungeon adventure for a party of 4 adventurers,
@@ -93,78 +167,19 @@ with a clear objective, unique challenges, and a memorable boss encounter,
 all designed to be completed in a single session of gameplay
 ```
 
-Now that you see this overview, lets actually get into some prompts and helpful prompt templates.
+The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes more in-depth, and can build out a whole game for you if you want.
 
-## Asking the LLM about Batman
+The best part of this prompt is that you can take the output and extend or shorten
+the portions it starts with, and tailor the story to your adventurers' needs!
 
-```
-$ ollama run granite3.1-dense
->>> Who is Batman?
-Batman is a fictional superhero created by artist Bob Kane and writer Bill Finger. He first appeared in Detective Comics #27,
-published by DC Comics in 1939. Born as Bruce Wayne, he becomes Batman to fight crime after witnessing the murder of his parents
-as a child. Unlike most superheroes, he has no actual superpowers but instead relies on his physical prowess, intellect, and
-advanced technology. His symbol is a bat, which instills fear in criminals due to its nocturnal nature. Batman is known for his
-strong moral code, not killing his enemies, and his relentless pursuit of justice. He's one of the most iconic and enduring
-characters in the world of comics and popular culture.
+## Hands-on Exercises
 
->>> What was Batman's top 10 enemies?
-Batman has faced numerous villains over the years, but here are ten of his most notable adversaries:
+Let's get back to interfacing with your local LLM. You can go back to AnythingLLM or Open-WebUI.
 
-1. The Joker - One of Batman's archenemies, The Joker is a criminal mastermind known for his chaotic and psychopathic behavior.
-He often uses deadly weapons disguised as everyday objects like flowers or toys.
+!!! tip
+    You could even use `ollama`'s CLI in a terminal by using `ollama run granite3.1-dense`
 
-2. Two-Face (Harvey Dent) - Once Batman's ally and Gotham City district attorney, Harvey Dent was scarred by acid and became a
-villain with a coin that decides his actions, representing the duality of good and evil within him.
-
-3. Penguin (Oswald Cobblepot) - A short, stout criminal with an umbrella-based arsenal, Penguin is known for his love of
-animals, especially birds, and operates from his hideout in the sewers beneath Gotham City.
-
-4. Catwoman (Selina Kyle) - A skilled thief and Batman's complex love interest, Catwoman wears a cat-themed costume and uses her
-agility, charm, and whip to outwit her adversaries.
-
-5. Ra's al Ghul - An immortal villain who leads the League of Assassins, Ra's seeks to cleanse the world with natural disasters
-and replace humanity with a more "pure" species. Batman's ally Talia heads the organization.
-
-6. The Riddler (Edward Nygma) - A criminal genius with an obsession for riddles, The Riddler uses complex puzzles to taunt
-Batman while committing crimes.
-
-7. Mr. Freeze (Victor Fries) - Once a brilliant cryogenic scientist, Victor Fries became Mr. Freeze after an accident involving
-cryogenic technology left him needing a refrigerated suit to survive.
-
-8. Poison Ivy (Dr. Pamela Isley) - A plant-based villainess with control over plants and the ability to manipulate pheromones,
-she seeks to destroy humanity and create a new world dominated by flora.
-
-9. Bane - A supervillain known for his physical strength, enhanced by a drug called Venom, Bane once broke Batman's back in a
-legendary storyline.
-
-10. Ra's al Ghul's Daughter Talia - As mentioned earlier, Talia is both the daughter of Ra's and an occasional love interest for
-Bruce Wayne/Batman. She has played both roles as ally and enemy throughout various Batman stories.
-
-These villains represent a mix of criminal masterminds, twisted psychopaths, and formidable physical threats that challenge
-Batman's intellect, strength, and resolve.
-
->>> What was the most interesting way Batman saved the day?
-One of the most intriguing and innovative ways Batman has saved the day is from Frank Miller's seminal graphic novel "The Dark
-Knight Returns." In this story, an aging Batman returns to crime-fighting after a self-imposed retirement.
-
-After a series of escalating conflicts with a new mutant gang known as the Mutants, led by Green Arrow's former sidekick, Talia
-al Ghul (daughter of Ra's al Ghul), Batman faces off against their leader, a mutated Joker. The Joker has been given superhuman
-strength through a risky experiment conducted by his henchmen.
-
-The climax of the storyline takes place in a nuke-laden Bomb Squad truck, driven by the Joker himself and escorted by the
-Mutants. With conventional methods proving ineffective against the Joker's newfound power, Batman devises an unconventional
-plan:
-
-1. Luring the Joker into a trap at the Gotham Bay.
-2. Tying a massive concrete block to his leg and dropping him into the water, hoping the weight would neutralize the mutagenic
-serum, returning the Joker's strength to normal levels.
-3. Simultaneously triggering an explosion that would capsize the Bomb Squad truck carrying the nuclear bomb, causing it to sink
-with the now-weakened Joker still inside.
-4. Jumping into the water after the Joker and subduing him just before the truck goes underwater.
-5. Finally, using a remote detonator to destroy the truck and the bomb, thus saving Gotham City from a catastrophic explosion.
-
-This daring plan showcases Batman's resourcefulness, unwavering determination, and willingness to take risks for the greater
-good - all hallmarks of his character. The innovative approach to saving the day has since become one of the most iconic moments
-in Batman's extensive history.
-```
-
+!!! tip
+    Have you figured something neat out? Raise your hand and offer it to the workshop. Only you know what you came up with.
+    We've had stories of leveraging `granite` as a DM for a "one shot" dungeon campaign and leveraged it for collaborative
+    writing exercises. We are excited to see what you share!

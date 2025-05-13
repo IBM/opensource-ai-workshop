@@ -30,7 +30,7 @@ Our overarching goals of this workshop is as follows:
 | :--- | :--- |
 | [Lab 0: Pre-work](pre-work/README.md) | Install pre-requisites for the workshop |
 | [Lab 1: Configuring AnythingLLM](lab-1/README.md) | Set up AnythingLLM to start using an LLM locally |
-| [Lab 2: Using the local LLM](lab-2/README.md) | Test some general prompt templates |
+| [Lab 2: Using the local LLM](lab-2/README.md) | Get acquainted with the local LLM |
 | [Lab 3: Engineering prompts](lab-3/README.md) | Learn and apply Prompt Engineering concepts |
 | [Lab 4: Using AnythingLLM for a local RAG](lab-4/README.md) | Build a simple local RAG |
 | [Lab 5: Building an AI co-pilot](lab-5/README.md) | Build a coding assistant |
