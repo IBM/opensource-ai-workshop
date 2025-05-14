@@ -11,10 +11,9 @@ logo: images/ibm-blue-background.png
 
 Prompt engineering is the practice of designing clear, intentional instructions to guide the behavior of an AI model.
 
-It involves crafting prompts—usually in natural language—that help a model identify what task to perform, how to perform it, and if there are considerations in style or format.
-This can include specifying tone, structure, context, or even assigning the AI a particular role.
-Prompt engineering is essential because the quality and precision of the prompt can significantly influence the quality, relevance, and creativity of the generated output.
-As generative models become more powerful, skillful prompting becomes a key tool for unlocking their full potential.
+It involves crafting prompts that help a model identify what task to perform, how to perform it, and if there are considerations in style or format. This can include specifying tone, structure, context, or even assigning the AI a particular role.
+
+Prompt engineering is essential because the quality and precision of the prompt can significantly influence the quality, relevance, and creativity of the generated output. As generative models become more powerful, skillful prompting becomes a key tool for unlocking their full potential.
 
 ### The Three Key Principles of PE
 
@@ -105,7 +104,6 @@ to be repaired and we should be able to reach out in a couple weeks.
 
 So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly. Also, by providing **multiple** examples, you're achieving *multi-shot prompting*!.
 
-Let's move on to the next lab and apply what you've learned with some exercises.
+## Conclusion
 
-!!! tip
-    You could even use `ollama`'s CLI in a terminal to interact with your model by using `ollama run granite3.1-dense`
+Now that you know the basics of prompt engineering and simple techniques you can use to level-up your prompts, let's move on to [Lab 4](https://ibm.github.io/opensource-ai-workshop/lab-4/) and apply what you've learned with some exercises.

@@ -4,7 +4,9 @@ description: Get acquainted with your local LLM
 logo: images/ibm-blue-background.png
 ---
 
-It's time for the fun exploration part your Prompt Engineering (PE) journey.
+It's time for the fun exploration part your Prompt Engineering (PE) journey. In this lab, you're encouraged to spend as much time as you can chatting with the model, especially if you have little experience doing so. Keep some questions in mind: can you make it speak in a different tone? Can it provide a recipe for a cake or a poem about technology? Is it self-aware?
+
+## Chatting with the Model
 
 Open a brand _new_ Workspace in AnythingLLM (or Open-WebUI) called "Learning Prompt Engineering".
 
@@ -15,14 +17,13 @@ For some inspiration, I like to start with `Who is Batman?` then work from there
 Batman's top 10 enemies are, or what was the most creative way Batman saved the day? Some example responses to those questions are below.
 
 !! note
-    If you treat the LLM like a knowledge repository, you can get a lot of useful information out of it. But remember not to
+    If you treat the LLM like a knowledge repository, you can get a lot of useful information out of it. But, remember not to
     blindly accept its output. You should always cross-reference important things. Treat it like a confident librarian! They've read
     a lot and they can be very fast at finding books, but they can mix things up too!
 
-## Example Output using the `ollama` CLI
+## Using the `ollama` CLI
 
 This is an example of of using the CLI with vanilla ollama:
-
 
 ```
 $ ollama run granite3.1-dense
@@ -99,8 +100,8 @@ good - all hallmarks of his character. The innovative approach to saving the day
 in Batman's extensive history.
 ```
 
-## Try it Yourself
+## Conclusion
 
-Spend some time asking your LLM about anything about any topic and exploring how you can alter its output to provide you with more interesting or satisfying responses.
+Spend as much time as you want asking your LLM about anything about any topic and exploring how you can alter its output to provide you with more interesting or satisfying responses.
 
-When you feel acquainted with your model, move on to [Lab 3](/docs/lab-3/README.md) to learn about Prompt Engineering.
+When you are acquainted with your model, move on to [Lab 3](https://ibm.github.io/opensource-ai-workshop/lab-3/) to learn about Prompt Engineering.

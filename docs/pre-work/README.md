@@ -96,6 +96,6 @@ pip install open-webui
 open-webui serve
 ```
 
-Now that you have all of the tools you need, let's start building our local AI co-pilot.
+## Conclusion
 
-**Head over to [Lab 1](/docs/lab-1/README.md) if you have AnythingLLM or [Lab 1.5](/docs/lab-1.5/README.md) for Open-WebUI.**
+Now that you have all of the tools you need, head over to [Lab 1](https://ibm.github.io/opensource-ai-workshop/lab-1/) if you have AnythingLLM or [Lab 1.5](https://ibm.github.io/opensource-ai-workshop/lab-1.5/) for Open-WebUI.
