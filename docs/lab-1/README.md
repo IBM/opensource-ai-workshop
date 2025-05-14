@@ -4,7 +4,7 @@ description: Set up AnythingLLM to start using an LLM locally
 logo: images/ibm-blue-background.png
 ---
 
-With [AnythingLLM installed](../pre-work/README.md#anythingllm), open the desktop application to configure it with `ollama`. The following screenshots are taken from a Mac, but this should be similar on Windows and Linux.
+Let's start by configuring [AnythingLLM installed](../pre-work/README.md#anythingllm) and `ollama` to talk to one another. The following screenshots will be from a Mac, but this should be similar on Windows and Linux.
 
 First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
 
@@ -15,7 +15,7 @@ ollama pull granite3.1-dense:8b
 !!! note
     The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
 
-Either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
+Open the AnythingLLM desktop application and either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 
 ![wrench icon](../images/anythingllm_wrench_icon.png)
 
