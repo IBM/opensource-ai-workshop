@@ -103,4 +103,4 @@ So much better! By providing more context and more insight into what you are exp
 
 ## Conclusion
 
-Now that you know the basics of prompt engineering and simple techniques you can use to level-up your prompts, let's move on to [Lab 4](/docs/lab-4/README.md) and apply what you've learned with some exercises.
+Now that you know the basics of prompt engineering and simple techniques you can use to level-up your prompts, let's move on to [Lab 4](https://ibm.github.io/opensource-ai-workshop/lab-4/) and apply what you've learned with some exercises.

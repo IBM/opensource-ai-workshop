@@ -79,4 +79,4 @@ Additionally, if you open a file for editing you should see possible tab complet
 
 ## Conclusion
 
-With your AI coding assistant set up, move on to [Lab 6](/docs/lab-6/README.md) and actually use it!
+With your AI coding assistant now set up, move on to [Lab 6](https://ibm.github.io/opensource-ai-workshop/lab-6/) and actually use it!

@@ -104,4 +104,4 @@ in Batman's extensive history.
 
 Spend as much time as you want asking your LLM about anything about any topic and exploring how you can alter its output to provide you with more interesting or satisfying responses.
 
-When you feel acquainted with your model, move on to [Lab 3](/docs/lab-3/README.md) to learn about Prompt Engineering.
+When you are acquainted with your model, move on to [Lab 3](https://ibm.github.io/opensource-ai-workshop/lab-3/) to learn about Prompt Engineering.

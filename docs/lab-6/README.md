@@ -111,4 +111,4 @@ Continue also provides the ability to automatically add comments to code. Try it
 
 ## Conclusion
 
-This lab was all about using our local, open-source AI co-pilot to write complex code in Python. By combining Continue and Granite-Code we were able to generate code, the model to explain functions, write tests, and add comments to our code.
+This lab was all about using our local, open-source AI co-pilot to write complex code in Python. By combining Continue and Granite-Code, we were able to generate code, explain functions, write tests, and add comments to our code!

@@ -43,4 +43,4 @@ You may notice that your answer is slighty different then the screen shot above.
 
 ## Conclusion
 
-**Congratulations!** Now you have Open-WebUI running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to [Lab 2](/docs/lab-2/README.md) and have a chat with your model!
+**Congratulations!** Now you have Open-WebUI running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to [Lab 2](https://ibm.github.io/opensource-ai-workshop/lab-2/) and have a chat with your model!

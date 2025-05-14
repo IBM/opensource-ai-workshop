@@ -212,4 +212,4 @@ The best part of this prompt is that you can take the output and extend or short
 
 ## Conclusion
 
-Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](/docs/lab-5/README.md), we'll move towards code-generation and learn how to use a local coding assistant.
+Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](https://ibm.github.io/opensource-ai-workshop/lab-5/), we'll move towards code-generation and learn how to use a local coding assistant.
