@@ -17,7 +17,7 @@ Our overarching goals of this workshop is as follows:
 * Learn about Prompt Engineering and how to leverage a local LLM in daily tasks.
 
 !!! tip
-    working with AI is all about exploration and hands-on engagement. These labs are designed to give you everything you need to get started — so you can collaborate, experiment, and learn together. Don’t hesitate to ask questions, raise your hand, and connect with other participants.
+    Working with AI is all about exploration and hands-on engagement. These labs are designed to give you everything you need to get started — so you can collaborate, experiment, and learn together. Don’t hesitate to ask questions, raise your hand, and connect with other participants.
 
 ## Agenda
 

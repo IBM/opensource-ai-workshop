@@ -4,11 +4,11 @@ description: Refine your prompting skills
 logo: images/ibm-blue-background.png
 ---
 
-Complete the following exercises using your local LLM.
+Complete the following exercises using your local LLM. Try to come up with your own prompts from scratch! Take note of what works and what doesn't.
 
 - **Be curious!** What if you ask the same question but in a different way, does the response significantly change?
 - **Be creative!** Do you want the response to be organized in a numbered or bulleted list instead of sentences?
-- **Be specific!** Aim for perfection. Use descriptive language, examples, and parameters to perfect your output.
+- **Be specific!** Aim for perfection. Use descriptive language and examples to perfect your output.
 
 !!! note
     Discovered something cool or unexpected? Don’t keep it to yourself, raise your hand or let the TA know!
@@ -209,3 +209,7 @@ all designed to be completed in a single session of gameplay
 
 The best part of this prompt is that you can take the output and extend or shorten the portions it starts with, and tailor the story to your adventurers' needs!
 </details>
+
+## Conclusion
+
+Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](/docs/lab-5/README.md), we'll move towards code-generation and learn how to use a local coding assistant.

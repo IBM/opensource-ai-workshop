@@ -69,7 +69,6 @@ For inline code suggestions, it's generally recommended that you use smaller mod
 
 Now that you have everything configured in VSCode, let's make sure that it works. Ensure that `ollama` is running in the background either as a status bar item or in the terminal using `ollama serve`.
 
-
 Open the Continue exension and test your local assistant.
 
 ```text
@@ -77,3 +76,7 @@ What language is popular for backend development?
 ```
 
 Additionally, if you open a file for editing you should see possible tab completions to the right of your cursor (it may take a few seconds to show up).
+
+## Conclusion
+
+With your AI coding assistant set up, move on to [Lab 6](/docs/lab-6/README.md) and actually use it!

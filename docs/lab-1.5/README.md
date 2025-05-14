@@ -4,6 +4,8 @@ description: Set up Open-WebUI to start using an LLM locally
 logo: images/ibm-blue-background.png
 ---
 
+## Setup
+
 Let's start by configuring [Open-WebUI](../pre-work/README.md#installing-open-webui) and `ollama` to talk to one another. The following screenshots will be from a Mac, but this should be similar on Windows and Linux.
 
 First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
@@ -25,10 +27,11 @@ Click *Getting Started*. Fill out the next screen and click the *Create Admin Ac
 
 ![user setup screen](../images/openwebui_user_setup_screen.png)
 
-You should see the Open-WebUI main page now, with `granite3.1-dense:latest` right there in
-the center!
+You should see the Open-WebUI main page now, with `granite3.1-dense:latest` right there in the center!
 
 ![main screen](../images/openwebui_main_screen.png)
+
+## Testing the Connection
 
 Test it out! I like asking the question, "Who is Batman?" as a sanity check. Every LLM should know who Batman is.
 
@@ -38,4 +41,6 @@ The first response may take a minute to process. This is because `ollama` is spi
 
 You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
 
-**Congratulations!** Now you have Open-WebUI running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to the next lab and have a chat with your model!
+## Conclusion
+
+**Congratulations!** Now you have Open-WebUI running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to [Lab 2](/docs/lab-2/README.md) and have a chat with your model!

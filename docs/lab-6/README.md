@@ -36,7 +36,7 @@ Write the code for conway's game of life using pygame
 !!! note
     [What is Conway's Game of Life?](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
-After a few moments, the mode should start writing code in the file, it might look something like:
+After a few moments, the model should start writing code in the file, it might look something like:
 ![gameoflife_v1](../images/gameoflife_v1.png)
 
 ## AI-Generated Code
@@ -56,7 +56,7 @@ At this point, you can practice debugging or refactoring code with the AI co-pil
     In the example generated code, a "main" entry point to the script is missing. In this case, using `cmd+I` again and trying the prompt: "write a main function for my game that plays ten rounds of Conway's
     game of life using the `board()` function." might help. What happens?
 
-It's hard to read the generated case in the example case, making it hard to read the logic. To clean it up, I'll define a `main` function so the entry point exists. There was also a `tkinter` section in the generated code, I decided to put the main game loop there:
+It's hard to read the generated code in the example case, making it difficult to understand the logic. To clean it up, I'll define a `main` function so the entry point exists. There's also a `tkinter` section in the generated code, I decided to put the main game loop there:
 
 ```python
 if __name__ == '__main__':
@@ -78,7 +78,7 @@ It looks like the code is improving:
 
 ## Explaining the Code
 
-To debug further, use Granite-Code to explain what the different functions do. Simply highlight one of them, and use `cmd+L` to add it to the context window of your assistant and write a prompt similar to:
+To debug further, use Granite-Code to explain what the different functions do. Simply highlight one of them, use `cmd+L` to add it to the context window of your assistant and write a prompt similar to:
 
 ```text
 what does this function do?
@@ -98,24 +98,17 @@ Assuming you still have a function you wanted explained above in the context-win
 write a pytest test for this function
 ```
 
-Now I got a good framework for a test here:
+The model generated a great framework for a test here:
 ![lazy pytest](../images/pytest_test.png)
 
-Notice that my test only spans what is provided in the context, so the test isn't integrated into my project yet. But, the code provides a good start. I'll need to create a new test file and integrate `pytest` into my project.
+Notice that the test only spans what is provided in the context, so it isn't integrated into my project yet. But, the code provides a good start. I'll need to create a new test file and integrate `pytest` into my project to use it.
 
 ## Adding Comments
 
-Continue also provides the ability to automatically add comments to code:
+Continue also provides the ability to automatically add comments to code. Try it out!
 
 ![comment_code](../images/comment_code.png)
 
-
 ## Conclusion
 
-
-!!! success
-    Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
-    the TAs would love answer them for you. If you found any issues or bugs, don't hesitate
-    to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
-    [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
-    ASAP.
+This lab was all about using our local, open-source AI co-pilot to write complex code in Python. By combining Continue and Granite-Code we were able to generate code, the model to explain functions, write tests, and add comments to our code.
