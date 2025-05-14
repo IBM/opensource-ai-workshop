@@ -1,137 +1,106 @@
 ---
-title: Using the local AI co-pilot
-description: Some general useful prompt templates
+title: Chatting with Your Local AI
+description: Get acquainted with your local LLM
 logo: images/ibm-blue-background.png
 ---
 
-Now, here comes the fun exploration for your Prompt Engineering (PE) journey.
+It's time for the fun exploration part your Prompt Engineering (PE) journey.
 
 Open a brand _new_ Workspace in AnythingLLM (or Open-WebUI) called "Learning Prompt Engineering".
 
-![](../images/anythingllm_learning_pe.png)
+You can pretty much write whatever you want to, give it a shot. Treat it like a good friend, be polite,
+and guide it to an answer you are looking for.
 
-## Zero, Single, Multi Shot prompting
+For some inspiration, I like to start with `Who is Batman?` then work from there. I might want to see if the LLM knows who
+Batman's top 10 enemies are, or what was the most creative way Batman saved the day? Some example responses to those questions are below.
 
-Let's talk about different types of prompts with examples.
+!! note
+    If you treat the LLM like a knowledge repository, you can get a lot of useful information out of it. But remember not to
+    blindly accept its output. You should always cross-reference important things. Treat it like a confident librarian! They've read
+    a lot and they can be very fast at finding books, but they can mix things up too!
 
-### Zero-shot Prompting
+## Example Output using the `ollama` CLI
 
-These prompts don't have any previous data, structure, or guidelines provided with the request. Here's an example you can try out:
+This is an example of of using the CLI with vanilla ollama:
 
-```
-I want to explore pasta making recipes. 
-Do you have any suggestions for recipes that are unique and challenging?
-```
-
-As you can see, this Granite model comes back with some very challenging options:
-
-![pasta challenges](../images/anythingllm_pasta_challenges.png)
-
-Try it for yourself, did you get a different response? Would you be satisfied with it?
-
-I'm a fan of the "Homemade Ravioli" option in my response, so I'll ask for the recipe to make that. In the message box, in the same _thread_:
 
 ```
-I do like some homemade ravioli. 
-What is the spinach, ricotta and cheese recipe you suggest?
+$ ollama run granite3.1-dense
+>>> Who is Batman?
+Batman is a fictional superhero created by artist Bob Kane and writer Bill Finger. He first appeared in Detective Comics #27,
+published by DC Comics in 1939. Born as Bruce Wayne, he becomes Batman to fight crime after witnessing the murder of his parents
+as a child. Unlike most superheroes, he has no actual superpowers but instead relies on his physical prowess, intellect, and
+advanced technology. His symbol is a bat, which instills fear in criminals due to its nocturnal nature. Batman is known for his
+strong moral code, not killing his enemies, and his relentless pursuit of justice. He's one of the most iconic and enduring
+characters in the world of comics and popular culture.
 ```
 
-![homemade ravioli](../images/anythingllm_homemade_ravioli.png)
-
-These simple back-and-forth questions are examples of zero-shot prompts. Try testing out the model with simple prompts like this about any subject you can think of. Next, we'll start to add some complexity to our prompts
-
-## One-Shot and Multi-Shot Prompting
-
-First, create a new "thread" so the context window resets. You can think of a *context window* as the amount of information a model can "remember".
-
-![new thread](../images/anythingllm_new_thread.png)
-
-In the following examples, we'll add more guidance in our prompt. By providing **one** example or structure, we achieve *one-shot prompting*. Take the provided prompts, and replace the [words] in brackets with your own choices. Have fun with it!
-
 ```
-I want you to act as a customer support assistant who is [characteristic]. 
-How would you respond to [text] as a representative of our [type] company?
-```
+>>> What was Batman's top 10 enemies?
+Batman has faced numerous villains over the years, but here are ten of his most notable adversaries:
 
-My version will be:
-```
-I want you to act as a customer support assistant who is an expert in shipping logistics. 
-How would you respond to client who has had their freight lost as a representative of our company?
-```
+1. The Joker - One of Batman's archenemies, The Joker is a criminal mastermind known for his chaotic and psychopathic behavior.
+He often uses deadly weapons disguised as everyday objects like flowers or toys.
 
-![lost freight](../images/anythingllm_lost_freight.png)
+2. Two-Face (Harvey Dent) - Once Batman's ally and Gotham City district attorney, Harvey Dent was scarred by acid and became a
+villain with a coin that decides his actions, representing the duality of good and evil within him.
 
-That's not a satisfactory or interesting response, right? We need to interate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
+3. Penguin (Oswald Cobblepot) - A short, stout criminal with an umbrella-based arsenal, Penguin is known for his love of
+animals, especially birds, and operates from his hideout in the sewers beneath Gotham City.
 
-```
-The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. 
-I need you to write out an apology letter, with reference to the shipping order #00234273 
-and the help line of 1-800-347-2845, with a discount code of OPPSWEDIDITAGAIN for 15% off 
-shipping their next order. Mention that sometimes, the trucks have accidents and need 
-to be repaired and we should be able to reach out in a couple weeks.
-```
+4. Catwoman (Selina Kyle) - A skilled thief and Batman's complex love interest, Catwoman wears a cat-themed costume and uses her
+agility, charm, and whip to outwit her adversaries.
 
-![better lost freight](../images/anythingllm_better_lost_freight.png)
+5. Ra's al Ghul - An immortal villain who leads the League of Assassins, Ra's seeks to cleanse the world with natural disasters
+and replace humanity with a more "pure" species. Batman's ally Talia heads the organization.
 
-So much better! By providing more context and more insight into what you are expecting in a response, we can improve the quality of our responses greatly with small tweaks.
+6. The Riddler (Edward Nygma) - A criminal genius with an obsession for riddles, The Riddler uses complex puzzles to taunt
+Batman while committing crimes.
 
-By providing **multiple** examples, you're achieving *multi-shot prompting*!.
+7. Mr. Freeze (Victor Fries) - Once a brilliant cryogenic scientist, Victor Fries became Mr. Freeze after an accident involving
+cryogenic technology left him needing a refrigerated suit to survive.
 
-## Work History Prompt
+8. Poison Ivy (Dr. Pamela Isley) - A plant-based villainess with control over plants and the ability to manipulate pheromones,
+she seeks to destroy humanity and create a new world dominated by flora.
 
-You might have your resume on the laptop you're working on. If you do, you can take it and build a summary about your skill set and who you are. If you are really adventurous, you can even try to make the model write you a cover letter! *Don't forget to start a new thread!*
+9. Bane - A supervillain known for his physical strength, enhanced by a drug called Venom, Bane once broke Batman's back in a
+legendary storyline.
 
-Here's a prompt to help you getting started, you can fill in the [words] again.
+10. Ra's al Ghul's Daughter Talia - As mentioned earlier, Talia is both the daughter of Ra's and an occasional love interest for
+Bruce Wayne/Batman. She has played both roles as ally and enemy throughout various Batman stories.
 
-```
-The following text is my resume for my career up until
-my most recent job. I am [your job now] with
-[number of years of experiance] considered
-an expert or highly skilled individual in
-[your core skill set]. I am looking to build a
-couple paragraph explanation on why someone should
-hire me for the next role with both my modern
-skill set, and my previous expertise
+These villains represent a mix of criminal masterminds, twisted psychopaths, and formidable physical threats that challenge
+Batman's intellect, strength, and resolve.
 ```
 
-![](../images/anythingllm_resume.png)
-
-My response has room for improvement, but gives me something to work with. Try to build off of and modify this blurb until you're happy with the quality of the response you receive. Think outside of the box!
-
-## Summarization Prompt
-
-Summarizing long documents or emails is a very popular use case to leverage your local AI model for.
-
-The author of this workshop is probably older than you, but remember [CliffNotes](https://en.wikipedia.org/wiki/CliffsNotes)? Well, you have your own built-in CliffNotes bot with AI on your laptop now!
-
-Here's a prompt to help you set up your AI model to put it "head space" this was inspired from [this website](https://narrato.io/blog/get-precise-insights-with-30-chatgpt-prompts-for-summary-generation/):
-
 ```
-Generate an [X]-word summary of the following document,
-highlighting key insights, notable quotes, and the overall
-tone of the core point of it.
-Be sure to add any specific call to actions or things that
-need to be done by a specific date.
-```
+>>> What was the most interesting way Batman saved the day?
+One of the most intriguing and innovative ways Batman has saved the day is from Frank Miller's seminal graphic novel "The Dark
+Knight Returns." In this story, an aging Batman returns to crime-fighting after a self-imposed retirement.
 
-## Role-Playing Prompt
+After a series of escalating conflicts with a new mutant gang known as the Mutants, led by Green Arrow's former sidekick, Talia
+al Ghul (daughter of Ra's al Ghul), Batman faces off against their leader, a mutated Joker. The Joker has been given superhuman
+strength through a risky experiment conducted by his henchmen.
 
-If you're familiar with the role-playing game Dungeons & Dragons, this excercise is for you!
+The climax of the storyline takes place in a nuke-laden Bomb Squad truck, driven by the Joker himself and escorted by the
+Mutants. With conventional methods proving ineffective against the Joker's newfound power, Batman devises an unconventional
+plan:
 
-```
-Generate a self-contained dungeon adventure for a party of 4 adventurers,
-set in a [specific environment like a forgotten temple or an abandoned mine],
-with a clear objective, unique challenges, and a memorable boss encounter,
-all designed to be completed in a single session of gameplay
+1. Luring the Joker into a trap at the Gotham Bay.
+2. Tying a massive concrete block to his leg and dropping him into the water, hoping the weight would neutralize the mutagenic
+serum, returning the Joker's strength to normal levels.
+3. Simultaneously triggering an explosion that would capsize the Bomb Squad truck carrying the nuclear bomb, causing it to sink
+with the now-weakened Joker still inside.
+4. Jumping into the water after the Joker and subduing him just before the truck goes underwater.
+5. Finally, using a remote detonator to destroy the truck and the bomb, thus saving Gotham City from a catastrophic explosion.
+
+This daring plan showcases Batman's resourcefulness, unwavering determination, and willingness to take risks for the greater
+good - all hallmarks of his character. The innovative approach to saving the day has since become one of the most iconic moments
+in Batman's extensive history.
 ```
 
-The student took inspiration from [this website](https://www.the-enchanted-scribe.com/post/6-steps-one-prompt-using-chatgpt-to-generate-one-shot-d-d-adventures), which goes more in-depth, and can build out a whole game for you if you want.
+## Try it Yourself
 
-The best part of this prompt is that you can take the output and extend or shorten
-the portions it starts with, and tailor the story to your adventurers' needs!
+Spend some time asking your LLM about anything about any topic and exploring how you can alter its output to provide you with more interesting or satisfying responses.
 
-## Other Ideas?
-
-We'd love to add more to this workshop for future students, if you've come up with something
-clever or maybe someone beside you has and you'd like to save it for others we'd love
-a [Pull Request](https://github.com/IBM/opensource-ai-workshop/tree/main/docs/lab-2) of it.
+When you feel acquainted with your model, move on to [Lab 3](/docs/lab-3/README.md) to learn about Prompt Engineering.

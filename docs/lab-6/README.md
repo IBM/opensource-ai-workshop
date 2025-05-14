@@ -1,117 +1,63 @@
 ---
-title: Using the local AI co-pilot
-description: Learn how to leverage Open Source AI
+title: Coding with an AI Assistant
+description: Write code using Continue and Granite
 logo: images/ibm-blue-background.png
 ---
 
-Let's play with our new found local AI Open Source AI!
+## Setup
 
-!!! note
-    There is an expectation of some programming experience/knowledge here, if you don't have any
-    or are uncomfortable here, don't fret! Our TA's are here to help and want to help, raise your
-    hand and ask.
+First, get comfortable with Continue. For example, if you prefer that your local assistant have its own slice of the window, you can drag it to the right sidebar.
 
-## Sanity checks
-
-When you open up `continue` inside of VSCode it should look something like:
 ![](https://docs.continue.dev/assets/images/move-to-right-sidebar-b2d315296198e41046fc174d8178f30a.gif)
 
-Before we go any farther, write in "Who is batman?" to verify that `ollama`,
-VSCode, and `continue` are all working correctly.
+You can also take a look at the [Continue documentation](https://docs.continue.dev/chat/how-to-use-it), or at least have it open in case you want to refer to it.
 
-!!! troubleshooting
-    If Continue is taking a long time to respond, make sure your terminal with `ollama serve` is still running.  If Ollama is running, restart Visual Studio Code.
-    If that doesn't resolve your issue, restart Ollama.
+Now that our local AI co-pilot is up and running, let’s put it to work. The following examples will focus on `python`, but the same approach applies to other languages like `go`, `javascript`, or `rust`. 
 
-If you would like to go deeper with `continue`, take a look at the [official Continue.dev how-to guide](https://docs.continue.dev/how-to-use-continue).
-Its worth taken the moment if you want, otherwise, when you get home and try this on your own
-hardware, it's awesome to see what `continue` can do.
+A key part of learning to use this technology effectively is exploring the boundaries of what it can and can’t do.
 
-Now that we have our local AI co-pilot with us, let's start using it. Now these
-next examples are going to be focused on `python` but there is nothing stopping
-you from doing this exact same process with `go`, `javascript`, `rust`, or the
-like. Part of learning about leveraging this technology is finding the boarders
-of its skill sets, and hopefully walking through this you'll understand that
-this technology is there to support you, not _do_ your work.
-
-Now, lets open up VSCode and have it look something like the following:
-![batman](../images/whoisbatman.png)
-
-!!! troubleshooting
-    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visible again.
-
-## Building out `main.py`
-
-Now create a new file, and put it in a new directory. Normally it's `ctrl-n` or `command-n` call it
-`main.py`.
-
-This is where you should probably "clear" the context window, so either use `ctrl-l` or `command-l` so
-your context is clear like the example here:
-![clear](../images/clearscreen.png)
-
-Now use the `command-i` or `ctrl-i` to open up the `generate code` command palette, and write in:
-```
-write me out conways game of life using pygame
-```
-
-!!! note
-    If you don't know what Conway's Game of Life is, take a look [here](https://en.wikipedia.org/wiki/Conway's_Game_of_Life) or
-    raise your hand, I'm betting the TA's would love to talk to you about it. 😁
-
-Now granite-code should start giving you a good suggestion here, it should look something like:
-![gameoflife_v1](../images/gameoflife_v1.png)
-
-!!! note
-    It won't be the same will it? That is expected, but you should notice that it's _close_.
-
-
-## Reading AI generated code
-
-Now what have you noticed here? Try to run it...does it work? Wait, why are there errors in this code?
-
-This is an important lesson for using _any_ AI co-pilot code assistants. They can give you the "lions share"
-of what you need, but it won't get you across the finish line. It gives you that "second pair of eyes" and provides
-something to work with, but not everything you need.
-
-Don't believe me? Bring up the terminal and attempt to run this code after you accepting it.
-
-![nope doesn't do anything](../images/nowork.png)
-
-Well that isn't good is it? Yours **will probably** be different code, or maybe it does work (if it does you're lucky
-and raise your hand the TAs will want to see it), but at least in this example we need to to get the code fixed.
-
-## First pass at debugging
-
-We'll run the following commands to build up an virtual environment, and install some modules, lets
-see how far we get.
+As you work through this lab, keep in mind: this assistant is here to support your workflow — not to do the work for you!
 
 !!! tip
-    If these next commands are foreign to you, it's OK. These are `python` commands, and you can just
-    copy paste it in. If you'd like to know more or _why_ it is, raise your hand a TA should be able
-    to explain it to you.
+    If you lose the Continue pane in VSCode, you can re-enable it in VSCode by clicking at the top of the screen under "View --> Appearance --> Secondary Side Bar" and then the Continue window will be visible again.
 
-```bash
-python3.11 -m venv venv
-source venv/bin/activate
-pip install pygame
+## Writing a `main.py`
+
+Clear the Continue window using `cmd+l` so we can start with a clean slate and create a new file called `main.py` in a new directory.
+
+![clear](../images/clearscreen.png)
+
+With your `main.py` open, use the `cmd+i` to open up the `Generate Code` command palette. You should see some information about what file and line will be edited. Give it the following prompt:
+
+```
+Write the code for conway's game of life using pygame
 ```
 
-Well better, I think, but nothing still happens. So even noticing the `import pygame` tells me I need to
-debug farther. There's a few paths here, personally I'm going to take this code, and clean it up a bit
-so it's more readable.
+!!! note
+    [What is Conway's Game of Life?](https://en.wikipedia.org/wiki/Conway's_Game_of_Life)
 
-## Cleaning up the AI generated code
+After a few moments, the mode should start writing code in the file, it might look something like:
+![gameoflife_v1](../images/gameoflife_v1.png)
+
+## AI-Generated Code
+
+You can try to run it... *but would it work?* Do you see any potential errors in this code? If the code you generated worked, then consider yourself lucky! You can see below that this instance of generated code doesn't provide any output.
+
+![](../images/nowork.png)
+
+This is an important lesson for using _any_ AI co-pilot code assistants. While they can provide a lot of helpful code towards what you need, it often won't get you across the finish line.
+
+## Cleaning up the AI-Generated Code
+
+At this point, you can practice debugging or refactoring code with the AI co-pilot. Maybe it's a missing indent or the functions could be better organized for your understanding.
 
 !!! note
     You can try using the built-in autocomplete and code assistant functions to generate any missing code.
-    In our example, we're missing a "main" entry point to the script. Try hitting `cmd + I` again,
-    and typing in something like: "write a main function for my game that plays twenty rounds of Conway's
-    game of life using the `board()` function." What happens?
+    In the example generated code, a "main" entry point to the script is missing. In this case, using `cmd+I` again and trying the prompt: "write a main function for my game that plays ten rounds of Conway's
+    game of life using the `board()` function." might help. What happens?
 
-Cleaning up the code. Now everything is smashed together, it's hard to read the logic here, so first
-thing first, going to break up the code and add a `def main` function so I know what the entry point is.
+It's hard to read the generated case in the example case, making it hard to read the logic. To clean it up, I'll define a `main` function so the entry point exists. There was also a `tkinter` section in the generated code, I decided to put the main game loop there:
 
-On my version, I had a `tkinter` section, I decided to put the main game loop there:
 ```python
 if __name__ == '__main__':
     root = tkinter.Tk()
@@ -119,48 +65,34 @@ if __name__ == '__main__':
     root.mainloop()
 ```
 
-But above it, it seems there's a red squiggly! Remember all I added was some line breaks to for readability,
-so another problem this AI gave me, so I need to resolve this too.
-
-![broken main](../images/broken_main.png)
-
-For me, all I had to do was remove those extra spaces, but I'd be curious to know what your AI gave you...
-
-## Second pass at debugging
-
-Now that I've cleaned it up, and it seems I had to do some importing:
+In this generated code, there are also missing imports:
 
 ```python
 import tkinter
 import time
 ```
-I can at least run my application now:
+
+It looks like the code is improving:
+
 ![tk nothing](../images/tk_nothing.png)
 
-But that doesn't work right?! OK, lets start debugging more. This next step is to leverage Granite-Code to
-tell me whats going on with the different functions. Go ahead and highlight any _one_ of them and run:
-`cmd-L` to add it to the context window and ask granite-coder something like
+## Explaining the Code
 
-```
+To debug further, use Granite-Code to explain what the different functions do. Simply highlight one of them, and use `cmd+L` to add it to the context window of your assistant and write a prompt similar to:
+
+```text
 what does this function do?
 ```
 
 ![explain code](../images/explain_code.png)
 
-Pretty good right? It helped me understand what is actually happening with this and I do it with each
-function so I get a better understanding of what the program is doing.
+Asking for an explanation of portions of code can be very helpful with understanding logic that isn't clear right away. The model might even catch or highlight problems in the code if your prompt encourages it to.
 
-Go ahead and walk through your version, see the logic, and who knows maybe it'll highlight why yours
-isn't working yet, or not, the next step will help you even more!
+## Creating Tests
 
-## Automagicly creating tests
+One of the most effective ways to streamline your workflow as a developer is by writing tests for your code. Tests act as a safety net, helping you catch unintended changes. Tests can be time-consuming to write, and Granite Code can help generate them for you.
 
-One of the most powerful/helping stream line your workflow as a developer is writing good tests
-around your code. It's a safety blanket to help make sure your custom code has a way to check for
-any adverse changes in a day, week, month, year down the line. Most people hate writing tests,
-turns out Granite-Code can do it for you!
-
-That function you recently put in the context window? How about you ask it this:
+Assuming you still have a function you wanted explained above in the context-window for your local assistant, you can use the prompt:
 
 ```text
 write a pytest test for this function
@@ -169,26 +101,17 @@ write a pytest test for this function
 Now I got a good framework for a test here:
 ![lazy pytest](../images/pytest_test.png)
 
-Notice that it only knew about what is in the context, so yep I'll need to add `pip install pytest` to
-my project. I'll also need to create a new test file and integrate `pytest` into my project. But
-this highlights you not blindly taking from the AI, you need to put it _in_ your system.
+Notice that my test only spans what is provided in the context, so the test isn't integrated into my project yet. But, the code provides a good start. I'll need to create a new test file and integrate `pytest` into my project.
 
-Admittedly, if you have trouble building out tests though this is insanely powerful, and your
-futureself and team mates will be happy you've built these in.
+## Adding Comments
 
-Finally there are two other things we should mention before heading over to the next Lab. First,
-hopefully you've gotten your Game of Life working, if not, a lot of us are Python developers,
-raise your hand and one of us may be able to come help you out.
-
-## Automagically commenting your code
-
-Last but not least, there is a great auto comment code option that we'd be remiss not to mention,
-take a look at the next screen shot:
+Continue also provides the ability to automatically add comments to code:
 
 ![comment_code](../images/comment_code.png)
 
-It does some amazing work for you code, and really finally, take a look at [this video](https://www.youtube.com/watch?v=V3Yq6w9QaxI)
-if you want a quick video of other neat <https://continue.dev> functions we didn't go over.
+
+## Conclusion
+
 
 !!! success
     Thank you SO MUCH for joining us on this workshop, if you have any thoughts or questions
@@ -196,4 +119,3 @@ if you want a quick video of other neat <https://continue.dev> functions we didn
     to put a [Pull Request](https://github.com/IBM/opensource-ai-workshop/pulls) or an
     [Issue](https://github.com/IBM/opensource-ai-workshop/issues/new) in and we'll get to it
     ASAP.
-

@@ -1,6 +1,6 @@
 ---
-title: Open Source AI Workshop Pre-Work or Setup
-description: Setup or Pre-Work for the Open Source AI Workshop
+title: Workshop Pre-Work
+description: Install pre-requisites for the workshop
 logo: images/ibm-blue-background.png
 ---
 
@@ -14,9 +14,9 @@ These are the required applications and general installation notes for this work
 
 - [Python](#installing-python)
 - [Ollama](#installing-ollama) - Allows you to locally host an LLM model on your computer.
-- An IDE - either [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
-
-- A GUI - either [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
+- [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
+- [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
+- [Continue](#installing-continue) - An IDE extension for AI code assistants.
 
 ## Installing Python
 
@@ -57,7 +57,7 @@ brew install ollama
 ```
 
 !!! note
-    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal.
+    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal. You might have to run `ollama serve` first depending on how you installed it.
 
 ## Installing Visual Studio Code
 
@@ -70,6 +70,10 @@ You can download and install VSCode from their [website](https://code.visualstud
 
 Download and install the IDE of your choice [here](https://www.jetbrains.com/ides/#choose-your-ide).
 If you'll be using `python` (like this workshop does), pick [PyCharm](https://www.jetbrains.com/pycharm/).
+
+## Installing Continue
+
+Choose your IDE on their [website](https://www.continue.dev/) and install the extension.
 
 ## Installing AnythingLLM
 
