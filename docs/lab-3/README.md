@@ -4,6 +4,9 @@ description: Learn about prompt engineering techniques
 logo: images/ibm-blue-background.png
 ---
 
+!!! note
+    This lab was informed by [@juliandiscovers](https://www.youtube.com/channel/UCXKuHxwAeZZu_dg_qs8Z-9w) and [@BenzaMaman](https://www.instagram.com/benzamaman/)'s workshops and content and presents a broad overview of what they teach. If you want to dive deeper into Prompt Engineering we recommend checking them out.
+
 ## What is Prompt Engineering (PE)?
 
 Prompt engineering is the practice of designing clear, intentional instructions to guide the behavior of an AI model.
