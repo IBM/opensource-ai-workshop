@@ -4,22 +4,22 @@ description: Set up AnythingLLM to start using an LLM locally
 logo: images/ibm-blue-background.png
 ---
 
-Now that you've got [AnythingLLM installed](../pre-work/README.md#anythingllm), we need to configure it with `ollama`. The following screenshots are taken from a Mac, but the gist of this should be the same on Windows and Linux.
+With [AnythingLLM installed](../pre-work/README.md#anythingllm), open the desktop application to configure it with `ollama`. The following screenshots are taken from a Mac, but this should be similar on Windows and Linux.
 
-First, if you haven't already, download the Granite 3.1 model. Open up a terminal and run the following command:
+First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
 
 ```bash
 ollama pull granite3.1-dense:8b
 ```
 
 !!! note
-    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for.
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
 
 Either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 
 ![wrench icon](../images/anythingllm_wrench_icon.png)
 
-Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite3-dense:8b` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
+Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite3.1-dense:8b` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
 
 ![llm configuration](../images/anythingllm_llm_config.png)
 

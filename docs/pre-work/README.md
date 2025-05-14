@@ -57,7 +57,7 @@ brew install ollama
 ```
 
 !!! note
-    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal.
+    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal. You might have to run `ollama serve` first depending on how you installed it.
 
 ## Installing Visual Studio Code
 
@@ -70,6 +70,10 @@ You can download and install VSCode from their [website](https://code.visualstud
 
 Download and install the IDE of your choice [here](https://www.jetbrains.com/ides/#choose-your-ide).
 If you'll be using `python` (like this workshop does), pick [PyCharm](https://www.jetbrains.com/pycharm/).
+
+## Installing Continue
+
+Choose your IDE on their [website](https://www.continue.dev/) and install the extension.
 
 ## Installing AnythingLLM
 
@@ -95,7 +99,3 @@ open-webui serve
 Now that you have all of the tools you need, let's start building our local AI co-pilot.
 
 **Head over to [Lab 1](/docs/lab-1/README.md) if you have AnythingLLM or [Lab 1.5](/docs/lab-1.5/README.md) for Open-WebUI.**
-
-## Installing Continue
-
-Choose your IDE on their [website](https://www.continue.dev/) and install the extension.
