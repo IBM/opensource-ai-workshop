@@ -80,3 +80,6 @@ Additionally, if you open a file for editing you should see possible tab complet
 ## Conclusion
 
 With your AI coding assistant now set up, move on to [Lab 6](https://ibm.github.io/opensource-ai-workshop/lab-6/) and actually use it!
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

@@ -105,3 +105,6 @@ in Batman's extensive history.
 Spend as much time as you want asking your LLM about anything about any topic and exploring how you can alter its output to provide you with more interesting or satisfying responses.
 
 When you are acquainted with your model, move on to [Lab 3](https://ibm.github.io/opensource-ai-workshop/lab-3/) to learn about Prompt Engineering.
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

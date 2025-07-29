@@ -12,7 +12,7 @@ First, get comfortable with Continue. For example, if you prefer that your local
 
 You can also take a look at the [Continue documentation](https://docs.continue.dev/chat/how-to-use-it), or at least have it open in case you want to refer to it.
 
-Now that our local AI co-pilot is up and running, let’s put it to work. The following examples will focus on `python`, but the same approach applies to other languages like `go`, `javascript`, or `rust`. 
+Now that our local AI co-pilot is up and running, let’s put it to work. The following examples will focus on `python`, but the same approach applies to other languages like `go`, `javascript`, or `rust`.
 
 A key part of learning to use this technology effectively is exploring the boundaries of what it can and can’t do.
 
@@ -112,3 +112,6 @@ Continue also provides the ability to automatically add comments to code. Try it
 ## Conclusion
 
 This lab was all about using our local, open-source AI co-pilot to write complex code in Python. By combining Continue and Granite-Code, we were able to generate code, explain functions, write tests, and add comments to our code!
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

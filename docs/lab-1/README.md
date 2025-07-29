@@ -48,3 +48,6 @@ You may notice that your answer is slighty different then the screen shot above.
 ## Conclusion
 
 **Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to [Lab 2](https://ibm.github.io/opensource-ai-workshop/lab-2/) and have a chat with your model!
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

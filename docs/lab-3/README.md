@@ -44,7 +44,7 @@ Open a brand _new_ Workspace in AnythingLLM (or Open-WebUI) called "Learning Pro
 These prompts don't have any previous data, structure, or guidelines provided with the request. Here's an example:
 
 ```
-I want to explore pasta making recipes. 
+I want to explore pasta making recipes.
 Do you have any suggestions for recipes that are unique and challenging?
 ```
 
@@ -57,7 +57,7 @@ Try it for yourself, did you get a different response? Think about how the respo
 As a follow-up, I'll ask for the recipe to make the "Homemade Ravioli" option in the response I received:
 
 ```
-I do like some homemade ravioli. 
+I do like some homemade ravioli.
 What is the spinach, ricotta and cheese recipe you suggest?
 ```
 
@@ -78,13 +78,13 @@ In the following examples, we'll add more guidance in our prompt. By providing *
 Take the provided prompts, and replace the [words] in brackets with your own choices. Get creative with it!
 
 ```
-I want you to act as a customer support assistant who is [characteristic]. 
+I want you to act as a customer support assistant who is [characteristic].
 How would you respond to [text] as a representative of our [type] company?
 ```
 
 My version will be:
 ```
-I want you to act as a customer support assistant who is an expert in shipping logistics. 
+I want you to act as a customer support assistant who is an expert in shipping logistics.
 How would you respond to client who has had their freight lost as a representative of our company?
 ```
 
@@ -93,10 +93,10 @@ How would you respond to client who has had their freight lost as a representati
 That's not a satisfactory or interesting response, right? We need to interate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
 
 ```
-The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO. 
-I need you to write out an apology letter, with reference to the shipping order #00234273 
-and the help line of 1-800-347-2845, with a discount code of OPPSWEDIDITAGAIN for 15% off 
-shipping their next order. Mention that sometimes, the trucks have accidents and need 
+The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO.
+I need you to write out an apology letter, with reference to the shipping order #00234273
+and the help line of 1-800-347-2845, with a discount code of OPPSWEDIDITAGAIN for 15% off
+shipping their next order. Mention that sometimes, the trucks have accidents and need
 to be repaired and we should be able to reach out in a couple weeks.
 ```
 
@@ -107,3 +107,6 @@ So much better! By providing more context and more insight into what you are exp
 ## Conclusion
 
 Now that you know the basics of prompt engineering and simple techniques you can use to level-up your prompts, let's move on to [Lab 4](https://ibm.github.io/opensource-ai-workshop/lab-4/) and apply what you've learned with some exercises.
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

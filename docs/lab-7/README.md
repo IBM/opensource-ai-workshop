@@ -112,3 +112,6 @@ Now when the chat comes back up ask the same question, and you should see some n
 It won't be exactly what we are looking for, but it's enough to now see that the Granite model can
 leverage the local RAG and in turn can _look things up_ for you. You'll need some prompt engineering
 to get exactly what you want but this is just the start of leveraging the AI!
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>

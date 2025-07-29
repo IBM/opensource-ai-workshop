@@ -29,8 +29,8 @@ Format the sentences like a list.
 
 ## 2. Extract Summary Topics
 
-**Prompt a model to extract a short, bulleted summary from a meeting transcript.**  
-The goal is to turn raw dialogue into clear, actionable notes — just like you'd want after a real meeting. 
+**Prompt a model to extract a short, bulleted summary from a meeting transcript.**
+The goal is to turn raw dialogue into clear, actionable notes — just like you'd want after a real meeting.
 
 You can use the following meeting transcripts.
 
@@ -116,10 +116,10 @@ over the fields and forests.
 ```
 
 ```
-It's windy as the sun sets over the horizon, casting a warm glow on the 
+It's windy as the sun sets over the horizon, casting a warm glow on the
 landscape.
 
-A gentle breeze rustles the leaves of the trees as the sun begins to set 
+A gentle breeze rustles the leaves of the trees as the sun begins to set
 and colour the landscape.
 ```
 
@@ -166,19 +166,19 @@ Core Skills: content strategy, SEO optimization, team leadership, data analytics
 Past Roles:
 - Social Media Manager at BrightSpark (2 years)
 - Content Writer at BuzzTone Agency (1 year)
-Education: 
+Education:
 - B.A. in Communications
 ```
 
 <details>
 <summary> Show example prompt </summary>
 ```
-The following text is my resume for my career up 
+The following text is my resume for my career up
 until my most recent job. I am [current job] with
-[years of experience] considered a highly skilled 
+[years of experience] considered a highly skilled
 individual in [core skill set]. I want to build a
 two paragraph explanation about why someone should
-hire me for a role with both my current skill set 
+hire me for a role with both my current skill set
 and previous experience.
 ```
 
@@ -195,7 +195,7 @@ If you're familiar with the role-playing game Dungeons & Dragons, this excercise
 
 **Write a prompt that you would give to an AI to generate a one-shot D&D adventure**
 
-Focus on providing enough detail to create a cohesive story for a one-session gameplay experience. 
+Focus on providing enough detail to create a cohesive story for a one-session gameplay experience.
 Think about the environment, the objectives, challenges, and the final boss encounter—all while keeping it concise and exciting for the players.
 
 <details>
@@ -213,3 +213,6 @@ The best part of this prompt is that you can take the output and extend or short
 ## Conclusion
 
 Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](https://ibm.github.io/opensource-ai-workshop/lab-5/), we'll move towards code-generation and learn how to use a local coding assistant.
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>
