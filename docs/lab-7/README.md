@@ -11,6 +11,7 @@ As we will see throughout the documentation, LLMs can be incorporated into
 software in a wide variety of ways. Some ways of incorporating LLMs into
 programs tend to result in robust and performant systems, while others
 result in software that is brittle and error-prone.
+
 Generative programs are distinguished from classical programs by their use of
 functions that invoke generative models. These generative calls can produce
 many different data types — strings, booleans, structured data, code,
@@ -60,8 +61,10 @@ python3.11 -m venv venv
 source venv/bin/activate
 pip install mellea
 ```
-Note: If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12
-anything above that has a Rust dependency.
+
+!!! note
+    If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12 anything above that has a Rust dependency.
+
 2. Run a simple Mellea session:
 ```python
 import mellea
@@ -74,8 +77,8 @@ you are set up to dig deeper with Mellea.
 
 ## Simple email examples
 
-Note: The following work should be done via a text editor, there should be a couple installed on your
-laptop, if you aren't sure raise your hand and a helper will help you out.
+!!! note
+    The following work should be done via a text editor, there should be a couple installed on your laptop, if you aren't sure raise your hand and a helper will help you out.
 
 Let's leverage Mellea to do some email generation for us, the first example is a simple example:
 ```python
@@ -223,7 +226,9 @@ print(write_email(m, "Olivia",
 ```
 
 Most of this should look familiar by now, but the `validation_fn` and `check` should be new.
+
 We create 3 requirements:
+
 - First requirement (r1) will be validated by LLM-as-a-judge on the output of the instruction. This is the default behavior.
 - Second requirement (r2) uses a function that takes the output of a sampling step and returns a boolean value indicating successful or unsuccessful validation. While the validation_fn parameter requires to run validation on the full session context, Mellea provides a wrapper for simpler validation functions (simple_validate(fn: Callable[[str], bool])) that take the output string and return a boolean as seen in this case.
 - Third requirement is a check(). Checks are only used for validation, not for generation. Don't think mention purple elephants.
