@@ -1,117 +1,235 @@
 ---
-title: Using AnythingLLM for a local RAG
-description: Learn how to build a simple local RAG
+title: Using Mellea to help with Generative Computing
+description: Learn how to leverage Mellea for Advanced AI situations
 logo: images/ibm-blue-background.png
 ---
 
-## Configuration and Sanity Check
+# What is Generative Computing?
 
-Open up AnyThingLLM, and you should see something like the following:
-![default screen](../images/anythingllm_open_screen.png)
+A generative program is any computer program that contains calls to an LLM.
+As we will see throughout the documentation, LLMs can be incorporated into
+software in a wide variety of ways. Some ways of incorporating LLMs into
+programs tend to result in robust and performant systems, while others
+result in software that is brittle and error-prone.
+Generative programs are distinguished from classical programs by their use of
+functions that invoke generative models. These generative calls can produce
+many different data types — strings, booleans, structured data, code,
+images/video, and so on. The model(s) and software underlying generative
+calls can be combined and composed in certain situations and in certain
+ways (e.g., LoRA adapters as a special case). In addition to invoking
+generative calls, generative programs can invoke other functions, written
+in languages that do not have an LLM in their base, so that we can, for
+example, pass the output of a generative function into a DB retrieval system
+and feed the output of that into another generator. Writing generative
+programs is difficult because generative programs interleave deterministic
+and stochastic operations.
 
-If you see this that means AnythingLLM is installed correctly, and we can continue configuration, if not, please find a workshop TA or
-raise your hand we'll be there to help you ASAP.
+If you would like to read more about this, please don't hesitate to take a
+look [here](https://docs.mellea.ai/overview/project-mellea).
 
-Next as a sanity check, run the following command to confirm you have the [granite3.1-dense](https://ollama.com/library/granite3.1-dense)
-model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
+# Mellea
 
+[Mellea](https://github.com/generative-computing/mellea) is a library for
+writing generative programs. Generative programming replaces flaky agents
+and brittle prompts with structured, maintainable, robust, and efficient AI workflows.
+
+## Features
+
+* A standard library of opinionated prompting patterns.
+* Sampling strategies for inference-time scaling.
+* Clean integration between verifiers and samplers.
+   - Batteries-included library of verifiers.
+   - Support for efficient checking of specialized requirements using
+     activated LoRAs.
+   - Train your own verifiers on proprietary classifier data.
+* Compatible with many inference services and model families. Control cost
+  and quality by easily lifting and shifting workloads between:
+       - inference providers
+       - model families
+       - model sizes
+* Easily integrate the power of LLMs into legacy code-bases (mify).
+* Sketch applications by writing specifications and letting `mellea` fill in
+  the details (generative slots).
+* Get started by decomposing your large unwieldy prompts into structured and maintainable mellea problems.
+
+## Let's setup Mellea to work locally
+
+1. Open up a terminal, and run the following commands:
 ```bash
-ollama pull granite3.1-dense:8b
+python3.11 -m venv venv
+source venv/bin/activate
+pip install mellea
+```
+Note: If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12
+anything above that has a Rust dependency.
+2. Run a simple Mellea session:
+```python
+import mellea
+
+m = mellea.start_session()
+print(m.chat("What is the etymology of mellea?").content)
+```
+You can either add this to a file like `main.py` or run it in the python REPL, if you get output
+you are set up to dig deeper with Mellea.
+
+## Simple email examples
+
+Note: The following work should be done via a text editor, there should be a couple installed on your
+laptop, if you aren't sure raise your hand and a helper will help you out.
+
+Let's leverage Mellea to do some email generation for us, the first example is a simple example:
+```python
+import mellea
+m = mellea.start_session()
+
+email = m.instruct("Write an email inviting interns to an office party at 3:30pm.")
+print(str(email))
+```
+As you can see, it outputs a standard email with only a couple lines of code, lets expand on this:
+```python
+import mellea
+m = mellea.start_session()
+
+def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
+    email = m.instruct(
+        "Write an email to {{name}} using the notes following: {{notes}}.",
+    )
+    return email.value  # str(email) also works.
+
+
+print(
+    write_email(
+        m,
+        "Olivia",
+        "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+    )
+)       user_variables={"name": name, "notes": notes},
+```
+With this more advance example we now have the ability to customize the email to be more directed and
+personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
+Mellea really shines.
+
+### Simple email with boundries and requirements
+
+The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
+example:
+```python
+import mellea
+m = mellea.start_session()
+
+def write_email_with_requirements(
+    m: mellea.MelleaSession, name: str, notes: str
+) -> str:
+    email = m.instruct(
+        "Write an email to {{name}} using the notes following: {{notes}}.",
+        requirements=[
+            "The email should have a salutation",
+            "Use only lower-case letters",
+        ],
+        user_variables={"name": name, "notes": notes},
+    )
+    return str(email)
+
+
+print(
+    write_email_with_requirements(
+        m,
+        name="Olivia",
+        notes="Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+    )
+)
+```
+As you can see with this output now, you force the Mellea framework to start checking itself to create what you need.
+Imagine this possibility, now you can start making sure your LLMs only generate things that you want. Test this theory
+by changing from "only lower-case" to "only upper-case" and see that it will follow your instructions.
+
+Pretty neat eh? Lets go even deeper.
+
+Let's create an email with some sampling and have Mellea, find the best option for what we are looking for:
+We add two requirements to the instruction which will be added to the model request.
+But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.
+
+This sampling strategy (`RejectionSamplingStrategy()`) checks if all requirements are met and if any requirement fails, the sampling strategy will sample a new email from the LLM.
+```python
+import mellea
+m = mellea.start_session()
+
+from mellea.stdlib.sampling import RejectionSamplingStrategy
+
+
+def write_email_with_strategy(m: mellea.MelleaSession, name: str, notes: str) -> str:
+    email_candidate = m.instruct(
+        "Write an email to {{name}} using the notes following: {{notes}}.",
+        requirements=[
+            "The email should have a salutation",
+            "Use only lower-case letters",
+        ],
+        strategy=RejectionSamplingStrategy(loop_budget=5),
+        user_variables={"name": name, "notes": notes},
+        return_sampling_results=True,
+    )
+    if email_candidate.success:
+        return str(email_candidate.result)
+    else:
+        print("Expect sub-par result.")
+        return email_candidate.sample_generations[0].value
+
+
+print(
+    write_email_with_strategy(
+        m,
+        "Olivia",
+        "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+    )
+)
+```
+You might notice it fails with the above example, just remove the `"Use only lower-case letters",` line, and
+it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the
+writing you expect is within the boundaries and it'll keep trying till it gets it right.
+
+## Instruct Validate Repair
+
+The first `instruct-validate-repair` pattern is as follows:
+
+```python
+import mellea
+from mellea.stdlib.requirement import req, check, simple_validate
+from mellea.stdlib.sampling import RejectionSamplingStrategy
+
+def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
+    email_candidate = m.instruct(
+        "Write an email to {{name}} using the notes following: {{notes}}.",
+        requirements=[
+            req("The email should have a salutation"),  # == r1
+            req(
+                "Use only lower-case letters",
+                validation_fn=simple_validate(lambda x: x.lower() == x),
+            ),  # == r2
+            check("Do not mention purple elephants."),  # == r3
+        ],
+        strategy=RejectionSamplingStrategy(loop_budget=5),
+        user_variables={"name": name, "notes": notes},
+        return_sampling_results=True,
+    )
+    if email_candidate.success:
+        return str(email_candidate.result)
+    else:
+        return email_candidate.sample_generations[0].value
+
+
+m = mellea.start_session()
+print(write_email(m, "Olivia",
+                  "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery."))
 ```
 
-If you didn't know, the supported languages with `granite3.1-dense` now include:
+Most of this should look familiar by now, but the `validation_fn` and `check` should be new.
+We create 3 requirements:
+- First requirement (r1) will be validated by LLM-as-a-judge on the output of the instruction. This is the default behavior.
+- Second requirement (r2) uses a function that takes the output of a sampling step and returns a boolean value indicating successful or unsuccessful validation. While the validation_fn parameter requires to run validation on the full session context, Mellea provides a wrapper for simpler validation functions (simple_validate(fn: Callable[[str], bool])) that take the output string and return a boolean as seen in this case.
+- Third requirement is a check(). Checks are only used for validation, not for generation. Don't think mention purple elephants.
 
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
+Run this in your local instance, and you'll see it working, and ideally no purple elephants! :)
 
-And the Capabilities also include:
-
-- Summarization
-- Text classification
-- Text extraction
-- Question-answering
-- Retrieval Augmented Generation (RAG)
-- Code related tasks
-- Function-calling tasks
-- Multilingual dialog use cases
-- Long-context tasks including long document/meeting summarization, long document QA, etc.
-
-Next click on the `wrench` icon, and open up the settings. For now we are going to configure the global settings for `ollama`
-but you may want to change it in the future.
-
-![wrench icon](../images/anythingllm_wrench_icon.png)
-
-Click on the "LLM" section, and select **Ollama** as the LLM Provider. Also select the `granite3.1-dense:8b` model. (You should be able to
-see all the models you have access to through `ollama` there.)
-
-![llm configuration](../images/anythingllm_llm_config.png)
-
-Click the "Back to workspaces" button where the wrench was. And Click "New Workspace."
-
-![new workspace](../images/anythingllm_new_workspace.png)
-
-Name it something like "learning llm" or the name of the event we are right now, something so you know it's somewhere you are learning
-how to use this LLM.
-
-![naming new workspace](../images/anythingllm_naming_workspace.png)
-
-Now we can test our connections _through_ AnythingLLM! I like the "Who is Batman?" question, as a sanity check on connections and that
-it knows _something_.
-
-![who is batman](../images/anythingllm_who_is_batman.png)
-
-Now you may notice that the answer is slighty different then the screen shot above. That's expected and nothing to worry about. If
-you have more questions about it raise your hand and one of the helpers would love to talk you about it.
-
-Congratulations! You have AnythingLLM running now, configured to work with `granite3.1-dense` and `ollama`!
-
-## Creating your own local RAG
-
-Now that you have everything set up, lets build our own RAG. You need a document, of some sort to questions to answer against
-it. Lets start with something fun. As of right now, our Granite model doesn't know about the US Federal Budget in 2024, so lets
-ask it a question about it to verify.
-
-Create a new workspace, and call it whatever you want:
-
-![new budget workspace](../images/new_budget_workspace.png)
-
-Now you have a new workspace, ask it a question like:
-
-```
-What was the US federal budget for 2024?
-```
-
-You should come back with something like the following, it may be different, but the gist is there.
-
-![doesnt know the budget](../images/doent_know.png)
-
-Not great right? Well now we need to give it a way to look up this data, luckly, we have a backed up
-copy of the budget pdf [here](https://github.com/user-attachments/files/18510560/budget_fy2024.pdf).
-Go ahead and save it to your local machine, and be ready to grab it.
-
-Now spin up a **New Workspace**, (yes, please a new workspace, it seems that sometimes AnythingLLM has
-issues with adding things, so a clean environment is always easier to teach in) and call it
-something else.
-
-![budget workspace](../images/budget_workspace.png)
-
-Click on the "upload a document" to get the pdf added.
-
-Next we need to add it to the workspace.
-
-![adding pdf](../images/adding_pdf.png)
-
-Next click the upload or drag and drop and put the pdf in there, and then the arrow to move it to the
-workspace. Click Save and Embed.
-
-You have now added the pdf to the workspace.
-
-Now when the chat comes back up ask the same question, and you should see some new answers!
-
-![success pdf](../images/success.png)
-
-It won't be exactly what we are looking for, but it's enough to now see that the Granite model can
-leverage the local RAG and in turn can _look things up_ for you. You'll need some prompt engineering
-to get exactly what you want but this is just the start of leveraging the AI!
-
-<script data-goatcounter="https://tracker.asgharlabs.io/count"
-        async src="//tracker.asgharlabs.io/count.js"></script>
+Hopefully you felt like you've learned a bunch about AI and engaging with our open source models through this journey. Never hesitate
+to give us any feedback, and remember all of this stuff is free, open source, Apache 2 licensed, and designed to work in the
+Enterprise ecosystem. Thanks for reading and joining us!
