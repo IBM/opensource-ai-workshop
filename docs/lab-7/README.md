@@ -105,6 +105,7 @@ m = mellea.start_session()
 def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
     email = m.instruct(
         "Write an email to {{name}} using the notes following: {{notes}}.",
+        user_variables={"name": name, "notes": notes},
     )
     return email.value  # str(email) also works.
 
@@ -115,7 +116,7 @@ print(
         "Olivia",
         "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
     )
-)       user_variables={"name": name, "notes": notes},
+)
 ```
 With this more advance example we now have the ability to customize the email to be more directed and
 personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
