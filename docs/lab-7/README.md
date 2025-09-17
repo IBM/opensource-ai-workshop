@@ -55,7 +55,7 @@ and brittle prompts with structured, maintainable, robust, and efficient AI work
 
 ## Let's setup Mellea to work locally
 
-1. Open up a terminal, and run the following commands:
+1.  Open up a terminal, and run the following commands:
 ```bash
 python3.11 -m venv venv
 source venv/bin/activate
@@ -65,7 +65,12 @@ pip install mellea
 !!! note
     If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12 anything above that has a Rust dependency.
 
-2. Run a simple Mellea session:
+1.  Start python:
+```bash
+python
+```
+
+1.  Run a simple Mellea session:
 ```python
 import mellea
 
@@ -75,12 +80,15 @@ print(m.chat("What is the etymology of mellea?").content)
 You can either add this to a file like `main.py` or run it in the python REPL, if you get output
 you are set up to dig deeper with Mellea.
 
+!!! note
+    If you see an error message with: "ModuleNotFoundError: No module named 'PIL'" then you will need to install the python package pillow with "pip install pillow"
+
 ## Simple email examples
 
 !!! note
     The following work should be done via a text editor, there should be a couple installed on your laptop, if you aren't sure raise your hand and a helper will help you out.
 
-Let's leverage Mellea to do some email generation for us, the first example is a simple example:
+1.  Let's leverage Mellea to do some email generation for us, the first example is a simple example:
 ```python
 import mellea
 m = mellea.start_session()
@@ -88,7 +96,8 @@ m = mellea.start_session()
 email = m.instruct("Write an email inviting interns to an office party at 3:30pm.")
 print(str(email))
 ```
-As you can see, it outputs a standard email with only a couple lines of code, lets expand on this:
+
+1.  As you can see, it outputs a standard email with only a couple lines of code, lets expand on this:
 ```python
 import mellea
 m = mellea.start_session()
@@ -96,6 +105,7 @@ m = mellea.start_session()
 def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
     email = m.instruct(
         "Write an email to {{name}} using the notes following: {{notes}}.",
+        user_variables={"name": name, "notes": notes},
     )
     return email.value  # str(email) also works.
 
@@ -106,7 +116,7 @@ print(
         "Olivia",
         "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
     )
-)       user_variables={"name": name, "notes": notes},
+)
 ```
 With this more advance example we now have the ability to customize the email to be more directed and
 personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
@@ -114,7 +124,7 @@ Mellea really shines.
 
 ### Simple email with boundries and requirements
 
-The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
+1. The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
 example:
 ```python
 import mellea
@@ -152,7 +162,7 @@ Let's create an email with some sampling and have Mellea, find the best option f
 We add two requirements to the instruction which will be added to the model request.
 But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.
 
-This sampling strategy (`RejectionSamplingStrategy()`) checks if all requirements are met and if any requirement fails, the sampling strategy will sample a new email from the LLM.
+1. This sampling strategy (`RejectionSamplingStrategy()`) checks if all requirements are met and if any requirement fails, the sampling strategy will sample a new email from the LLM.
 ```python
 import mellea
 m = mellea.start_session()
@@ -192,7 +202,7 @@ writing you expect is within the boundaries and it'll keep trying till it gets i
 
 ## Instruct Validate Repair
 
-The first `instruct-validate-repair` pattern is as follows:
+1. The first `instruct-validate-repair` pattern is as follows:
 
 ```python
 import mellea

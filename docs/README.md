@@ -31,6 +31,7 @@ Our overarching goals of this workshop is as follows:
 | [Lab 4: Applying What You Learned](lab-4/README.md) | Refine your prompting skills |
 | [Lab 5: Building a local AI Assistant](lab-5/README.md) | Build a Granite coding assistant |
 | [Lab 6: Coding with an AI Assistant](lab-6/README.md) | Write code using Continue and Granite |
+| [Lab 7: Using Mellea to help with Generative Computing](lab-7/README.md) | Learn how to leverage Mellea for Advanced AI situations |
 
 Thank you SO MUCH for joining us in this workshop! If you have any questions or feedback,
 the TAs would love answer them for you. If you come across any issues or bugs, don't hesitate
