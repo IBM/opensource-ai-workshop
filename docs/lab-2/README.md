@@ -27,7 +27,7 @@ This is an example of of using the CLI with vanilla ollama:
 
 First, use ollama to list the models that you currently have downloaded:
 ```
-$ ollama list
+ollama list
 ```
 And you'll see a list similiar to the following:
 ```
@@ -40,9 +40,13 @@ granite4:micro               b99795f77687    2.1 GB    23 hours ago
 Next, use Ollama to run one of the models:
 
 ```
-$ ollama run granite4:micro
+ollama run granite4:micro
 ```
 And ask it questions, like this:
+```
+Who is Batman?
+```
+And it returns something like this:
 ```
 >>> Who is Batman?
 Batman is a fictional superhero created by artist Bob Kane and writer Bill Finger. He first appeared in Detective Comics #27,
@@ -54,7 +58,7 @@ characters in the world of comics and popular culture.
 ```
 
 ```
->>> What was Batman's top 10 enemies?
+>>> Who were Batman's top 10 enemies?
 Batman has faced numerous villains over the years, but here are ten of his most notable adversaries:
 
 1. The Joker - One of Batman's archenemies, The Joker is a criminal mastermind known for his chaotic and psychopathic behavior.

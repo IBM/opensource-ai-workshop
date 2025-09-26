@@ -92,6 +92,9 @@ Not great right? Well now we need to give it a way to look up this data, luckly,
 copy of the budget pdf [here](https://github.com/user-attachments/files/18510560/budget_fy2024.pdf).
 Go ahead and save it to your local machine, and be ready to grab it.
 
+!!! note
+    Granite 4 has newer data, so since this lab was created, it does have the 2024 data.  If you find that's the case, you can try it with the question about 2025 using the 2025 full-year budget. ![budget_fy2025.pdf](https://www.whitehouse.gov/wp-content/uploads/2024/03/budget_fy2025.pdf)
+
 Now spin up a **New Workspace**, (yes, please a new workspace, it seems that sometimes AnythingLLM has
 issues with adding things, so a clean environment is always easier to teach in) and call it
 something else.
