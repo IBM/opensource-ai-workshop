@@ -30,7 +30,7 @@ ollama pull granite3.3:2b
 
 If you didn't know, the supported languages with `granite3.3:2b` now include:
 
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, Chinese (Simplified)
+- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, and Chinese. However, users may finetune this Granite model for languages beyond these 12 languages.
 
 And the Capabilities also include:
 
@@ -82,6 +82,10 @@ The answer should now be correct. (For example, always before it forgets John Ak
 
 ![CEO list with RAG](../images/ceo_list_with_rag.png)
 
+If you look near the bottom of the answer, you can see the RAG source that it used, along with some options you can click on, including information on the tokens per second and total tokens.
+
+![Open-WebUI Source](../images/openwebui_rag_source.png)
+
 We can also find and download information to pdf from Wikipedia:
 For example: [History of IBM](https://en.wikipedia.org/wiki/History_of_IBM)
 
@@ -91,7 +95,7 @@ Then use this History_of_IBM.pdf as a RAG by clicking on the + and select "Histo
 
 Next, use the Open-WebUI to ask more questions about IBM, or have it summarize the document itself.  For example:
 ```bash
-Write a short 300 word summary of the History_of_IBM.pdf
+Write a short 150 word summary of the History_of_IBM.pdf
 ```
 ![Summary of IBM History](../images/History_of_IBM_summary.png)
 

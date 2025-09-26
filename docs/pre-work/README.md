@@ -14,9 +14,7 @@ These are the required applications and general installation notes for this work
 
 - [Python](#installing-python)
 - [Ollama](#installing-ollama) - Allows you to locally host an LLM model on your computer.
-- [Visual Studio Code](#installing-visual-studio-code) **(Recommended)** or [any Jetbrains IDE](#installing-jetbrains). This workshop uses VSCode.
 - [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
-- [Continue](#installing-continue) - An IDE extension for AI code assistants.
 
 ## Installing Python
 
@@ -38,6 +36,9 @@ brew install python@3.11
 
 Please confirm that your `python --version` is at least `3.11+` for the best experience.
 
+!!! note
+    python 3.11 and 3.12 work best.  Python 3.13 has trouble with Open-WebUI at the moment.
+
 ## Installing Ollama
 
 Most users can simply download Ollama from its [website](https://ollama.com/download).
@@ -57,23 +58,7 @@ brew install ollama
 ```
 
 !!! note
-    You can save time by starting the model download used for the lab in the background by running `ollama pull granite3.1-dense:8b` in its own terminal. You might have to run `ollama serve` first depending on how you installed it.
-
-## Installing Visual Studio Code
-
-You can download and install VSCode from their [website](https://code.visualstudio.com/Download) based on your operating system..
-
-!!! note
-    You only need one of VSCode or Jetbrains for this lab.
-
-## Installing Jetbrains
-
-Download and install the IDE of your choice [here](https://www.jetbrains.com/ides/#choose-your-ide).
-If you'll be using `python` (like this workshop does), pick [PyCharm](https://www.jetbrains.com/pycharm/).
-
-## Installing Continue
-
-Choose your IDE on their [website](https://www.continue.dev/) and install the extension.
+    You can save time by starting the model download used for the lab in the background by running `ollama pull granite4:micro` in its own terminal. You might have to run `ollama serve` first depending on how you installed it.
 
 ## Installing AnythingLLM
 

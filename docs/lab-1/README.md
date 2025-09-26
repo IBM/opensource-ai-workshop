@@ -11,17 +11,19 @@ Let's start by configuring [AnythingLLM installed](../pre-work/README.md#anythin
 First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
 
 ```bash
-ollama pull granite3.1-dense:8b
+ollama pull granite4:micro
 ```
+!!! note
+    If the granite4:micro model isn't available yet, you can choose granite3.3:2b or granite3.3:8b
 
 !!! note
-    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.1-dense). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.3). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
 
 Open the AnythingLLM desktop application and either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 
 ![wrench icon](../images/anythingllm_wrench_icon.png)
 
-Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite3.1-dense:8b` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
+Click on the *LLM* section, and select **Ollama** as the LLM Provider. Select the `granite4:micro` model you downloaded. You'd be able to see all the models you have access to through `ollama` here.
 
 ![llm configuration](../images/anythingllm_llm_config.png)
 
@@ -47,7 +49,7 @@ You may notice that your answer is slighty different then the screen shot above.
 
 ## Conclusion
 
-**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite3.1-dense` and `ollama`. Move on to [Lab 2](https://ibm.github.io/opensource-ai-workshop/lab-2/) and have a chat with your model!
+**Congratulations!** Now you have AnythingLLM running and it's configured to work with `granite4:micro` and `ollama`. Move on to [Lab 2](https://ibm.github.io/opensource-ai-workshop/lab-2/) and have a chat with your model!
 
 <script data-goatcounter="https://tracker.asgharlabs.io/count"
         async src="//tracker.asgharlabs.io/count.js"></script>

@@ -29,8 +29,8 @@ Our overarching goals of this workshop is as follows:
 | [Lab 2: Chatting with Your Local AI](lab-2/README.md) | Get acquainted with your local LLM |
 | [Lab 3: Prompt Engineering](lab-3/README.md) | Learn about prompt engineering techniques |
 | [Lab 4: Applying What You Learned](lab-4/README.md) | Refine your prompting skills |
-| [Lab 5: Building a local AI Assistant](lab-5/README.md) | Build a Granite coding assistant |
-| [Lab 6: Coding with an AI Assistant](lab-6/README.md) | Write code using Continue and Granite |
+| [Lab 5: Using AnythingLLM for a local RAG](lab-5/README.md) | Build a Granite coding assistant |
+| [Lab 6: Using Open-WebUI for a local RAG](lab-6/README.md) | Write code using Continue and Granite |
 | [Lab 7: Using Mellea to help with Generative Computing](lab-7/README.md) | Learn how to leverage Mellea for Advanced AI situations |
 
 Thank you SO MUCH for joining us in this workshop! If you have any questions or feedback,
