@@ -212,7 +212,7 @@ The best part of this prompt is that you can take the output and extend or short
 
 ## Conclusion
 
-Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](https://ibm.github.io/opensource-ai-workshop/lab-5/), we'll move towards code-generation and learn how to use a local coding assistant.
+Well done! By completing these exercises, you're well on your way to being a prompt expert. In [Lab 5](https://ibm.github.io/opensource-ai-workshop/lab-5/), we'll show how to use local RAG with AnythingLLM.
 
 <script data-goatcounter="https://tracker.asgharlabs.io/count"
         async src="//tracker.asgharlabs.io/count.js"></script>
