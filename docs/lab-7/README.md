@@ -75,13 +75,10 @@ python
 import mellea
 
 m = mellea.start_session()
-print(m.chat("What is the etymology of mellea?").content)
+print(m.chat("tell me some fun trivia about IBM and the early history of AI.").content)
 ```
 You can either add this to a file like `main.py` or run it in the python REPL, if you get output
 you are set up to dig deeper with Mellea.
-
-!!! note
-    If you see an error message with: "ModuleNotFoundError: No module named 'PIL'" then you will need to install the python package pillow with "pip install pillow"
 
 ## Simple email examples
 
@@ -158,7 +155,7 @@ by changing from "only lower-case" to "only upper-case" and see that it will fol
 
 Pretty neat eh? Lets go even deeper.
 
-Let's create an email with some sampling and have Mellea, find the best option for what we are looking for:
+Let's create an email with some sampling and have Mellea find the best option for what we are looking for:
 We add two requirements to the instruction which will be added to the model request.
 But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.
 
@@ -196,9 +193,7 @@ print(
     )
 )
 ```
-You might notice it fails with the above example, just remove the `"Use only lower-case letters",` line, and
-it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the
-writing you expect is within the boundaries and it'll keep trying till it gets it right.
+You might notice it fails with the above example, because the name "Olivia" has an upper-case letter in it.  Remove the `"Use only lower-case letters",` line, and it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the writing you expect is within the boundaries and it'll keep trying till it gets it right.
 
 ## Instruct Validate Repair
 
@@ -241,7 +236,7 @@ We create 3 requirements:
 
 - First requirement (r1) will be validated by LLM-as-a-judge on the output of the instruction. This is the default behavior.
 - Second requirement (r2) uses a function that takes the output of a sampling step and returns a boolean value indicating successful or unsuccessful validation. While the validation_fn parameter requires to run validation on the full session context, Mellea provides a wrapper for simpler validation functions (simple_validate(fn: Callable[[str], bool])) that take the output string and return a boolean as seen in this case.
-- Third requirement is a check(). Checks are only used for validation, not for generation. Don't think mention purple elephants.
+- Third requirement is a check(). Checks are only used for validation, not for generation. Checks aim to avoid the "do not think about B" effect that often primes models (and humans) to do the opposite and "think" about B.
 
 Run this in your local instance, and you'll see it working, and ideally no purple elephants! :)
 
