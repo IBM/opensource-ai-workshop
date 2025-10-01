@@ -243,3 +243,6 @@ Run this in your local instance, and you'll see it working, and ideally no purpl
 Hopefully you felt like you've learned a bunch about AI and engaging with our open source models through this journey. Never hesitate
 to give us any feedback, and remember all of this stuff is free, open source, Apache 2 licensed, and designed to work in the
 Enterprise ecosystem. Thanks for reading and joining us!
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>
