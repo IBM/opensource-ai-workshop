@@ -95,7 +95,7 @@ Go ahead and save it to your local machine, and be ready to grab it.
 !!! note
     Granite 4 has newer data, so since this lab was created, it DOES have the 2024 data.  If you find that's the case, you can try it with the question about 2025 using the 2025 full-year budget using the link below. 
 
-![budget_fy2025.pdf](https://www.whitehouse.gov/wp-content/uploads/2024/03/budget_fy2025.pdf)
+[budget_fy2025.pdf](https://www.whitehouse.gov/wp-content/uploads/2024/03/budget_fy2025.pdf)
 
 Now spin up a **New Workspace**, (yes, please a new workspace, it seems that sometimes AnythingLLM has
 issues with adding things, so a clean environment is always easier to teach in) and call it
