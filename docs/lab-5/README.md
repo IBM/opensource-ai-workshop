@@ -6,10 +6,10 @@ logo: images/ibm-blue-background.png
 
 ## Configuration and Sanity Check
 
-Open up AnyThingLLM, and you should see something like the following:
+Open up AnythingLLM, and you should see something like the following:
 ![default screen](../images/anythingllm_open_screen.png)
 
-If you see this that means AnythingLLM is installed correctly, and we can continue configuration, if not, please find a workshop TA or
+If you see this that means AnythingLLM is installed correctly, and we can continue configuration. If not, please find a workshop TA or
 raise your hand we'll be there to help you ASAP.
 
 Next as a sanity check, run the following command to confirm you have the [granite4:micro](https://ollama.com/library/granite4)

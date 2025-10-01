@@ -51,7 +51,7 @@ and brittle prompts with structured, maintainable, robust, and efficient AI work
 * Easily integrate the power of LLMs into legacy code-bases (mify).
 * Sketch applications by writing specifications and letting `mellea` fill in
   the details (generative slots).
-* Get started by decomposing your large unwieldy prompts into structured and maintainable mellea problems.
+* Get started by decomposing your large unwieldy prompts into structured and maintainable Mellea problems.
 
 ## Let's setup Mellea to work locally
 
@@ -119,7 +119,7 @@ With this more advance example we now have the ability to customize the email to
 personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
 Mellea really shines.
 
-### Simple email with boundries and requirements
+### Simple email with boundaries and requirements
 
 1. The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
 example:

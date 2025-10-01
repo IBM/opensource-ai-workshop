@@ -4,7 +4,7 @@ description: Learn how to build a simple local RAG
 logo: images/ibm-blue-background.png
 ---
 
-## Retrieval-Augmented Generation overview
+## Retrieval-Augmented Generation Overview
 The LLMs we're using for these labs have been trained on billions of parameters, but they haven't been trained on everything, and the smaller models have less general knowledge to work with.
 For example, even the latest models are trained with aged data, and they couldn't know about current events or the unique data your use-case might need.
 
@@ -30,7 +30,7 @@ ollama pull granite3.3:2b
 
 If you didn't know, the supported languages with `granite3.3:2b` now include:
 
-- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, and Chinese. However, users may finetune this Granite model for languages beyond these 12 languages.
+- English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, and Chinese. However, users may fine-tune this Granite model for languages beyond these 12 languages.
 
 And the Capabilities also include:
 
@@ -60,7 +60,7 @@ For example:
 
 At first glance, the list looks pretty good. But if you know your IBM CEOs, you'll notice that it misses a few of them, and sometimes adds new names that weren't ever IBM CEOs!
 (Note: the larger granite3.3:8b does a much better job on the IBM CEOs, you can try it later)
-But we can provide the small LLM with a RAG document that supplements the model's missing informaiton with a correct list, so it will generate a better answer.
+But we can provide the small LLM with a RAG document that supplements the model's missing information with a correct list, so it will generate a better answer.
 
 Click on the "New Chat" icon to clear the context.  Then download a small text file with the correct list of IBM CEOs to your Downloads folder:
 

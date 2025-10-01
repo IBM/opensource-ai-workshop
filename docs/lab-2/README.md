@@ -29,7 +29,7 @@ First, use ollama to list the models that you currently have downloaded:
 ```
 ollama list
 ```
-And you'll see a list similiar to the following:
+And you'll see a list similar to the following:
 ```
 ollama list
 NAME                         ID              SIZE      MODIFIED           
