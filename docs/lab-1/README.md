@@ -45,7 +45,7 @@ The first response may take a minute to process. This is because `ollama` is spi
 
 ![who is batman](../images/anythingllm_who_is_batman.png)
 
-You may notice that your answer is slighty different then the screen shot above. This is expected and nothing to worry about!
+You may notice that your answer is slightly different then the screen shot above. This is expected and nothing to worry about!
 
 ## Conclusion
 

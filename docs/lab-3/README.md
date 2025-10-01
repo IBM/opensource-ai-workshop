@@ -90,7 +90,7 @@ How would you respond to client who has had their freight lost as a representati
 
 ![lost freight](../images/anythingllm_lost_freight.png)
 
-That's not a satisfactory or interesting response, right? We need to interate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
+That's not a satisfactory or interesting response, right? We need to iterate on it, and provide more context about the client, like what they may have lost. **Tip: always think about adding more context!**
 
 ```
 The freight they lost was an industrial refrigerator, from Burbank, California to Kanas City, MO.
