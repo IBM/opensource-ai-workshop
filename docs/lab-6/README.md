@@ -100,3 +100,6 @@ Write a short 150 word summary of the History_of_IBM.pdf
 ![Summary of IBM History](../images/History_of_IBM_summary.png)
 
 Congratulations, you've completed the Open-WebUI RAG example.
+
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>
