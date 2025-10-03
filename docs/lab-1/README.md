@@ -8,16 +8,14 @@ logo: images/ibm-blue-background.png
 
 Let's start by configuring [AnythingLLM installed](../pre-work/README.md#installing-anythingllm) and `ollama` to talk to one another. The following screenshots will be from a Mac, but this should be similar on Windows and Linux.
 
-First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
+First, if you haven't already, download the Granite 4 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
 
 ```bash
 ollama pull granite4:micro
 ```
-!!! note
-    If the granite4:micro model isn't available yet, you can choose granite3.3:2b or granite3.3:8b
 
 !!! note
-    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite3.3). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
+    The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite4). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.
 
 Open the AnythingLLM desktop application and either click on the *Get Started* button or open up settings (the 🔧 button). For now, we are going to configure the global settings for `ollama` but you can always change it in the future.
 

@@ -18,8 +18,6 @@ model downloaded in `ollama`. This may take a bit, but we should have a way to c
 ```bash
 ollama pull granite4:micro
 ```
-!!! note
-    If the granite4:micro model isn't available yet, you can use granite3.3:2b or granite3.3:8b
 
 If you didn't know, the supported languages with `granite4` now include:
 

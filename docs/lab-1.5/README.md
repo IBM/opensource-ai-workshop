@@ -13,8 +13,6 @@ First, if you haven't already, download the Granite 3.1 model. Make sure that `o
 ```bash
 ollama pull granite4:micro
 ```
-!!! note
-    If the granite4:micro model isn't available yet, you can choose granite3.3:2b or granite3.3:8b
 
 !!! note
     The download may take a few minutes depending on your internet connection. In the meantime, you can check out information about model we're using [here](https://ollama.com/library/granite4). Check out how many languages it supports and take note of its capabilities. It'll help you decide what tasks you might want to use it for in the future.

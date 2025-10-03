@@ -225,7 +225,7 @@ def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
         return email_candidate.sample_generations[0].value
 
 
-m = mellea.start_session()
+m = mellea.start_session(model_id="granite4:micro")
 print(write_email(m, "Olivia",
                   "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery."))
 ```
@@ -237,6 +237,7 @@ We create 3 requirements:
 - First requirement (r1) will be validated by LLM-as-a-judge on the output of the instruction. This is the default behavior.
 - Second requirement (r2) uses a function that takes the output of a sampling step and returns a boolean value indicating successful or unsuccessful validation. While the validation_fn parameter requires to run validation on the full session context, Mellea provides a wrapper for simpler validation functions (simple_validate(fn: Callable[[str], bool])) that take the output string and return a boolean as seen in this case.
 - Third requirement is a check(). Checks are only used for validation, not for generation. Checks aim to avoid the "do not think about B" effect that often primes models (and humans) to do the opposite and "think" about B.
+- We also demonstrate in the m = mellea.start_session() how you can specify a different Ollama model, in case you want to try something other than Mellea's ibm/granite4:micro default.
 
 Run this in your local instance, and you'll see it working, and ideally no purple elephants! :)
 

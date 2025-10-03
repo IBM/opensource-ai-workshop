@@ -21,20 +21,19 @@ Open up [Open-WebUI](http://localhost:8080/), and you should see something like 
 If you see this that means Open-WebUI is installed correctly, and we can continue configuration, if not, please find a workshop TA or
 raise your hand we'll be there to help you ASAP.
 
-Next as a sanity check, run the following command to confirm you have the [granite3.3:2b](https://ollama.com/library/granite3.3:2b)
+Next as a sanity check, run the following command to confirm you have the [granite4:micro](https://ollama.com/library/granite4:micro)
 model downloaded in `ollama`. This may take a bit, but we should have a way to copy it directly on your laptop.
 
 ```bash
-ollama pull granite3.3:2b
+ollama pull granite4:micro
 ```
 
-If you didn't know, the supported languages with `granite3.3:2b` now include:
+If you didn't know, the supported languages with `granite4:micro` now include:
 
 - English, German, Spanish, French, Japanese, Portuguese, Arabic, Czech, Italian, Korean, Dutch, and Chinese. However, users may fine-tune this Granite model for languages beyond these 12 languages.
 
 And the Capabilities also include:
 
-- Thinking
 - Summarization
 - Text classification
 - Text extraction
@@ -43,11 +42,10 @@ And the Capabilities also include:
 - Code related tasks
 - Function-calling tasks
 - Multilingual dialog use cases
-- Fill-in-the-middle
-- Long-context tasks including long document/meeting summarization, long document QA, etc.
+- Fill-In-the-Middle (FIM) code completions
 
 
-Next click on the down arrow at the top and select the "granite3.3:2b" if it's not already selected.
+Next click on the down arrow at the top and select the "granite4:micro" if it's not already selected.
 
 ![model selection](../images/openwebui_model_selection.png)
 
@@ -58,9 +56,7 @@ List all the past and current CEOs of the IBM corporation in order of their term
 For example:
 ![Small LLM CEO list](../images/small_llm_ceo_list.png)
 
-At first glance, the list looks pretty good. But if you know your IBM CEOs, you'll notice that it misses a few of them, and sometimes adds new names that weren't ever IBM CEOs!
-(Note: the larger granite3.3:8b does a much better job on the IBM CEOs, you can try it later)
-But we can provide the small LLM with a RAG document that supplements the model's missing information with a correct list, so it will generate a better answer.
+At first glance, the list looks pretty good. But if you know your IBM CEOs, you'll notice that it misses a few of them, and sometimes adds new names that weren't ever IBM CEOs! Retrieval Augmented Generation (RAG) allows us to provide the small LLM with a RAG document that supplements the model's missing information with a correct list, so it will generate a better answer.
 
 Click on the "New Chat" icon to clear the context.  Then download a small text file with the correct list of IBM CEOs to your Downloads folder:
 
