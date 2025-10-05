@@ -55,7 +55,7 @@ and brittle prompts with structured, maintainable, robust, and efficient AI work
 
 ## Let's setup Mellea to work locally
 
-1.  Open up a terminal, and run the following commands:
+Open up a terminal, and run the following commands:
 ```bash
 python3.11 -m venv venv
 source venv/bin/activate
@@ -66,19 +66,21 @@ pip install mellea
     If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12 anything above that has a Rust dependency.
 
 1.  Start python:
-```bash
-python
-```
+
+    ```bash
+    python
+    ```
 
 1.  Run a simple Mellea session:
-```python
-import mellea
 
-m = mellea.start_session()
-print(m.chat("tell me some fun trivia about IBM and the early history of AI.").content)
-```
-You can either add this to a file like `main.py` or run it in the python REPL, if you get output
-you are set up to dig deeper with Mellea.
+    ```python
+    import mellea
+
+    m = mellea.start_session()
+    print(m.chat("tell me some fun trivia about IBM and the early history of AI.").content)
+    ```
+    You can either add this to a file like `main.py` or run it in the python REPL, if you get output
+    you are set up to dig deeper with Mellea.
 
 ## Simple email examples
 
@@ -86,118 +88,129 @@ you are set up to dig deeper with Mellea.
     The following work should be done via a text editor, there should be a couple installed on your laptop, if you aren't sure raise your hand and a helper will help you out.
 
 1.  Let's leverage Mellea to do some email generation for us, the first example is a simple example:
-```python
-import mellea
-m = mellea.start_session()
 
-email = m.instruct("Write an email inviting interns to an office party at 3:30pm.")
-print(str(email))
-```
+    ```python
+    import mellea
+    m = mellea.start_session()
+
+    email = m.instruct("Write an email inviting interns to an office party at 3:30pm.")
+    print(str(email))
+    ```
 
 1.  As you can see, it outputs a standard email with only a couple lines of code, lets expand on this:
-```python
-import mellea
-m = mellea.start_session()
 
-def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
-    email = m.instruct(
-        "Write an email to {{name}} using the notes following: {{notes}}.",
-        user_variables={"name": name, "notes": notes},
+    ```python
+    import mellea
+    m = mellea.start_session()
+
+    def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
+        email = m.instruct(
+            "Write an email to {{name}} using the notes following: {{notes}}.",
+            user_variables={"name": name, "notes": notes},
+        )
+        return email.value  # str(email) also works.
+
+
+    print(
+        write_email(
+            m,
+            "Olivia",
+            "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+        )
     )
-    return email.value  # str(email) also works.
-
-
-print(
-    write_email(
-        m,
-        "Olivia",
-        "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
-    )
-)
-```
-With this more advance example we now have the ability to customize the email to be more directed and
-personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
-Mellea really shines.
+    ```
+    With this more advance example we now have the ability to customize the email to be more directed and
+    personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
+    Mellea really shines.
 
 ### Simple email with boundaries and requirements
 
 1. The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
-example:
-```python
-import mellea
-m = mellea.start_session()
+    example:
 
-def write_email_with_requirements(
-    m: mellea.MelleaSession, name: str, notes: str
-) -> str:
-    email = m.instruct(
-        "Write an email to {{name}} using the notes following: {{notes}}.",
-        requirements=[
-            "The email should have a salutation",
-            "Use only lower-case letters",
-        ],
-        user_variables={"name": name, "notes": notes},
+    ```python
+    import mellea
+    m = mellea.start_session()
+
+    def write_email_with_requirements(
+        m: mellea.MelleaSession, name: str, notes: str
+    ) -> str:
+        email = m.instruct(
+            "Write an email to {{name}} using the notes following: {{notes}}.",
+            requirements=[
+                "The email should have a salutation",
+                "Use only lower-case letters",
+            ],
+            user_variables={"name": name, "notes": notes},
+        )
+        return str(email)
+
+
+    print(
+        write_email_with_requirements(
+            m,
+            name="Olivia",
+            notes="Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+        )
     )
-    return str(email)
+    ```
+
+    As you can see with this output now, you force the Mellea framework to start checking itself to create what you need.
+    Imagine this possibility, now you can start making sure your LLMs only generate things that you want. Test this theory
+    by changing from "only lower-case" to "only upper-case" and see that it will follow your instructions.
 
 
-print(
-    write_email_with_requirements(
-        m,
-        name="Olivia",
-        notes="Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
-    )
-)
-```
-As you can see with this output now, you force the Mellea framework to start checking itself to create what you need.
-Imagine this possibility, now you can start making sure your LLMs only generate things that you want. Test this theory
-by changing from "only lower-case" to "only upper-case" and see that it will follow your instructions.
+    Pretty neat eh? Lets go even deeper.
 
-Pretty neat eh? Lets go even deeper.
 
-Let's create an email with some sampling and have Mellea find the best option for what we are looking for:
-We add two requirements to the instruction which will be added to the model request.
-But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.
+    Let's create an email with some sampling and have Mellea find the best option for what we are looking for:
+    We add two requirements to the instruction which will be added to the model request.
+    But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.
 
 1. This sampling strategy (`RejectionSamplingStrategy()`) checks if all requirements are met and if any requirement fails, the sampling strategy will sample a new email from the LLM.
-```python
-import mellea
-m = mellea.start_session()
 
-from mellea.stdlib.sampling import RejectionSamplingStrategy
+    ```python
+    import mellea
+    m = mellea.start_session()
+
+    from mellea.stdlib.sampling import RejectionSamplingStrategy
 
 
-def write_email_with_strategy(m: mellea.MelleaSession, name: str, notes: str) -> str:
-    email_candidate = m.instruct(
-        "Write an email to {{name}} using the notes following: {{notes}}.",
-        requirements=[
-            "The email should have a salutation",
-            "Use only lower-case letters",
-        ],
-        strategy=RejectionSamplingStrategy(loop_budget=5),
-        user_variables={"name": name, "notes": notes},
-        return_sampling_results=True,
+    def write_email_with_strategy(m: mellea.MelleaSession, name: str, notes: str) -> str:
+        email_candidate = m.instruct(
+            "Write an email to {{name}} using the notes following: {{notes}}.",
+            requirements=[
+                "The email should have a salutation",
+                "Use only lower-case letters",
+            ],
+            strategy=RejectionSamplingStrategy(loop_budget=5),
+            user_variables={"name": name, "notes": notes},
+            return_sampling_results=True,
+        )
+        if email_candidate.success:
+            return str(email_candidate.result)
+        else:
+            print("Expect sub-par result.")
+            return email_candidate.sample_generations[0].value
+
+
+    print(
+        write_email_with_strategy(
+            m,
+            "Olivia",
+            "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+        )
     )
-    if email_candidate.success:
-        return str(email_candidate.result)
-    else:
-        print("Expect sub-par result.")
-        return email_candidate.sample_generations[0].value
 
+    ```
 
-print(
-    write_email_with_strategy(
-        m,
-        "Olivia",
-        "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
-    )
-)
-```
-You might notice it fails with the above example, because the name "Olivia" has an upper-case letter in it.  Remove the `"Use only lower-case letters",` line, and it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the writing you expect is within the boundaries and it'll keep trying till it gets it right.
+    You might notice it fails with the above example, because the name "Olivia" has an upper-case letter in it.  Remove the `"Use only lower-case letters",`
+    line, and it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the writing you expect is within the
+    boundaries and it'll keep trying till it gets it right.
 
 ## Instruct Validate Repair
 
-1. The first `instruct-validate-repair` pattern is as follows:
+The first `instruct-validate-repair` pattern is as follows:
 
 ```python
 import mellea
@@ -226,8 +239,13 @@ def write_email(m: mellea.MelleaSession, name: str, notes: str) -> str:
 
 
 m = mellea.start_session()
-print(write_email(m, "Olivia",
-                  "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery."))
+print(
+    write_email(
+        m,
+        "Olivia",
+        "Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.",
+    )
+)
 ```
 
 Most of this should look familiar by now, but the `validation_fn` and `check` should be new.
