@@ -33,9 +33,7 @@ And you'll see a list similar to the following:
 ```
 ollama list
 NAME                         ID              SIZE      MODIFIED           
-granite3.3:2b                07bd1f170855    1.5 GB    About a minute ago    
-granite3.3:8b                fd429f23b909    4.9 GB    2 minutes ago         
-granite4:micro               b99795f77687    2.1 GB    23 hours ago 
+granite4:micro               4235724a127c    2.1 GB    23 hours ago 
 ```
 Next, use Ollama to run one of the models:
 
