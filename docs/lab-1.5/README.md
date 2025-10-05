@@ -8,7 +8,7 @@ logo: images/ibm-blue-background.png
 
 Let's start by configuring [Open-WebUI](../pre-work/README.md#installing-open-webui) and `ollama` to talk to one another. The following screenshots will be from a Mac, but this should be similar on Windows and Linux.
 
-First, if you haven't already, download the Granite 3.1 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
+First, if you haven't already, download the Granite 4 model. Make sure that `ollama` is running in the background (you may have to run `ollama serve` in its own terminal depending on how you installed it) and in another terminal run the following command:
 
 ```bash
 ollama pull granite4:micro
