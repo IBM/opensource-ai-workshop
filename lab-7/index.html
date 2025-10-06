@@ -1,0 +1,1020 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Learn how to leverage Mellea for Advanced AI situations">
+      
+      
+        <meta name="author" content="IBM Research">
+      
+      
+        <link rel="canonical" href="https://ibm.github.io/opensource-ai-workshop/lab-7/">
+      
+      
+        <link rel="prev" href="../lab-6/">
+      
+      
+      
+      <link rel="icon" href="../images/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.21">
+    
+    
+      
+        <title>Using Mellea to help with Generative Computing - Open Source AI Workshop</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2a3383ac.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,300i,400,400i,700,700i%7CIBM+Plex+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"IBM Plex Sans";--md-code-font:"IBM Plex Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+      
+        <meta  property="og:type"  content="website" >
+      
+        <meta  property="og:title"  content="Using Mellea to help with Generative Computing - Open Source AI Workshop" >
+      
+        <meta  property="og:description"  content="Learn how to leverage Mellea for Advanced AI situations" >
+      
+        <meta  property="og:image"  content="https://ibm.github.io/opensource-ai-workshop/assets/images/social/lab-7/README.png" >
+      
+        <meta  property="og:image:type"  content="image/png" >
+      
+        <meta  property="og:image:width"  content="1200" >
+      
+        <meta  property="og:image:height"  content="630" >
+      
+        <meta  property="og:url"  content="https://ibm.github.io/opensource-ai-workshop/lab-7/" >
+      
+        <meta  name="twitter:card"  content="summary_large_image" >
+      
+        <meta  name="twitter:title"  content="Using Mellea to help with Generative Computing - Open Source AI Workshop" >
+      
+        <meta  name="twitter:description"  content="Learn how to leverage Mellea for Advanced AI situations" >
+      
+        <meta  name="twitter:image"  content="https://ibm.github.io/opensource-ai-workshop/assets/images/social/lab-7/README.png" >
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#what-is-generative-computing" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Open Source AI Workshop" class="md-header__button md-logo" aria-label="Open Source AI Workshop" data-md-component="logo">
+      
+  <img src="../images/ibm-blue-background.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Open Source AI Workshop
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Using Mellea to help with Generative Computing
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/ibm/opensource-ai-workshop" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opensource-ai-workshop
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href=".." class="md-tabs__link">
+          
+  
+  
+  Welcome
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../pre-work/" class="md-tabs__link">
+          
+  
+  
+  Workshop
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Open Source AI Workshop" class="md-nav__button md-logo" aria-label="Open Source AI Workshop" data-md-component="logo">
+      
+  <img src="../images/ibm-blue-background.png" alt="logo">
+
+    </a>
+    Open Source AI Workshop
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/ibm/opensource-ai-workshop" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    opensource-ai-workshop
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Welcome
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            Welcome
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workshop
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Workshop
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pre-work/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 0. Workshop Pre-Work
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-1.5/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 1. Configuring Open-WebUI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 2. Chatting with Your Local AI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-3/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 3. Prompt Engineering
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-4/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 4. Applying What You Learned
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lab-6/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 5. Using Open-WebUI for a local RAG
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Lab 7. Using Mellea to help with Generative Computing
+    
+  </span>
+  
+
+      </a>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="what-is-generative-computing">What is Generative Computing?<a class="headerlink" href="#what-is-generative-computing" title="Permanent link">&para;</a></h1>
+<p>A generative program is any computer program that contains calls to an LLM.
+As we will see throughout the documentation, LLMs can be incorporated into
+software in a wide variety of ways. Some ways of incorporating LLMs into
+programs tend to result in robust and performant systems, while others
+result in software that is brittle and error-prone.</p>
+<p>Generative programs are distinguished from classical programs by their use of
+functions that invoke generative models. These generative calls can produce
+many different data types — strings, booleans, structured data, code,
+images/video, and so on. The model(s) and software underlying generative
+calls can be combined and composed in certain situations and in certain
+ways (e.g., LoRA adapters as a special case). In addition to invoking
+generative calls, generative programs can invoke other functions, written
+in languages that do not have an LLM in their base, so that we can, for
+example, pass the output of a generative function into a DB retrieval system
+and feed the output of that into another generator. Writing generative
+programs is difficult because generative programs interleave deterministic
+and stochastic operations.</p>
+<p>If you would like to read more about this, please don't hesitate to take a
+look <a href="https://docs.mellea.ai/overview/project-mellea">here</a>.</p>
+<h1 id="mellea">Mellea<a class="headerlink" href="#mellea" title="Permanent link">&para;</a></h1>
+<p><a href="https://github.com/generative-computing/mellea">Mellea</a> is a library for
+writing generative programs. Generative programming replaces flaky agents
+and brittle prompts with structured, maintainable, robust, and efficient AI workflows.</p>
+<h2 id="features">Features<a class="headerlink" href="#features" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A standard library of opinionated prompting patterns.</li>
+<li>Sampling strategies for inference-time scaling.</li>
+<li>Clean integration between verifiers and samplers.</li>
+<li>Batteries-included library of verifiers.</li>
+<li>Support for efficient checking of specialized requirements using
+     activated LoRAs.</li>
+<li>Train your own verifiers on proprietary classifier data.</li>
+<li>Compatible with many inference services and model families. Control cost
+  and quality by easily lifting and shifting workloads between:<ul>
+<li>inference providers</li>
+<li>model families</li>
+<li>model sizes</li>
+</ul>
+</li>
+<li>Easily integrate the power of LLMs into legacy code-bases (mify).</li>
+<li>Sketch applications by writing specifications and letting <code>mellea</code> fill in
+  the details (generative slots).</li>
+<li>Get started by decomposing your large unwieldy prompts into structured and maintainable Mellea problems.</li>
+</ul>
+<h2 id="lets-setup-mellea-to-work-locally">Let's setup Mellea to work locally<a class="headerlink" href="#lets-setup-mellea-to-work-locally" title="Permanent link">&para;</a></h2>
+<p>Open up a terminal, and run the following commands:
+<div class="highlight"><pre><span></span><code>python3.11<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>venv
+<span class="nb">source</span><span class="w"> </span>venv/bin/activate
+pip<span class="w"> </span>install<span class="w"> </span>mellea
+</code></pre></div></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you see something about the Rust compiler, please confirm you are using python3.11, or python3.12 anything above that has a Rust dependency.</p>
+</div>
+<ol>
+<li>
+<p>Start python:</p>
+<div class="highlight"><pre><span></span><code>python
+</code></pre></div>
+</li>
+<li>
+<p>Run a simple Mellea session:</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">chat</span><span class="p">(</span><span class="s2">&quot;tell me some fun trivia about IBM and the early history of AI.&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+</code></pre></div>
+You can either add this to a file like <code>main.py</code> or run it in the python REPL, if you get output
+you are set up to dig deeper with Mellea.</p>
+</li>
+</ol>
+<h2 id="simple-email-examples">Simple email examples<a class="headerlink" href="#simple-email-examples" title="Permanent link">&para;</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following work should be done via a text editor, there should be a couple installed on your laptop, if you aren't sure raise your hand and a helper will help you out.</p>
+</div>
+<ol>
+<li>
+<p>Let's leverage Mellea to do some email generation for us, the first example is a simple example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+
+<span class="n">email</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">instruct</span><span class="p">(</span><span class="s2">&quot;Write an email inviting interns to an office party at 3:30pm.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">email</span><span class="p">))</span>
+</code></pre></div>
+</li>
+<li>
+<p>As you can see, it outputs a standard email with only a couple lines of code, lets expand on this:</p>
+<p><div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">write_email</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">mellea</span><span class="o">.</span><span class="n">MelleaSession</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">notes</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">instruct</span><span class="p">(</span>
+        <span class="s2">&quot;Write an email to {{name}} using the notes following: {{notes}}.&quot;</span><span class="p">,</span>
+        <span class="n">user_variables</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;notes&quot;</span><span class="p">:</span> <span class="n">notes</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="n">email</span><span class="o">.</span><span class="n">value</span>  <span class="c1"># str(email) also works.</span>
+
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">write_email</span><span class="p">(</span>
+        <span class="n">m</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+With this more advance example we now have the ability to customize the email to be more directed and
+personalized for the recipient. But this is just a more programmatic prompt engineering, lets see where
+Mellea really shines.</p>
+</li>
+</ol>
+<h3 id="simple-email-with-boundaries-and-requirements">Simple email with boundaries and requirements<a class="headerlink" href="#simple-email-with-boundaries-and-requirements" title="Permanent link">&para;</a></h3>
+<ol>
+<li>
+<p>The first step with the power of Mellea, is adding requirements to something like this email, take a look at this first
+    example:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">write_email_with_requirements</span><span class="p">(</span>
+    <span class="n">m</span><span class="p">:</span> <span class="n">mellea</span><span class="o">.</span><span class="n">MelleaSession</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">notes</span><span class="p">:</span> <span class="nb">str</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">email</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">instruct</span><span class="p">(</span>
+        <span class="s2">&quot;Write an email to {{name}} using the notes following: {{notes}}.&quot;</span><span class="p">,</span>
+        <span class="n">requirements</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;The email should have a salutation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Use only lower-case letters&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">user_variables</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;notes&quot;</span><span class="p">:</span> <span class="n">notes</span><span class="p">},</span>
+    <span class="p">)</span>
+    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">email</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">write_email_with_requirements</span><span class="p">(</span>
+        <span class="n">m</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Olivia&quot;</span><span class="p">,</span>
+        <span class="n">notes</span><span class="o">=</span><span class="s2">&quot;Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>As you can see with this output now, you force the Mellea framework to start checking itself to create what you need.
+Imagine this possibility, now you can start making sure your LLMs only generate things that you want. Test this theory
+by changing from "only lower-case" to "only upper-case" and see that it will follow your instructions.</p>
+<p>Pretty neat eh? Lets go even deeper.</p>
+<p>Let's create an email with some sampling and have Mellea find the best option for what we are looking for:
+We add two requirements to the instruction which will be added to the model request.
+But we don't check yet if these requirements are satisfied, we add a strategy for validating the requirements.</p>
+</li>
+<li>
+<p>This sampling strategy (<code>RejectionSamplingStrategy()</code>) checks if all requirements are met and if any requirement fails, the sampling strategy will sample a new email from the LLM.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">mellea.stdlib.sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">RejectionSamplingStrategy</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">write_email_with_strategy</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">mellea</span><span class="o">.</span><span class="n">MelleaSession</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">notes</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">email_candidate</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">instruct</span><span class="p">(</span>
+        <span class="s2">&quot;Write an email to {{name}} using the notes following: {{notes}}.&quot;</span><span class="p">,</span>
+        <span class="n">requirements</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">&quot;The email should have a salutation&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;Use only lower-case letters&quot;</span><span class="p">,</span>
+        <span class="p">],</span>
+        <span class="n">strategy</span><span class="o">=</span><span class="n">RejectionSamplingStrategy</span><span class="p">(</span><span class="n">loop_budget</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+        <span class="n">user_variables</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;notes&quot;</span><span class="p">:</span> <span class="n">notes</span><span class="p">},</span>
+        <span class="n">return_sampling_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">email_candidate</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">email_candidate</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Expect sub-par result.&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">email_candidate</span><span class="o">.</span><span class="n">sample_generations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">write_email_with_strategy</span><span class="p">(</span>
+        <span class="n">m</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>You might notice it fails with the above example, because the name "Olivia" has an upper-case letter in it.  Remove the <code>"Use only lower-case letters",</code>
+line, and it should pass on the first re-run. This brings up some interesting opportunities, so make sure that the writing you expect is within the
+boundaries and it'll keep trying till it gets it right.</p>
+</li>
+</ol>
+<h2 id="instruct-validate-repair">Instruct Validate Repair<a class="headerlink" href="#instruct-validate-repair" title="Permanent link">&para;</a></h2>
+<p>The first <code>instruct-validate-repair</code> pattern is as follows:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">mellea</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mellea.stdlib.requirement</span><span class="w"> </span><span class="kn">import</span> <span class="n">req</span><span class="p">,</span> <span class="n">check</span><span class="p">,</span> <span class="n">simple_validate</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">mellea.stdlib.sampling</span><span class="w"> </span><span class="kn">import</span> <span class="n">RejectionSamplingStrategy</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">write_email</span><span class="p">(</span><span class="n">m</span><span class="p">:</span> <span class="n">mellea</span><span class="o">.</span><span class="n">MelleaSession</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">notes</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+    <span class="n">email_candidate</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="n">instruct</span><span class="p">(</span>
+        <span class="s2">&quot;Write an email to {{name}} using the notes following: {{notes}}.&quot;</span><span class="p">,</span>
+        <span class="n">requirements</span><span class="o">=</span><span class="p">[</span>
+            <span class="n">req</span><span class="p">(</span><span class="s2">&quot;The email should have a salutation&quot;</span><span class="p">),</span>  <span class="c1"># == r1</span>
+            <span class="n">req</span><span class="p">(</span>
+                <span class="s2">&quot;Use only lower-case letters&quot;</span><span class="p">,</span>
+                <span class="n">validation_fn</span><span class="o">=</span><span class="n">simple_validate</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">x</span><span class="p">),</span>
+            <span class="p">),</span>  <span class="c1"># == r2</span>
+            <span class="n">check</span><span class="p">(</span><span class="s2">&quot;Do not mention purple elephants.&quot;</span><span class="p">),</span>  <span class="c1"># == r3</span>
+        <span class="p">],</span>
+        <span class="n">strategy</span><span class="o">=</span><span class="n">RejectionSamplingStrategy</span><span class="p">(</span><span class="n">loop_budget</span><span class="o">=</span><span class="mi">5</span><span class="p">),</span>
+        <span class="n">user_variables</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span> <span class="s2">&quot;notes&quot;</span><span class="p">:</span> <span class="n">notes</span><span class="p">},</span>
+        <span class="n">return_sampling_results</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">email_candidate</span><span class="o">.</span><span class="n">success</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">email_candidate</span><span class="o">.</span><span class="n">result</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">email_candidate</span><span class="o">.</span><span class="n">sample_generations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">value</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="n">mellea</span><span class="o">.</span><span class="n">start_session</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">write_email</span><span class="p">(</span>
+        <span class="n">m</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Olivia helped the lab over the last few weeks by organizing intern events, advertising the speaker series, and handling issues with snack delivery.&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</code></pre></div>
+<p>Most of this should look familiar by now, but the <code>validation_fn</code> and <code>check</code> should be new.</p>
+<p>We create 3 requirements:</p>
+<ul>
+<li>First requirement (r1) will be validated by LLM-as-a-judge on the output of the instruction. This is the default behavior.</li>
+<li>Second requirement (r2) uses a function that takes the output of a sampling step and returns a boolean value indicating successful or unsuccessful validation. While the validation_fn parameter requires to run validation on the full session context, Mellea provides a wrapper for simpler validation functions (simple_validate(fn: Callable[[str], bool])) that take the output string and return a boolean as seen in this case.</li>
+<li>Third requirement is a check(). Checks are only used for validation, not for generation. Checks aim to avoid the "do not think about B" effect that often primes models (and humans) to do the opposite and "think" about B.</li>
+<li>We also demonstrate in the m = mellea.start_session() how you can specify a different Ollama model, in case you want to try something other than Mellea's ibm/granite4:micro default.</li>
+</ul>
+<p>Run this in your local instance, and you'll see it working, and ideally no purple elephants! :)</p>
+<p>Hopefully you felt like you've learned a bunch about AI and engaging with our open source models through this journey. Never hesitate
+to give us any feedback, and remember all of this stuff is free, open source, Apache 2 licensed, and designed to work in the
+Enterprise ecosystem. Thanks for reading and joining us!</p>
+<script data-goatcounter="https://tracker.asgharlabs.io/count"
+        async src="//tracker.asgharlabs.io/count.js"></script>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../lab-6/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lab 5. Using Open-WebUI for a local RAG">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Lab 5. Using Open-WebUI for a local RAG
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025- IBM Research
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/ibm" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/ibmdeveloper" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M459.4 151.7c.3 4.5.3 9.1.3 13.6 0 138.7-105.6 298.6-298.6 298.6-59.5 0-114.7-17.2-161.1-47.1 8.4 1 16.6 1.3 25.3 1.3 49.1 0 94.2-16.6 130.3-44.8-46.1-1-84.8-31.2-98.1-72.8 6.5 1 13 1.6 19.8 1.6 9.4 0 18.8-1.3 27.6-3.6-48.1-9.7-84.1-52-84.1-103v-1.3c14 7.8 30.2 12.7 47.4 13.3-28.3-18.8-46.8-51-46.8-87.4 0-19.5 5.2-37.4 14.3-53C87.4 130.8 165 172.4 252.1 176.9c-1.6-7.8-2.6-15.9-2.6-24C249.5 95.1 296.3 48 354.4 48c30.2 0 57.5 12.7 76.7 33.1 23.7-4.5 46.5-13.3 66.6-25.3-7.8 24.4-24.4 44.8-46.1 57.8 21.1-2.3 41.6-8.1 60.4-16.2-14.3 20.8-32.2 39.3-52.6 54.3"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/company/ibm/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.youtube.com/user/developerworks" target="_blank" rel="noopener" title="www.youtube.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://dev.to/ibmdeveloper" target="_blank" rel="noopener" title="dev.to" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M120.1 208.3c-3.9-2.9-7.8-4.3-11.6-4.3H91.1v104.5h17.4c3.9 0 7.8-1.4 11.6-4.3s5.8-7.3 5.8-13.1v-69.7c0-5.8-2-10.2-5.8-13.1M404.1 32H43.9C19.7 32 .1 51.6 0 75.8v360.4C.1 460.4 19.7 480 43.9 480h360.2c24.2 0 43.8-19.6 43.9-43.8V75.8c-.1-24.2-19.7-43.8-43.9-43.8M154.2 291.2c0 18.8-11.6 47.3-48.4 47.3H59.4V173h47.4c35.4 0 47.4 28.5 47.4 47.3zm100.7-88.7h-53.3v38.4h32.6v29.6h-32.6v38.4h53.3v29.6h-62.2c-11.2.3-20.4-8.5-20.7-19.7V193.7c-.3-11.1 8.6-20.4 19.7-20.7h63.2zm103.6 115.3c-13.2 30.7-36.8 24.6-47.4 0L272.6 173h32.6l29.7 113.7L364.5 173h32.6l-38.5 144.8z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.footer", "content.code.copy", "content.tabs.link"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>
