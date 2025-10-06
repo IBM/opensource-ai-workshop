@@ -14,7 +14,7 @@ These are the required applications and general installation notes for this work
 
 - [Python](#installing-python)
 - [Ollama](#installing-ollama) - Allows you to locally host an LLM model on your computer.
-- [AnythingLLM](#installing-anythingllm) **(Recommended)** or [Open WebUI](#installing-open-webui). AnythingLLM is a desktop app while Open WebUI is browser-based.
+- [Open WebUI](#installing-open-webui)
 
 ## Installing Python
 
@@ -60,12 +60,6 @@ brew install ollama
 !!! note
     You can save time by starting the model download used for the lab in the background by running `ollama pull granite4:micro` in its own terminal. You might have to run `ollama serve` first depending on how you installed it.
 
-## Installing AnythingLLM
-
-Download and install it from their [website](https://anythingllm.com/desktop) based on your operating system. We'll configure it later in the workshop.
-
-!!! note
-    You only need one of AnythingLLM or Open-WebUI for this lab.
 
 ## Installing Open-WebUI
 
