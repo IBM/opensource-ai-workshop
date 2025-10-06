@@ -14,13 +14,13 @@ nav:
     - Introduction: README.md
   - Workshop:
     - Lab 0. Workshop Pre-Work: pre-work/README.md
-    - Lab 1. Configuring AnythingLLM: lab-1/README.md
-    - Lab 1.5 Configuring Open-WebUI: lab-1.5/README.md
+#    - Lab 1. Configuring AnythingLLM: lab-1/README.md
+    - Lab 1. Configuring Open-WebUI: lab-1.5/README.md
     - Lab 2. Chatting with Your Local AI: lab-2/README.md
     - Lab 3. Prompt Engineering: lab-3/README.md
     - Lab 4. Applying What You Learned: lab-4/README.md
-    - Lab 5. Using AnythingLLM for a local RAG: lab-5/README.md
-    - Lab 6. Using Open-WebUI for a local RAG: lab-6/README.md
+#    - Lab 5. Using AnythingLLM for a local RAG: lab-5/README.md
+    - Lab 5. Using Open-WebUI for a local RAG: lab-6/README.md
     - Lab 7. Using Mellea to help with Generative Computing: lab-7/README.md
 
 ## DO NOT CHANGE BELOW THIS LINE
